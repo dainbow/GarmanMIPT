@@ -726,4 +726,90 @@
 	Что и требовалось доказать.
 \end{proof}
 
+\section{Полнота и замкнутость ортогональной системы, их связь}
+\begin{definition}
+	Система функций $\{\phi_n\}_{n = 1}^\infty$, называется полной в $L_p(E)$, если 
+	\[\forall \varepsilon > 0 \: \forall f \in L_p(E)\: \exists \{c_1,\,\cdots,\,c_n\} \subset \mathbb{R}:\: \|f - \sum_{k = 1}^n c_k\phi_k\|_p < \varepsilon\]
+\end{definition}
+
+\begin{definition}
+	В $C$ и $L_p$ плотные системы функций называются замкнутыми.
+\end{definition}
+
+\begin{corollary}
+	$\{1,\,x,\,x^2,\,\cdots\}$ -- полна в $L_p[a,\,b],\, 1 \leq p < +\infty$, полная в $C[a,\,b]$.
+\end{corollary}
+
+\begin{corollary}
+	$\{1,\,\cos(x),\,\sin(x),\,\cos(2x),\,\sin(2x),\,\cdots\}$ -- полная в $C_{2\pi}$
+\end{corollary}
+
+\section{Полнота пространств $C[a,\,b]$ и $L_p[a,\,b],\, p > 1$}
+\begin{definition}
+	Для $1 < p < +\infty$ обозначим через $q$ такое число, что $\frac{1}{p} + \frac{1}{q} = 1$.
+\end{definition}
+
+\begin{lemma}
+	$\forall a,\,b > 0 \: \forall p \in (1,\,+\infty):\: ab \leq \frac{a^p}{p} + \frac{b^q}{q}$
+\end{lemma}
+\begin{proof}
+	Геометрическое:
+
+	\begin{figure}[h]
+		\includegraphics[scale=0.5]{img/yung.png}
+	\end{figure}
+
+	Причём $S_1$ и $S_2$ можно легко посчитать:
+	\[S_1 = \int_0^a x^{p - 1}dx = \frac{a^p}{p}\;\;\;\; S_2 = \int_0^b y^{q - 1} = \frac{b^q}{q}dy\]
+\end{proof}
+
+\begin{theorem}
+	Неравенство Гёльдера.
+
+	Если $f \in L_p(X),\, g \in L_q(X),\, \frac{1}{p} + \frac{1}{q} = 1,\, 1 < p < +\infty$, то
+	\[\int_X |f(x)g(x)|d\mu(x) \leq \left(\int_X |f(x)|^pd\mu(x)\right)^{\frac{1}{p}}\left(\int_X |g(x)|^qd\mu(x)\right)^{\frac{1}{q}}\]
+\end{theorem}
+
+\begin{proof}
+	Если правая часть равна нулю, то всё доказано.
+
+	Иначе введём обозначения:
+	\[A^p := \int_X|f(x)|^pd\mu(x),\;\;\; B^q := \int_X|g(x)|^qd\mu(x)\]
+	Тогда, используя предыдущую лемму с параметрами:
+	\[a = \frac{|f(x)|}{A}\;\;\;\; b = \frac{|g(x)|}{B}\]
+	Получим, что
+	\[\frac{|f(x)||g(x)|}{AB} \leq \frac{|f(x)|^p}{pA^p} + \frac{|g(x)|^q}{qB^q}\]
+	Теперь проинтегрируем обе части по $x$ и получим требуемое:
+	\[\frac{\int_X |f(x)||g(x)|d\mu(x)}{AB} \leq \frac{1}{p} + \frac{1}{q} = 1\]
+\end{proof}
+
+\begin{theorem}
+	Для $p \in [1,\,+\infty) \: L_p([a,\,b])$ -- банахово пространство.
+\end{theorem}
+
+\begin{proof}
+	Пусть $\{f_n\}_{n = 1}^\infty$ -- фундаментальная последовательность в $L_p[a,\,b]$:
+	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall n,\,m > N :\: \|f_n - f_m\|_p < \varepsilon\]
+	Отсюда получаем, что $\exists \{n_k\}_{k = 1}^\infty \uparrow \: \forall m \geq n_k :\: \|f_m - f_{n_k}\|_p < \frac{1}{2^k}$.
+	
+	Тогда в силу неравенства Гёльдера:
+	\[\|f_m - f_{n_k}\|_1 \leq \|f_m - f_{n_k}\|_p \cdot \|1\|_q < \frac{C}{2^k}\]
+
+	Рассмотрим ряд
+	\[\Phi(x) = |f_{n_1}(x)| + \sum_{k = 2}^\infty |f_{n_k}(x) - f_{n_{k-1}}(x)|\]
+	И для него верно равенство (по теореме Леви):
+	\[\|\Phi\|_1 = \|f_{n_1}\|_1 + \sum_{k = 2}^\infty \|f_{n_k} - f_{n_{k-1}}\|_1 < +\infty\]
+
+	Значит $\Phi(x)$ конечная почти всюду $\Rightarrow$ ряд $|f_{n_1}(x)| + \sum_{k = 2}^\infty |f_{n_k}(x) - f_{n_{k-1}}(x)|$ -- сходится почти всюду на $[a,\,b]$.
+
+	Тогда ряд $f_{n_1}(x) + \sum_{k = 2}^\infty (f_{n_k}(x) - f_{n_{k-1}}(x))$ сходится абсолютно почти всюду на $[a,\,b]$, но его частичные суммы -- это $f_{n_k} \Rightarrow$ мы получили, что эта последовательность сходится почти всюду к чему-то, что мы обозначим, как $f(x)$.
+
+	Докажем, что $f \in L_p[a,\,b]$: если есть сходимость почти всюду, то по теореме Фату мы можем оценить:
+	\[\int_{[a,\,b]}|f(x)|^pd\mu(x) \leq \underline{\lim\limits_{k \to +\infty}} \int_{[a,\,b]}|f_{n_k}(x)|^pd\mu(x) = \|f_{n_k}\|_p^p < +\infty\]
+	Снова используем свойство последовательности $\{n_k\}_{k = 1}^\infty$:
+	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall k,\,l > N :\: \|f_{n_k} - f_{n_l}\|_p < \varepsilon\]
+	Но мы можем перейти к пределу $l \to +\infty$ благодаря теореме Лебега: $\|f_{n_k} - f\|_p < \varepsilon$. Тогда при достаточно больших $m$:
+	\[\|f_m - f\|_p \leq \|f_m - f_{n_k}\|_p + \|f_{n_k} - f\|_p < 2\varepsilon\]
+\end{proof}
+
 \end{document}
