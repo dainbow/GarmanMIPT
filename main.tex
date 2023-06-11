@@ -213,6 +213,7 @@
 \end{proof}
 
 \begin{lemma}
+	\label{RAVN_COEF}
 	Пусть $f \in L_{2\pi}$, $g$ -- измеримая, $2\pi$-периодическая, ограниченная функция. Тогда коэффициенты Фурье функции $\chi(t) = f(x + t)g(t)$ стремятся к нулю при $n \to +\infty$ равномерно по $x$.
 \end{lemma}
 
@@ -228,15 +229,15 @@
 	Рассмотрим $a_n$ для функции $\chi$:
 	\begin{align*}
 		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) = \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
-		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow\\
+		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                    \\
 		|a_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\, \chi\right)
 	\end{align*}
 	Аналогично получим неравенство для $b_n(\chi)$:
 	\[|b_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\,\chi\right)\]
 	То есть мы свели доказательство к доказательству факта, что $\lim_{n \to +\infty}\omega_1(\frac{\pi}{n},\,\chi) = 0$ равномерно по $x$:
 	\begin{align*}
-		\int_{-\pi}^\pi |\chi(t + h) - \chi(t)|d\mu(t) = \int_{-\pi}^\pi |f(x + t + h)g(t + h) - f(x + t)g(t)|d\mu(t) \leq \\
-		\leq \int_{-\pi}^\pi |f(x + t + h) - f(x + t)|\cdot |g (t + h)|d\mu(t) + \int_{-\pi}^\pi |f(x + t)|\cdot |g(t + h) - g(t)|d\mu(t) \leq \\
+		\int_{-\pi}^\pi |\chi(t + h) - \chi(t)|d\mu(t) = \int_{-\pi}^\pi |f(x + t + h)g(t + h) - f(x + t)g(t)|d\mu(t) \leq                        \\
+		\leq \int_{-\pi}^\pi |f(x + t + h) - f(x + t)|\cdot |g (t + h)|d\mu(t) + \int_{-\pi}^\pi |f(x + t)|\cdot |g(t + h) - g(t)|d\mu(t) \leq    \\
 		\leq M \int_{-\pi}^\pi |f(u + h) - f(u)|d\mu(u) +  \int_{-\pi}^\pi |f_1(x + t)|\cdot|g(t + h) - g(t)|d\mu(t) + \frac{\varepsilon}{2} \leq \\
 		\leq M \omega_1(\frac{\pi}{n},\, f) + B\omega_1(\frac{\pi}{n},\,g) + \frac{\varepsilon}{2}
 	\end{align*}
@@ -273,6 +274,116 @@
 	\end{align*}
 	Взяв в качестве $g$ из предыдущей леммы для первого слагаемого $\lambda(t)\ctg(\frac{t}{2})$ и $\lambda(t)$ для второго, то получим требуемое по этой же лемме.
 
+\end{proof}
+
+\section{Достаточные условия сходимости ряда Фурье в точке}
+\begin{theorem}
+	Признак Дини.
+
+	Если $f \in L_{2\pi}$ и $\phi_{x_0} \in L_1(0,\,\delta),\, \delta > 0$, где
+	\[\phi_{x_0}(t) := \frac{f(x_0 + t) + f(x_0 - t) - 2S(x_0)}{t}\]
+	то тригонометрический ряд Фурье функции $f(x)$ сходится к $S(x_0)$.
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим разность $S_n(f,\,x_0) - S(x_0)$, пользуясь леммой о представлении, можем записать её как
+	\[S_n(f,\,x_0) - S(x_0) = \frac{1}{\pi}\int_{0}^\pi (f(x + u) + f(x - u) - 2S(x_0)) D_n(u)d\mu(u)\]
+	В данном представлении мы воспользовались сразу несколькими фактами:
+	\begin{itemize}
+		\item Подынтегральная функция чётная относительно $u$
+		\item Интеграл по $[-\pi,\,\pi]$ от ядра Дирихле равен $\pi$
+		\item Если заменить в представлении частичной суммы $t$ на $-t$, то ничего не изменится
+	\end{itemize}
+	Продолжим цепочку преобразований, раскрыв $\sin((n + \frac{1}{2})t) = \sin(nt)\cos(\frac{t}{2}) + \cos(nt)\sin(\frac{t}{2})$ в формуле ядра Дирихле:
+	\begin{align*}
+		S_n(f,\,x_0) - S(x_0) =                                                                                                   \\
+		\frac{1}{\pi} \int_0^\delta \frac{f(x + t) + f(x - t) - 2S(x_0)}{t} \sin(nt)d\mu(t) +                                     \\
+		\frac{1}{\pi}\int_0^\pi (f(x + t) + f(x - t) - 2S(x_0))\frac{\cos(nt)}{2}d\mu(t) +                                        \\
+		\frac{1}{\pi}\int_\delta^\pi (f(x + t) + f(x - t) - 2S(x_0))\frac{\sin(nt)\cos(\frac{t}{2})}{2\sin(\frac{t}{2})}d\mu(t) + \\
+		\frac{1}{\pi}\int_0^\delta (f(x + t) + f(x - t) - 2S(x_0))\sin(nt) \left(\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t}\right)d\mu(t)
+	\end{align*}
+	По условию, $\phi_{x_0}$ суммируемая $\Rightarrow$ по теореме Римана об осцилляции первое слагаемое стремится к нулю.
+
+	$(f(x + t) + f(x-t) - 2S(x_0))$ также суммируемая $\Rightarrow$ второе слагаемое тоже стремится к нулю.
+
+	В третьем слагаемом $(f(x + t) + f(x - t) - 2S(x_0))\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} \in L_1[\delta,\,\pi]$ и по той же причине стремится к нулю.
+
+	Для четвёртого слагаемого рассмотрим разность:
+	\[\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t} = \frac{1 - \frac{t^2}{8} + o(t^3)}{2\left(\frac{t}{2} - \frac{t^3}{48} + o(t^4)\right)} - \frac{1}{t} = \frac{t - \frac{t^3}{8} - t + \frac{t^3}{24} + o(t^4)}{t^2 + o(t^3)} \stackrel{t \to \infty}{\to} 0\]
+	Значит этот множитель имеет устранимый разрыв в нуле, а значит
+	\[(f(x + t) + f(x - t) - 2S(x_0))\left(\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t}\right) \in L_1[0,\,\delta]\]
+	и опять работает теорема об осцилляции.
+\end{proof}
+
+\begin{proposition}
+	\label{DINI_NOTE}
+	Анализ доказательства признака Дини показывает, что необходимым и достаточным условием сходимости тригонометрического ряда Фурье функции $f \in L_{2\pi}$ к $S(x_0)$ в точке $x_0$ является равенство
+	\[\lim_{n \to +\infty} \int_0^\delta \phi_{x_0}(t)\sin(nt)d\mu(t) = 0\]
+\end{proposition}
+
+\begin{definition}
+	Будем говорить, что функция $f$ удовлетворяет условию Гёльдера порядка $\alpha \in (0,\,1]$ в точке $x_0$, если $\exists$ конечные односторонние пределы $f(x_0 \pm 0)$ и константы $C,\, \delta > 0$ такие, что
+	\[
+		\forall t,\, 0 < t < \delta,\, |f(x_0 + t) - f(x_0 + 0)| \leq Ct^\alpha,\, |f(x_0 - t) - f(x_0 - 0)| \leq Ct^\alpha
+	\]
+\end{definition}
+
+\begin{definition}
+	Обобщённой односторонней производной функции $f$ в точке $x_0$ называется 
+	\[f'_+(x_0) = \lim_{t \to +0} \frac{f(x_0 + t) - f(x_0 + 0)}{t},\;\;\; f'_-(x_0) = \lim_{t \ to +0} \frac{f(x_0 - t) - f(x_0 - 0)}{-t}\]
+\end{definition}
+
+\begin{theorem}
+	Признак Липшица.
+
+	Если $f \in L_{2\pi}$ удовлетворяет условию Гёльдера порядка $\alpha$ в точке $x_0$, то тригонометрический ряд Фурье функции $f(x)$ сходится в точке $x_0$ к $\frac{f(x_0 - 0) + f(x_0 + 0)}{2}$
+\end{theorem}
+
+\begin{proof}
+	По условию теоремы 
+	\[S(x_0) = \frac{f(x_0 + 0) + f(x_0 - 0)}{2}\]
+	Значит функций $\phi_{x_0}$ из признака Дини примет вид
+	\[\phi_{x_0}(t) = \frac{(f(x_0 + t) - f(x_0 + 0)) + (f(x_0 - t) - f(x_0 - 0))}{t}\]
+	То, что $\phi$ измерима -- очевидно. Осталось доказать ограниченность интеграла
+	\begin{align*}
+		\left|\int_0^\delta \phi_{x_0}(t)d\mu(t)\right| \leq \int_0^\delta \frac{|f(x_0 + t) - f(x_0 + 0)|}{t}d\mu(t) + \int_0^\delta \frac{|f(x_0 - t) - f(x_0 - 0)|}{t}d\mu(t) \leq \\
+		2C\int_0^\delta t^{\alpha - 1}d\mu(t) = 2C \int_0^\delta t^{\alpha - 1}dt = 2C\frac{\delta^\alpha}{\alpha}
+	\end{align*}
+	Что и требовалось доказать.
+\end{proof}
+
+\begin{theorem}
+	Признак Жордана.
+
+	Если $f \in L_{2\pi}$ и является функцией ограниченной вариации на $[a,\,b]$, то тригонометрический ряд Фурье $f$ сходится к $f(x_0)$ в каждой точке $x_0 \in [a,\,b]$ непрерывности $f(x)$ и к $\frac{f(x_0 + 0) + f(x_0 - 0)}{2}$ в каждой точке разрыва $x_0 \in [a,\,b]$.
+
+	Если, кроме того, $f \in C[a,\,b]$, то тригонометрический ряд Фурье функции $f$ сходится к ней равномерно на любом отрезке $[a',\,b'] \subset (a,\,b)$.
+\end{theorem}
+
+\begin{proof}
+	Так как $f$ ограниченной вариации, то она представима в виде $f = f_1 - f_2$, где $f_1,\,f_2$ -- неубывающие. Значит нам достаточно доказать утверждение для неубывающих функций.	
+
+	По (\ref{DINI_NOTE}) нам надо доказать лишь
+	\[\lim_{n \to +\infty} \int_0^\delta \phi_{x_0}(t)\sin(nt)d\mu(t) = 0\]
+	Будем доказывать
+	\[\lim_{n \to +\infty} \int_0^\delta\frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)d\mu(t) = 0\]
+	а для $-t$ аналогично.
+	\[\forall \varepsilon > 0 \: \exists \delta_1,\, 0 < \delta_1 < \delta :\: 0 \leq f(x_0 + \delta_1) - f(x_0 + 0) < \varepsilon\]
+	Перейдём к интегралу Римана, так как $f$ монотонная и используем теорему о среднем для него:
+	\[\exists \delta_2,\, 0<\delta_2<\delta_1 \int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt = (f(x_0 + \delta_1) - f(x_0 + 0))\int_{\delta_2}^{\delta_1}\frac{\sin(nt)}{t}dt\]
+	Но мы знаем, что $\int_0^{+\infty} \frac{\sin(t)}{t}dt$ сходится, поэтому если обзначим за $G(v) := \int_0^v \frac{\sin t}{t}dt$, то $G(v)$ будет ограничена, т.е. $\exists C:\: |G(v)| \leq C$.
+
+	Но теперь рассмотрим $\forall A$:
+	\[\left| \int_0^A \frac{\sin(nt)}{t}dt\right| \stackrel{nt = u}{=} \left|\int_0^{nA} \frac{\sin(u)}{u}du\right| \leq C\]
+	Используя эту оценку получим, что 
+	\[\left|\int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt\right| \leq 2\varepsilon C\]
+	Таким образом, разбив исходный интеграл от $0$ до $\delta$ на сумму интегралов от $0$ до $\delta_1$ и от $\delta_1$ до $\delta$. Получим первую часть утверждения теоремы.
+
+	Перейдём к доказательству равномерной сходимости:
+	
+	Вспомним, как мы расписывали разность $S_n(f,\,x_0) - S(x_0)$ на четыре слагаемых, только теперь мы знаем, что $S(x_0) = f(x_0)$. Применим к каждому из трёх последих слагаемых лемму (\ref{RAVN_COEF}) и сведём доказательство к тому, чтобы доказать равномерность предела из прошлого пункта доказательства. 
+	
+	Это сделать несложно: заметим, что если $f$ непрерывна на $[a',\,b']$, то она равномерно непрерывна на нём, а значит мы сможем найти $\delta_1$ из текущего доказательство независимо от $x_0$. Также незавимо от $x_0$ мы ограничиваем интеграл $\frac{\sin(nx)}{x}$, поэтому второе утверждение этой теоремы доказано. 
 \end{proof}
 
 \end{document}
