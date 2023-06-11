@@ -581,5 +581,50 @@
 	\[\forall f \in C_{2\pi} \: \forall \varepsilon > 0 \: \exists T_n := \frac{a_0}{2} + \sum_{k = 1}^n \alpha_k\cos(kx) + \beta_k\sin(kx) :\: |f(x) - T_n(x)| < \varepsilon,\, \forall x \in \mathbb{R}\]
 \end{corollary}
 
+\section{Минимальное свойство коэффициентов Фурье по ортогональной системе. Неравенство Бесселя.}
+\begin{definition}
+	Коэффициентами Фурье функции $f$ в произвольном евклидовом пространстве называются скаляры вида
+	\[f_k = \frac{\langle f,\,e_k\rangle}{\|e_k\|^2}\]
+	где $\{e_k\}$ -- ортогональная система ненулевых элементов.
+\end{definition}
+
+\begin{theorem}
+	Минимальное свойство сумм Фурье.
+
+	Если $\{e_k\}$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то 
+	\[\forall f \in E \: \forall c_1,\,\cdots,\,c_N \in \mathbb{R}:\: \|f - \sum_{k = 1}^N c_ke_k\| \geq \|f - \sum_{k = 1}^N f_ke_k\|\], где $\{f_k\}$ -- коэффициенты Фурье для $f$. 
+	
+	Причём равенство достигается $\Leftrightarrow$ $\forall k = \overline{1,\,N}:\: c_k = f_k$.
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		\|f - \sum_{k=1}^N c_ke_k\|^2 = \langle f - \sum_{k = 1}^N c_ke_k,\, f - \sum_{k = 1}^N c_ke_k\rangle = \langle f,\,f\rangle - 2\sum_{k = 1}^Nc_k \langle f,\, e_k\rangle + \sum_{k = 1}^N\sum_{l = 1}^N c_kc_l \langle e_k,\, e_l \rangle = \\
+		\langle f,\, f\rangle - 2\sum_{k = 1}^N f_kc_k \|e_k\|^2 + \sum_{k = 1}^Nc_k^2\|e_k\|^2 = \\
+		\|f\|^2 - \sum_{k = 1}^N f_k^2\|e_k\|^2 + \sum_{k = 1}^N (f_k^2 - 2f_kc_k + c_k^2)\|e_k\|^2 \geq \|f\|^2 - \sum_{k = 1}^Nf_k^2\|e_k\|^2 = \|f - \sum_{k = 1}^N f_ke_k\|^2
+	\end{align*}
+\end{proof}
+
+\begin{corollary}
+	Тождество Бесселя.
+
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$:
+	\[\|f - \sum_{k = 1}^N f_ke_k\|^2 = \|f\|^2 - \sum_{k = 1}^Nf_k^2\|e_k\|^2\]
+\end{corollary}
+\begin{proof}
+	Очевидно следует из цепочки неравенств из доказательства предыдущей теоремы.
+\end{proof}
+
+\begin{corollary}
+	Неравенство Бесселя.
+
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$:
+	\[\sum_{k = 1}^\infty f_k^2 \|e_k\|^2 \leq \|f\|^2\]
+\end{corollary}
+\begin{proof}
+	Из тождества Бесселя следует, что 
+	\[\forall N \in \mathbb{N}:\: \|f\|^2 - \sum_{k = 1}^Nf_k^2\|e_k\|^2 \geq 0\]
+	Устремляя $M \to +\infty$ получим требуемое.
+\end{proof}
+
 
 \end{document}
