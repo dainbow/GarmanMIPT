@@ -86,6 +86,8 @@
 \end{proposition}
 
 \begin{lemma}
+	\label{C_IN_PLOTNI}
+
 	Множество непрерывных финитных функций всюду плотно в $L_1(\mathbb{R})$.
 \end{lemma}
 
@@ -132,6 +134,8 @@
 \end{proof}
 
 \begin{lemma}
+	\label{CONT_MODUL}
+
 	Каждая суммируемая на $\mathbb{R}$ функция $f(x)$ непрерывна в среднем относительно сдвига, то есть
 	\[\lim_{t \to 0} \int_\mathbb{R} |f(x + t) - f(x)| d\mu(x) = 0\]
 \end{lemma}
@@ -181,6 +185,104 @@
 	\begin{align*}
 		\left|\int_I \left(f\left(t + \frac{\pi}{\lambda}\right) - f(t) \right)\cos(\lambda t) d\mu(t)\right| \leq \int_I \left|f\left(t + \frac{\pi}{\lambda}\right) - f(t)\right|d\mu(t) \stackrel{\text{по пред. Лемме}}{\to} 0
 	\end{align*}
+\end{proof}
+
+\section{Представление частичной суммы ряда Фурье интегралом с ядром Дирихле. Принцип локализации.}
+\begin{definition}
+	$f \in L_{2\pi} \Leftrightarrow f \in L_1[-\pi,\,\pi]$ и $2\pi$ периодическая.
+\end{definition}
+
+\begin{definition}
+	Ядром Дирихле $D_n(u)$ называется выражение
+	\[D_n(u) = \frac{1}{2} + \sum_{k = 1}^n \cos(ku) = \frac{\sin (n + \frac{1}{2})u}{2\sin(\frac{u}{2})}\]
+\end{definition}
+
+\begin{proof}
+	\begin{align*}
+		D_n(u) = \frac{1}{2} + \sum_{k = 1}^n \cos(ku) = \frac{1}{2} + \frac{1}{2}\sum_{k = 1}^n (e^{iku} + e^{-iku}) = \frac{1}{2}\sum_{k = -n}^n e^{iku} = \frac{1}{2}e^{-inu}\frac{e^{i(2n + 1)u - 1}}{e^{iu} - 1} = \\
+		= \frac{1}{2}e^{-inu}\frac{e^{i(2n + 1)\frac{u}{2}} - e^{-i(2n + 1)\frac{u}{2}}}{e^{i\frac{u}{2}} - e^{-i\frac{u}{2}}}\cdot\frac{e^{i(2n + 1)\frac{u}{2}}}{e^{i\frac{u}{2}}} = \frac{1}{2}\frac{\sin((n + \frac{1}{2})u)}{\sin(\frac{u}{2})}
+	\end{align*}
+\end{proof}
+
+\begin{lemma}
+	О представлении частичной суммы.
+
+	Если $f \in L_{2\pi}$, то $n$-я частичная сумма тригонометрического ряда Фурье
+	\[S_n(f,\,x) = \frac{a_0}{2} + \sum_{k = 1}^n a_k \cos(kx) + b_k\sin(kx)\]
+	может быть представлена следующим образом:
+	\[S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(t)D_n(x - t)d\mu(t) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + u)D_n(u)d\mu(u)\]
+\end{lemma}
+
+\begin{proof}
+	Подставим в $S_n$ формулы для $a_k,\, b_k$:
+	\begin{align*}
+		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(t) \left(\frac{1}{2} + \sum_{k = 1}^n (\cos(kx)\cos(kt) + \sin(kx)\sin(kt))\right)d\mu(t) = \\
+		= \frac{1}{\pi}\int_{-\pi}^\pi f(t)D_n(x-t)d\mu(t)
+	\end{align*}
+	Первая формула доказана, вторая доказывается очевидно заменой $t = x + u$, а также используя тот факт, что интеграл по любому отрезку длины $T$, $T$-периодичной функции одинаков.
+\end{proof}
+
+\begin{lemma}
+	Пусть $f \in L_{2\pi}$, $g$ -- измеримая, $2\pi$-периодическая, ограниченная функция. Тогда коэффициенты Фурье функции $\chi(t) = f(x + t)g(t)$ стремятся к нулю при $n \to +\infty$ равномерно по $x$.
+\end{lemma}
+
+\begin{proof}
+	$g$ -- ограниченная $\Rightarrow \exists M:\: \forall u \: |g(u)| \leq M$.
+
+	$f$ -- измеримая $\Rightarrow$ по (\ref{C_IN_PLOTNI}) мы можем её представить, как $f = f_1 + f_2$, причём $f_1 \in C[-\pi,\,\pi]$, а $\int_{-\pi}^{\pi} |f_2(t)|d\mu(t) < \frac{\varepsilon}{4M}$.
+
+	$f_1$ -- непрерывная на компакте $[-\pi,\,\pi] \Rightarrow \exists B \: \forall u:\: |f_1(u)| \leq B$.
+
+	Введём функцию, которая называется интегральный модуль непрерывности функции $F$:
+	\[\omega_1(\delta,\,F) := \sup_{0 \leq h \leq \delta} \int_{-\pi}^\pi |F(t + h) - F(t)|d\mu(t)\]
+	Рассмотрим $a_n$ для функции $\chi$:
+	\begin{align*}
+		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) = \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
+		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow\\
+		|a_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\, \chi\right)
+	\end{align*}
+	Аналогично получим неравенство для $b_n(\chi)$:
+	\[|b_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\,\chi\right)\]
+	То есть мы свели доказательство к доказательству факта, что $\lim_{n \to +\infty}\omega_1(\frac{\pi}{n},\,\chi) = 0$ равномерно по $x$:
+	\begin{align*}
+		\int_{-\pi}^\pi |\chi(t + h) - \chi(t)|d\mu(t) = \int_{-\pi}^\pi |f(x + t + h)g(t + h) - f(x + t)g(t)|d\mu(t) \leq \\
+		\leq \int_{-\pi}^\pi |f(x + t + h) - f(x + t)|\cdot |g (t + h)|d\mu(t) + \int_{-\pi}^\pi |f(x + t)|\cdot |g(t + h) - g(t)|d\mu(t) \leq \\
+		\leq M \int_{-\pi}^\pi |f(u + h) - f(u)|d\mu(u) +  \int_{-\pi}^\pi |f_1(x + t)|\cdot|g(t + h) - g(t)|d\mu(t) + \frac{\varepsilon}{2} \leq \\
+		\leq M \omega_1(\frac{\pi}{n},\, f) + B\omega_1(\frac{\pi}{n},\,g) + \frac{\varepsilon}{2}
+	\end{align*}
+	Но по (\ref{CONT_MODUL}) мы знаем, что модуль непрерывности стремится к нулю при $\delta \to 0$. Что и требовалось доказать.
+\end{proof}
+
+\begin{theorem}
+	Принцип локализации.
+
+	Если $f \in L_{2\pi}$ и тождественно равна нулю в некотором интервале $(a,\,b) \subset [-\pi,\,\pi]$, то её тригонометрический ряд Фурье сходится к нулю равномерно на любом отрезке $[a',\,b'] \subset (a,\,b)$.
+\end{theorem}
+
+\begin{proof}
+	Так как $[a',\,b']$ содержится в $(a,\,b)$, то
+	\[\exists \eta > 0 \: \forall x \in [a',\,b'] \: \forall t,\, 0 \leq |t| < \eta :\: x + t \in (a,\,b)\]
+	Построим функцию $\lambda(t)$:
+	\[
+		\lambda(t) = \begin{cases}
+			0,\, t \in (-\eta,\,\eta) \\
+			1,\, t \in [-\pi,\,\pi]\setminus (-\eta,\,\eta)
+		\end{cases}
+	\]
+	Кроме того, $\lambda$ -- $2\pi$-периодическая.
+
+	Тогда, используя лемму о представлении частичной суммы, получим:
+	\[
+		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)D_n(t)d\mu(t) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)\lambda(t)D_n(t)d\mu(t)
+	\]
+	Данное соотношение верно, так как когда $t \not\in (-\eta,\,\eta)$, то $\lambda(\eta) = 1$, ничего не меняем. Если же $|t| < \eta$, то $x + t \in (a,\,b)$, где $f = 0$, поэтому получили, что подыинтегральные функции совпадают везде на $[-\pi,\,\pi]$.
+
+	Продолжим раскрытия данной формулы, используя тригонометрические соотношения для ядра Дирихле:
+	\begin{align*}
+		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)\lambda(t)\ctg(\frac{t}{2})\sin(nt)d\mu(t) + \frac{1}{2\pi}\int_{-\pi}^\pi f(x+t)\lambda(t)\cos(nt)d\mu(t)
+	\end{align*}
+	Взяв в качестве $g$ из предыдущей леммы для первого слагаемого $\lambda(t)\ctg(\frac{t}{2})$ и $\lambda(t)$ для второго, то получим требуемое по этой же лемме.
+
 \end{proof}
 
 \end{document}
