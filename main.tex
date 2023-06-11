@@ -652,6 +652,8 @@
 
 \section{Полнота ортогональной системы функций, ортонормированный базис и равенство Парсеваля}
 \begin{theorem}
+	\label{THREE_EQUIV}
+
 	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$ следующие утверждения эквивалентны:
 	\begin{enumerate}
 		\item $\forall \varepsilon > 0 \: \exists T = \sum_{k = 1}^N c_ke_k :\: \|f - T\| < \varepsilon$
@@ -666,6 +668,15 @@
 	\[\forall n > N :\: \|f - \sum_{k = 1}^n f_ke_k\|^2 = \|f\|^2 - \sum_{k = 1}^n f_k^2\|e_k\|^2 \leq \|f\|^2 - \sum_{k = 1}^N f_k^2\|e_k\|^2 = \|f - \sum_{k = 1}^nf_ke_k\|\]
 	Ну а $3 \Leftrightarrow 1$ так как при равенстве Парсеваля разность $\|f\|^2 - \sum_{k = 1}^N f_k^2\|e_k\|^2$ будет бесконечно малая, а значит применяя равенство Бесселя получим требуемое.
 \end{proof}
+
+\begin{corollary}
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то следующие утверждения эквивалентны:
+	\begin{enumerate}
+		\item $\{e_k\}_{k = 1}^\infty$ -- полная система в $E$.
+		\item $\forall f \in E:\: f = \sum_{k = 1}^\infty f_ke_k$
+		\item $\forall f \in E:\: \|f\|^2 = \sum_{k = 1}^\infty f_k^2\|e_k\|^2$
+	\end{enumerate}
+\end{corollary}
 
 \section{Полнота тригонометрической системы в пространстве функций суммируемых с квадратом\dots}
 \begin{definition}
@@ -726,6 +737,16 @@
 	Что и требовалось доказать.
 \end{proof}
 
+\begin{corollary}
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $H$, то $\forall f \in H\: \text{р. Фурье сходится к }f_0 \in H:\: \sum_{k = 1}^\infty f_ke_k = f_0$, то
+	\[\langle f - f_0,\, e_j\rangle = 0,\, \forall j \in \mathbb{N}\]
+\end{corollary}
+
+\begin{proof}
+	Из неравенства Бесселя следует:
+	\[\sum_{k = 1}^\infty f_k^2\|e_k\|^2 < +\infty \stackrel{\text{т. Р-Ф}}{\Rightarrow} \exists f_0 \in H :\: \sum_{k = 1}^\infty f_ke_k = f_0 \Rightarrow \langle f - f_0,\,e_j\rangle = \langle f,\,e_j\rangle - f_j\|e_j\|^2 = 0\]
+\end{proof}
+
 \section{Полнота и замкнутость ортогональной системы, их связь}
 \begin{definition}
 	Система функций $\{\phi_n\}_{n = 1}^\infty$, называется полной в $L_p(E)$, если 
@@ -733,16 +754,21 @@
 \end{definition}
 
 \begin{definition}
-	В $C$ и $L_p$ плотные системы функций называются замкнутыми.
+	Система $\{e_k\}_{k = 1}^\infty$ называется замкнутой в евклидовом пространстве $E$ (по Банаху, в баноховом пространстве тотальной, в $C$ и $L_p$ -- полной), если $\forall k \in \mathbb{N}:\: \langle f,\, e_k\rangle = 0 \Rightarrow f = 0$.
 \end{definition}
 
-\begin{corollary}
-	$\{1,\,x,\,x^2,\,\cdots\}$ -- полна в $L_p[a,\,b],\, 1 \leq p < +\infty$, полная в $C[a,\,b]$.
-\end{corollary}
+\begin{theorem}
+	О связи.
 
-\begin{corollary}
-	$\{1,\,\cos(x),\,\sin(x),\,\cos(2x),\,\sin(2x),\,\cdots\}$ -- полная в $C_{2\pi}$
-\end{corollary}
+	$\{e_k\}_{k = 1}^\infty$ -- замкнутая система в гильбертовом пространстве $\Leftrightarrow$ она полная.
+\end{theorem}
+
+\begin{proof}
+	$\Rightarrow \{e_k\}_{k = 1}^\infty$ -- замкнутая $\stackrel{\text{сл-е т.Р-Ф}}{\Rightarrow} \forall f \in H:\: f = \sum_{k = 1}^\infty f_ke_k$
+	Тогда, применяя следствие теоремы (\ref{THREE_EQUIV}) получим полноты системы.
+
+	$\Leftarrow \{e_k\}_{k = 1}^\infty$ -- полная система, $\forall k \in \mathbb{N} \: \forall f \in H:\: \langle f,\,e_k\rangle = 0 \Rightarrow f_k = 0$. Теперь снова применим следствие теоремы (\ref{THREE_EQUIV}) и свойства полноты системы, получим, что $f = \sum 0e_k = 0$.
+\end{proof}
 
 \section{Полнота пространств $C[a,\,b]$ и $L_p[a,\,b],\, p > 1$}
 \begin{definition}
