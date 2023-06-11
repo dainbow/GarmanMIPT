@@ -465,14 +465,14 @@
 \begin{theorem}
 	Коровкина.
 
-	Если последовательность линейных положительных операторов $L_n:\: C[a,\,b] \to C[a,\,b]$ такова, что $L_n(e_i) \stackrel{n \to +\infty}{\rightrightarrows} e_i$ на $[a,\,b]$, $e_i(x) = x^i,\, i = 0,\,1,\,2$, то 
+	Если последовательность линейных положительных операторов $L_n:\: C[a,\,b] \to C[a,\,b]$ такова, что $L_n(e_i) \stackrel{n \to +\infty}{\rightrightarrows} e_i$ на $[a,\,b]$, $e_i(x) = x^i,\, i = 0,\,1,\,2$, то
 	\[\forall f \in C[a,\,b]:\: L_n(f) \rightrightarrows f\]
 	на $[a,\,b]$.
 \end{theorem}
 \begin{proof}
 	$f \in C[a,\,b] \Rightarrow f$ ограничена:
 	\[\exists M:\: -M \leq f(x) \leq M,\, \forall x \in [a,\,b]\]
-	$f \in C[a,\,b] \Rightarrow f$ равномерно непрерывна на $[a,\,b]$: 
+	$f \in C[a,\,b] \Rightarrow f$ равномерно непрерывна на $[a,\,b]$:
 	\[\forall \varepsilon > 0 \: \exists \delta > 0 \: \forall t,\, x \in [a,\,b],\, |t - x| < \delta:\: -\varepsilon < f(t) - f(x) < \varepsilon\]
 	Заметим, что $f_1(x) \leq f_2(x) \: \forall x \in [a,\,b] \Rightarrow L_n(f_1) \leq L_n(f_2) \: \forall x \in [a,\,b]$:
 	\[\forall \varepsilon > 0 \: \exists \delta > 0 \: \forall t,\,x \in [a,\,b]:\: -\varepsilon - \frac{2M}{\delta^2}\psi(t) < f(t) - f(x) < \varepsilon + \frac{2M}{\delta^2}\psi(t)\]
@@ -482,12 +482,12 @@
 
 	Зафиксировав произвольный $x$, применяем оператор $L_n$ относительно переменной $t$. Все неравенства сохраняются:
 	\[-\varepsilon L_n(e_0,\, x) - \frac{2M}{\delta^2}L_n(\psi_x(t),\,x) < L_n(f,\,x) - f(x)L_n(e_0,\,x) < \varepsilon L_n(e_0,\, x) + \frac{2M}{\delta^2}L_n(\psi_x(t),\,x)\]
-	Заметим, что 
+	Заметим, что
 	\begin{align*}
-		L_n(\psi_x,\,x) = L_n((t - x)^2,\,x) = L_n(t^2 - 2tx + x^2,\,x) = L_n(e_2,\,x) - 2xL_n(e_1,\,x) + x^2L_n(e_0,\,x) \rightrightarrows\\
+		L_n(\psi_x,\,x) = L_n((t - x)^2,\,x) = L_n(t^2 - 2tx + x^2,\,x) = L_n(e_2,\,x) - 2xL_n(e_1,\,x) + x^2L_n(e_0,\,x) \rightrightarrows \\
 		e_2(x) - 2xe_1(x) + x^2e_0(x) = x^2 - 2x\cdot x + x^2\cdot 1 = 0
 	\end{align*}
-	Значит 
+	Значит
 	\[\exists N_1 \: \forall n > N \: \forall x \in [a,\,b]:\: |L_n(\psi_x,\,x)| \leq \frac{\varepsilon\delta^2}{4M}\]
 	А из того, что $L_n(e_0) \rightrightarrows e_0$:
 	\[\exists N_2 \: \forall n > N_2 \: \forall x \in [a,\,b] :\: |L_n(e_0,\,x)| < \frac{3}{2}\]
@@ -506,21 +506,21 @@
 \begin{theorem}
 	Коровкина'
 
-	Если последовательность линейных положительных операторов $L_n:\: C_{2\pi} \to C_{2\pi}$ такова, что $L_n(e_i) \stackrel{n \to +\infty}{\rightrightarrows} e_i$ на $\mathbb{R}$, $e_0(x) = 1,\, e_1(x) = \cos(x),\, e_2(x) = \sin(x)$, то 
+	Если последовательность линейных положительных операторов $L_n:\: C_{2\pi} \to C_{2\pi}$ такова, что $L_n(e_i) \stackrel{n \to +\infty}{\rightrightarrows} e_i$ на $\mathbb{R}$, $e_0(x) = 1,\, e_1(x) = \cos(x),\, e_2(x) = \sin(x)$, то
 	\[\forall f \in C_{2\pi}:\: L_n(f) \rightrightarrows f\]
 	на $\mathbb{R}$.
 \end{theorem}
 
 \begin{proof}
-	Аналогично немодифицированной теореме, только вместо функции $\psi_x$ введём 
+	Аналогично немодифицированной теореме, только вместо функции $\psi_x$ введём
 	\begin{align*}
 		\phi_x(t) = \sin^2(\frac{t - x}{2}) = \frac{1 - \cos(t - x)}{2} = \frac{1}{2} - \frac{1}{2}\cos(t)\cos(x) - \frac{1}{2}\sin(t)\sin(x) = \\
 		\frac{1}{2}e_0(t) - \frac{1}{2}\cos(x)e_1(t) - \frac{1}{2}\sin(x)e_2(t)
 	\end{align*}
-	Тогда 
+	Тогда
 	\begin{align*}
 		L_n(\phi_x,\, x) = \frac{1}{2}L_n(e_0,\,x) - \frac{1}{2}\cos(x)L_n(e_1,\,x) - \frac{1}{2}\sin(x)L_n(e_2,\,x) \rightrightarrows \\
-		\frac{1}{2} - \frac{1}{2}\cos^2(x) - \frac{1}{2}\sin^2(x) = 0 
+		\frac{1}{2} - \frac{1}{2}\cos^2(x) - \frac{1}{2}\sin^2(x) = 0
 	\end{align*}
 \end{proof}
 
@@ -532,9 +532,9 @@
 \begin{proof}
 	Распишем среднее арифметическое частичных сумм:
 	\begin{align*}
-		\sigma_n(f,\,x) := \frac{S_0(f,\,x) + S_1(f,\,x) + \cdots + S_n(f,\,x)}{n + 1} = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi f(x + t)\sum_{k = 0}^n D_k(t)dt = \\
+		\sigma_n(f,\,x) := \frac{S_0(f,\,x) + S_1(f,\,x) + \cdots + S_n(f,\,x)}{n + 1} = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi f(x + t)\sum_{k = 0}^n D_k(t)dt =                                                                                                   \\
 		\frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{2\sin(\frac{t}{2})}\sum_{k = 0}^n \sin((k + \frac{1}{2})t)dt = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{2\sin^2(\frac{t}{2})}\sum_{k = 0}^n \sin((k + \frac{1}{2})t)\sin(\frac{t}{2})dt = \\
-		\frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{4\sin^2(\frac{t}{2})}\sum_{k = 0}^n (\cos(kt) - \cos((k + 1)t))dt = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{4\sin^2(\frac{t}{2})}(1 - \cos((n + 1)t)) =\\
+		\frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{4\sin^2(\frac{t}{2})}\sum_{k = 0}^n (\cos(kt) - \cos((k + 1)t))dt = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{4\sin^2(\frac{t}{2})}(1 - \cos((n + 1)t)) =                                  \\
 		\frac{1}{(n + 1)2\pi}\int_{-\pi}^\pi f(x + t)\cdot\frac{\sin^2(\frac{(n + 1)t}{2})}{\sin^2(\frac{t}{2})}dt
 	\end{align*}
 	Получается, $\sigma_n: C_{2\pi} \to C_{2\pi}$ образует последовательность линейных положительных операторов. Это значит, что нам нужно проверить сходимость лишь на трёх функциях: $e_0 := 1,\,e_1 := \sin(x),\, e_2 := \cos(x)$.
@@ -551,7 +551,7 @@
 \end{theorem}
 \begin{proof}
 	Рассмотрим отрезок $[0,\,1]$.
-	
+
 	Введём многочлены Берштейна:
 	\[B_n(f,\,x) := \sum_{k = 0}^nf\left(\frac{k}{n}\right)C_n^kx^k(1-x)^{n - k}\]
 	Мы можем рассматривать их, как операторы $B_n:\: C[0,\,1] \to C[0,\,1]$. Очевидно, что они линейные и положительные, поэтому достаточно проверить сходимость трёх функций: $1,\,x,\,x^2$.
@@ -591,15 +591,15 @@
 \begin{theorem}
 	Минимальное свойство сумм Фурье.
 
-	Если $\{e_k\}$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то 
-	\[\forall f \in E \: \forall c_1,\,\cdots,\,c_N \in \mathbb{R}:\: \|f - \sum_{k = 1}^N c_ke_k\| \geq \|f - \sum_{k = 1}^N f_ke_k\|\], где $\{f_k\}$ -- коэффициенты Фурье для $f$. 
-	
+	Если $\{e_k\}$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то
+	\[\forall f \in E \: \forall c_1,\,\cdots,\,c_N \in \mathbb{R}:\: \|f - \sum_{k = 1}^N c_ke_k\| \geq \|f - \sum_{k = 1}^N f_ke_k\|\], где $\{f_k\}$ -- коэффициенты Фурье для $f$.
+
 	Причём равенство достигается $\Leftrightarrow$ $\forall k = \overline{1,\,N}:\: c_k = f_k$.
 \end{theorem}
 \begin{proof}
 	\begin{align*}
 		\|f - \sum_{k=1}^N c_ke_k\|^2 = \langle f - \sum_{k = 1}^N c_ke_k,\, f - \sum_{k = 1}^N c_ke_k\rangle = \langle f,\,f\rangle - 2\sum_{k = 1}^Nc_k \langle f,\, e_k\rangle + \sum_{k = 1}^N\sum_{l = 1}^N c_kc_l \langle e_k,\, e_l \rangle = \\
-		\langle f,\, f\rangle - 2\sum_{k = 1}^N f_kc_k \|e_k\|^2 + \sum_{k = 1}^Nc_k^2\|e_k\|^2 = \\
+		\langle f,\, f\rangle - 2\sum_{k = 1}^N f_kc_k \|e_k\|^2 + \sum_{k = 1}^Nc_k^2\|e_k\|^2 =                                                                                                                                                    \\
 		\|f\|^2 - \sum_{k = 1}^N f_k^2\|e_k\|^2 + \sum_{k = 1}^N (f_k^2 - 2f_kc_k + c_k^2)\|e_k\|^2 \geq \|f\|^2 - \sum_{k = 1}^Nf_k^2\|e_k\|^2 = \|f - \sum_{k = 1}^N f_ke_k\|^2
 	\end{align*}
 \end{proof}
@@ -621,10 +621,85 @@
 	\[\sum_{k = 1}^\infty f_k^2 \|e_k\|^2 \leq \|f\|^2\]
 \end{corollary}
 \begin{proof}
-	Из тождества Бесселя следует, что 
+	Из тождества Бесселя следует, что
 	\[\forall N \in \mathbb{N}:\: \|f\|^2 - \sum_{k = 1}^Nf_k^2\|e_k\|^2 \geq 0\]
 	Устремляя $M \to +\infty$ получим требуемое.
 \end{proof}
 
+\section{Полнота ортогональной системы функций, ортонормированный базис и равенство Парсеваля}
+\begin{theorem}
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$ следующие утверждения эквивалентны:
+	\begin{enumerate}
+		\item $\forall \varepsilon > 0 \: \exists T = \sum_{k = 1}^N c_ke_k :\: \|f - T\| < \varepsilon$
+		\item $f = \sum_{k = 1}^\infty f_ke_k$
+		\item $\|f\|^2 = \sum_{k = 1}^\infty f_k^2 \|e_k\|^2$ -- равенство Парсеваля для $f$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	$1 \Leftrightarrow 2$ по предыдущей теме:
+	\[\forall \varepsilon > 0 \: \exists N :\: \|f - \sum_{k = 1}^N f_ke_k\| < \varepsilon\]
+	Тогда используя неравенство Бесселя:
+	\[\forall n > N :\: \|f - \sum_{k = 1}^n f_ke_k\|^2 = \|f\|^2 - \sum_{k = 1}^n f_k^2\|e_k\|^2 \leq \|f\|^2 - \sum_{k = 1}^N f_k^2\|e_k\|^2 = \|f - \sum_{k = 1}^nf_ke_k\|\]
+	Ну а $3 \Leftrightarrow 1$ так как при равенстве Парсеваля разность $\|f\|^2 - \sum_{k = 1}^N f_k^2\|e_k\|^2$ будет бесконечно малая, а значит применяя равенство Бесселя получим требуемое.
+\end{proof}
+
+\section{Полнота тригонометрической системы в пространстве функций суммируемых с квадратом\dots}
+\begin{definition}
+	$f \in L_{2\pi}^2 \Leftrightarrow f$ -- $2\pi$-периодическая и $f \in L_2[-\pi,\,\pi]$. Это пространство гильбертово.
+\end{definition}
+
+\begin{proposition}
+	Мы уже знаем, что ортогональной системой в этом пространстве будет система
+	\[\{e_k\}_{k = 1}^\infty = \{\frac{1}{2},\, \cos(x),\,\sin(x),\,\cos(2x),\,\sin(2x),\,\cdots\}\]
+\end{proposition}
+
+\begin{proposition}
+	Благодаря теореме Фейера мы можем утверждать, что $\{e_k\}_{k = 1}^\infty$ полна в $C_{2\pi}$.
+\end{proposition}
+
+\begin{proposition}
+	Мы уже знаем, что $C[-\pi,\, \pi]$ всюду плотно в $L_p[-\pi,\,\pi],\, p \geq 1$.
+
+	Заметим, что $C_{2\pi}$ всюду плотно в $C[-\pi,\,\pi]$ в смысле нормы $L_p[-\pi,\,\pi]$. Делается это с помощью такого трюка:
+	\begin{figure}[h]
+		\includegraphics[scale=0.5]{img/periodic_to_C.png}
+	\end{figure}
+
+	Используя транзитивность свойства полноты, получим, что $\{e_k\}_{k = 1}^\infty$ -- полна в $L_p[-\pi,\,\pi]$, в частности в $L_{2\pi}^2$.
+\end{proposition}
+
+\begin{proposition}
+	Посчитаем коэффициенты Фурье для нашей ортогональной системы в явном виде:
+
+	Если $e_k = \cos(nx)$, то $f_k = \frac{\int_{-\pi}^\pi f(x)\cos(nx)d\mu(x)}{\int_{-\pi}^\pi \cos^2(nx)dx} = a_n$.
+	Если $e_k = \sin(nx)$, то $f_k = b_n$.
+	Ну и $e_1 = a_0$.
+\end{proposition}
+
+\begin{proposition}
+	Равенство Парсеваля для тригонометрической системы в $L^2_{2\pi}$ будет иметь вид:
+	\[\|f\|^2 = a_0^2\cdot\frac{\pi}{2} + \sum_{k = 1}^\infty (a_n^2 + b_n^2)\pi\]
+\end{proposition}
+
+\begin{proposition}
+	Теорема Рисса-Фишера даёт следующее следствие: если $\frac{a_0^2}{2} + \sum_{n = 1}^\infty (a_n^2 + b_n^2)$ сходится, то коэффициенты $a_0,\, \{a_n,\,b_n\}_{n = 1}^\infty$ -- коэффициенты тригонометрического ряда Фурье функции из $L_{2\pi}^2$.
+\end{proposition}
+
+\section{Теорема Рисса-Фишера}
+\begin{theorem}
+	Рисса-Фишера.
+
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $H$ и $\{\alpha_k\}_{k = 1}^\infty$ -- последовательность действительных чисел, такая что $\sum_{k = 1}^\infty \alpha_k^2 \|e_k\|^2$ сходится, то ряд $\sum_{k = 1}^\infty \alpha_ke_k$ сходится к некоторому $f \in H$.
+\end{theorem}
+
+\begin{proof}
+	$\sum_{k = 1}^\infty \alpha_k^2\|e_k\|^2$ сходится $\stackrel{\text{к. Коши}}{\Rightarrow}$
+	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall n > \mathbb{N},\, \forall p \in \mathbb{N}:\: \sum_{k = n + 1}^{n + p} \alpha_k^2\|e_k\|^2 < \varepsilon\]
+	Тогда оценим норму некого элемента из $H$:
+	\[\|\sum_{k = n + 1}^{n + p}\alpha_ke_k\|^2 = \langle\sum_{k = n + 1}^{n + p}\alpha_ke_k,\, \sum_{k = n + 1}^{n + p}\alpha_ke_k\rangle = \sum_{k = n + 1}^{n + p}\alpha_k^2\|e_k\|^2 < \varepsilon\]
+	Это означает, что последовательность частичных сумм нашего ряда является фундаментальной, а значит благодаря гильбертовости пространства $H$ мы можем сказать, что ряд сходится.
+	
+	Что и требовалось доказать.
+\end{proof}
 
 \end{document}
