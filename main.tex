@@ -362,40 +362,6 @@
 	Что и требовалось доказать.
 \end{proof}
 
-\begin{theorem}
-	Признак Жордана.
-
-	Если $f \in L_{2\pi}$ и является функцией ограниченной вариации на $[a,\,b]$, то тригонометрический ряд Фурье $f$ сходится к $f(x_0)$ в каждой точке $x_0 \in [a,\,b]$ непрерывности $f(x)$ и к $\frac{f(x_0 + 0) + f(x_0 - 0)}{2}$ в каждой точке разрыва $x_0 \in [a,\,b]$.
-
-	Если, кроме того, $f \in C[a,\,b]$, то тригонометрический ряд Фурье функции $f$ сходится к ней равномерно на любом отрезке $[a',\,b'] \subset (a,\,b)$.
-\end{theorem}
-
-\begin{proof}
-	Так как $f$ ограниченной вариации, то она представима в виде $f = f_1 - f_2$, где $f_1,\,f_2$ -- неубывающие. Значит нам достаточно доказать утверждение для неубывающих функций.
-
-	По (\ref{DINI_NOTE}) нам надо доказать лишь
-	\[\lim_{n \to +\infty} \int_0^\delta \phi_{x_0}(t)\sin(nt)d\mu(t) = 0\]
-	Будем доказывать
-	\[\lim_{n \to +\infty} \int_0^\delta\frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)d\mu(t) = 0\]
-	а для $-t$ аналогично.
-	\[\forall \varepsilon > 0 \: \exists \delta_1,\, 0 < \delta_1 < \delta :\: 0 \leq f(x_0 + \delta_1) - f(x_0 + 0) < \varepsilon\]
-	Перейдём к интегралу Римана, так как $f$ монотонная и используем теорему о среднем для него:
-	\[\exists \delta_2,\, 0<\delta_2<\delta_1 \int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt = (f(x_0 + \delta_1) - f(x_0 + 0))\int_{\delta_2}^{\delta_1}\frac{\sin(nt)}{t}dt\]
-	Но мы знаем, что $\int_0^{+\infty} \frac{\sin(t)}{t}dt$ сходится, поэтому если обзначим за $G(v) := \int_0^v \frac{\sin t}{t}dt$, то $G(v)$ будет ограничена, т.е. $\exists C:\: |G(v)| \leq C$.
-
-	Но теперь рассмотрим $\forall A$:
-	\[\left| \int_0^A \frac{\sin(nt)}{t}dt\right| \stackrel{nt = u}{=} \left|\int_0^{nA} \frac{\sin(u)}{u}du\right| \leq C\]
-	Используя эту оценку получим, что
-	\[\left|\int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt\right| \leq 2\varepsilon C\]
-	Таким образом, разбив исходный интеграл от $0$ до $\delta$ на сумму интегралов от $0$ до $\delta_1$ и от $\delta_1$ до $\delta$. Получим первую часть утверждения теоремы.
-
-	Перейдём к доказательству равномерной сходимости:
-
-	Вспомним, как мы расписывали разность $S_n(f,\,x_0) - S(x_0)$ на четыре слагаемых, только теперь мы знаем, что $S(x_0) = f(x_0)$. Применим к каждому из трёх последих слагаемых лемму (\ref{RAVN_COEF}) и сведём доказательство к тому, чтобы доказать равномерность предела из прошлого пункта доказательства.
-
-	Это сделать несложно: заметим, что если $f$ непрерывна на $[a',\,b']$, то она равномерно непрерывна на нём, а значит мы сможем найти $\delta_1$ из текущего доказательство независимо от $x_0$. Также незавимо от $x_0$ мы ограничиваем интеграл $\frac{\sin(nx)}{x}$, поэтому второе утверждение этой теоремы доказано.
-\end{proof}
-
 \section{Дифференцирование и интегрирование рядов Фурье. Порядок убывания коэффициентов Фурье.}
 \begin{theorem}
 	\label{DIFF_FUR}
@@ -457,6 +423,124 @@
 	Значит по (\ref{DIFF_FUR}) ряд Фурье $\left(F(x) - \frac{a_0}{2}x\right)'$ получается почленным дифференцированием ряда Фурье для $F(x) - \frac{a_0}{2}x$. Но с другой стороны $\left(F(x) - \frac{a_0}{2}x\right)' = f(x) - \frac{a_0}{2}$.
 
 	Равномерная сходимость проинтегрированного ряда очевидно следует из признака Жордана.
+\end{proof}
+
+\section{Теорема Жордана.}
+Возможно тут должна быть какая-то другая теорема Жордана, но пока здесь признак Жордана -- на консультации уточню.
+\begin{theorem}
+	Признак Жордана.
+
+	Если $f \in L_{2\pi}$ и является функцией ограниченной вариации на $[a,\,b]$, то тригонометрический ряд Фурье $f$ сходится к $f(x_0)$ в каждой точке $x_0 \in [a,\,b]$ непрерывности $f(x)$ и к $\frac{f(x_0 + 0) + f(x_0 - 0)}{2}$ в каждой точке разрыва $x_0 \in [a,\,b]$.
+
+	Если, кроме того, $f \in C[a,\,b]$, то тригонометрический ряд Фурье функции $f$ сходится к ней равномерно на любом отрезке $[a',\,b'] \subset (a,\,b)$.
+\end{theorem}
+
+\begin{proof}
+	Так как $f$ ограниченной вариации, то она представима в виде $f = f_1 - f_2$, где $f_1,\,f_2$ -- неубывающие. Значит нам достаточно доказать утверждение для неубывающих функций.
+
+	По (\ref{DINI_NOTE}) нам надо доказать лишь
+	\[\lim_{n \to +\infty} \int_0^\delta \phi_{x_0}(t)\sin(nt)d\mu(t) = 0\]
+	Будем доказывать
+	\[\lim_{n \to +\infty} \int_0^\delta\frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)d\mu(t) = 0\]
+	а для $-t$ аналогично.
+	\[\forall \varepsilon > 0 \: \exists \delta_1,\, 0 < \delta_1 < \delta :\: 0 \leq f(x_0 + \delta_1) - f(x_0 + 0) < \varepsilon\]
+	Перейдём к интегралу Римана, так как $f$ монотонная и используем теорему о среднем для него:
+	\[\exists \delta_2,\, 0<\delta_2<\delta_1 \int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt = (f(x_0 + \delta_1) - f(x_0 + 0))\int_{\delta_2}^{\delta_1}\frac{\sin(nt)}{t}dt\]
+	Но мы знаем, что $\int_0^{+\infty} \frac{\sin(t)}{t}dt$ сходится, поэтому если обзначим за $G(v) := \int_0^v \frac{\sin t}{t}dt$, то $G(v)$ будет ограничена, т.е. $\exists C:\: |G(v)| \leq C$.
+
+	Но теперь рассмотрим $\forall A$:
+	\[\left| \int_0^A \frac{\sin(nt)}{t}dt\right| \stackrel{nt = u}{=} \left|\int_0^{nA} \frac{\sin(u)}{u}du\right| \leq C\]
+	Используя эту оценку получим, что
+	\[\left|\int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt\right| \leq 2\varepsilon C\]
+	Таким образом, разбив исходный интеграл от $0$ до $\delta$ на сумму интегралов от $0$ до $\delta_1$ и от $\delta_1$ до $\delta$. Получим первую часть утверждения теоремы.
+
+	Перейдём к доказательству равномерной сходимости:
+
+	Вспомним, как мы расписывали разность $S_n(f,\,x_0) - S(x_0)$ на четыре слагаемых, только теперь мы знаем, что $S(x_0) = f(x_0)$. Применим к каждому из трёх последих слагаемых лемму (\ref{RAVN_COEF}) и сведём доказательство к тому, чтобы доказать равномерность предела из прошлого пункта доказательства.
+
+	Это сделать несложно: заметим, что если $f$ непрерывна на $[a',\,b']$, то она равномерно непрерывна на нём, а значит мы сможем найти $\delta_1$ из текущего доказательство независимо от $x_0$. Также незавимо от $x_0$ мы ограничиваем интеграл $\frac{\sin(nx)}{x}$, поэтому второе утверждение этой теоремы доказано.
+\end{proof}
+
+\section{Равномерная сходимость сумм Фейера для непрерывной функции}
+\begin{theorem}
+	Коровкина.
+
+	Если последовательность линейных положительных операторов $L_n:\: C[a,\,b] \to C[a,\,b]$ такова, что $L_n(e_i) \stackrel{n \to +\infty}{\rightrightarrows} e_i$ на $[a,\,b]$, $e_i(x) = x^i,\, i = 0,\,1,\,2$, то 
+	\[\forall f \in C[a,\,b]:\: L_n(f) \rightrightarrows f\]
+	на $[a,\,b]$.
+\end{theorem}
+\begin{proof}
+	$f \in C[a,\,b] \Rightarrow f$ ограничена:
+	\[\exists M:\: -M \leq f(x) \leq M,\, \forall x \in [a,\,b]\]
+	$f \in C[a,\,b] \Rightarrow f$ равномерно непрерывна на $[a,\,b]$: 
+	\[\forall \varepsilon > 0 \: \exists \delta > 0 \: \forall t,\, x \in [a,\,b],\, |t - x| < \delta:\: -\varepsilon < f(t) - f(x) < \varepsilon\]
+	Заметим, что $f_1(x) \leq f_2(x) \: \forall x \in [a,\,b] \Rightarrow L_n(f_1) \leq L_n(f_2) \: \forall x \in [a,\,b]$:
+	\[\forall \varepsilon > 0 \: \exists \delta > 0 \: \forall t,\,x \in [a,\,b]:\: -\varepsilon - \frac{2M}{\delta^2}\psi(t) < f(t) - f(x) < \varepsilon + \frac{2M}{\delta^2}\psi(t)\]
+	где $\psi_x(t) = (t - x)^2$.
+
+	Откуда это следует? Если $|t - x| < \delta$, то мы только ослабляем условие равномерной непрерывности, значит неравенство сохраняется. Если же $|t - x| \geq \delta \Rightarrow \frac{\psi(t)}{\delta^2} = \frac{(t - x)^2}{\delta^2} \geq 1 \Rightarrow$ неравенство сохраняется благодаря ограниченности $f$.
+
+	Зафиксировав произвольный $x$, применяем оператор $L_n$ относительно переменной $t$. Все неравенства сохраняются:
+	\[-\varepsilon L_n(e_0,\, x) - \frac{2M}{\delta^2}L_n(\psi_x(t),\,x) < L_n(f,\,x) - f(x)L_n(e_0,\,x) < \varepsilon L_n(e_0,\, x) + \frac{2M}{\delta^2}L_n(\psi_x(t),\,x)\]
+	Заметим, что 
+	\begin{align*}
+		L_n(\psi_x,\,x) = L_n((t - x)^2,\,x) = L_n(t^2 - 2tx + x^2,\,x) = L_n(e_2,\,x) - 2xL_n(e_1,\,x) + x^2L_n(e_0,\,x) \rightrightarrows\\
+		e_2(x) - 2xe_1(x) + x^2e_0(x) = x^2 - 2x\cdot x + x^2\cdot 1 = 0
+	\end{align*}
+	Значит 
+	\[\exists N_1 \: \forall n > N \: \forall x \in [a,\,b]:\: |L_n(\psi_x,\,x)| \leq \frac{\varepsilon\delta^2}{4M}\]
+	А из того, что $L_n(e_0) \rightrightarrows e_0$:
+	\[\exists N_2 \: \forall n > N_2 \: \forall x \in [a,\,b] :\: |L_n(e_0,\,x)| < \frac{3}{2}\]
+	Также не забываем, что:
+	\[|L_n(f,\,x) - f(x)L_n(e_0,\,x)| \leq \varepsilon L_n(e_0,\,x) + \frac{2M}{\delta^2}L_n(\psi_x,\,x)\]
+	Объединяя эти три условия, получим, что
+	\[\forall n > \max(N_1,\,N_2):\: |L_n(f,\,x) - f(x)L_n(e_0,\,x)| \leq 2\varepsilon\]
+	Снова используем тот факт, что $L_n(e_0) \rightrightarrows e_0$:
+	\[\exists N_3 \: \forall n > N_3 \: \forall x \in [a,\,b]:\: |L_n(e_0,\,x) - 1| < \frac{\varepsilon}{M}\]
+	Значит
+	\[|f(x)L_n(e_0,\,x) - f(x)| \leq |f(x)|\cdot|L_n(e_0,\,x) - 1| \leq \varepsilon\]
+	Объединяя ВСЕ неравенства, получим:
+	\[\forall n > \max(N_1,\,N_2,\,N_3) \: \forall x \in [a,\,b]:\: |L_n(f,\,x) - f(x)|\leq 3\varepsilon\]
+\end{proof}
+
+\begin{theorem}
+	Коровкина'
+
+	Если последовательность линейных положительных операторов $L_n:\: C_{2\pi} \to C_{2\pi}$ такова, что $L_n(e_i) \stackrel{n \to +\infty}{\rightrightarrows} e_i$ на $\mathbb{R}$, $e_0(x) = 1,\, e_1(x) = \cos(x),\, e_2(x) = \sin(x)$, то 
+	\[\forall f \in C_{2\pi}:\: L_n(f) \rightrightarrows f\]
+	на $\mathbb{R}$.
+\end{theorem}
+
+\begin{proof}
+	Аналогично немодифицированной теореме, только вместо функции $\psi_x$ введём 
+	\begin{align*}
+		\phi_x(t) = \sin^2(\frac{t - x}{2}) = \frac{1 - \cos(t - x)}{2} = \frac{1}{2} - \frac{1}{2}\cos(t)\cos(x) - \frac{1}{2}\sin(t)\sin(x) = \\
+		\frac{1}{2}e_0(t) - \frac{1}{2}\cos(x)e_1(t) - \frac{1}{2}\sin(x)e_2(t)
+	\end{align*}
+	Тогда 
+	\begin{align*}
+		L_n(\phi_x,\, x) = \frac{1}{2}L_n(e_0,\,x) - \frac{1}{2}\cos(x)L_n(e_1,\,x) - \frac{1}{2}\sin(x)L_n(e_2,\,x) \rightrightarrows \\
+		\frac{1}{2} - \frac{1}{2}\cos^2(x) - \frac{1}{2}\sin^2(x) = 0 
+	\end{align*}
+\end{proof}
+
+\begin{theorem}
+	Фейера.
+
+	Для любой непрерывной $2\pi$-периодической функции последовательность средних арифеметических частичных сумм её тригонометрического ряда Фурье равномерно на $\mathbb{R}$ сходится к ней.
+\end{theorem}
+\begin{proof}
+	Распишем среднее арифметическое частичных сумм:
+	\begin{align*}
+		\sigma_n(f,\,x) := \frac{S_0(f,\,x) + S_1(f,\,x) + \cdots + S_n(f,\,x)}{n + 1} = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi f(x + t)\sum_{k = 0}^n D_k(t)dt = \\
+		\frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{2\sin(\frac{t}{2})}\sum_{k = 0}^n \sin((k + \frac{1}{2})t)dt = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{2\sin^2(\frac{t}{2})}\sum_{k = 0}^n \sin((k + \frac{1}{2})t)\sin(\frac{t}{2})dt = \\
+		\frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{4\sin^2(\frac{t}{2})}\sum_{k = 0}^n (\cos(kt) - \cos((k + 1)t))dt = \frac{1}{(n + 1)\pi}\int_{-\pi}^\pi \frac{f(x + t)}{4\sin^2(\frac{t}{2})}(1 - \cos((n + 1)t)) =\\
+		\frac{1}{(n + 1)2\pi}\int_{-\pi}^\pi f(x + t)\cdot\frac{\sin^2(\frac{(n + 1)t}{2})}{\sin^2(\frac{t}{2})}dt
+	\end{align*}
+	Получается, $\sigma_n: C_{2\pi} \to C_{2\pi}$ образует последовательность линейных положительных операторов. Это значит, что нам нужно проверить сходимость лишь на трёх функциях: $e_0 := 1,\,e_1 := \sin(x),\, e_2 := \cos(x)$.
+	\[\sigma_n(e_0) = e_0,\,\forall n \in \mathbb{N}\cup\{0\}\;\;\;\; \sigma_n(e_1) = e_1\cdot\frac{n}{n+1},\; \sigma_n(e_2) = e_2\cdot\frac{n}{n + 1},\, \forall n \in \mathbb{N}\]
+	Тогда, по теореме Коровкина, получаем, что $\forall f \in C_{2\pi}:\: \sigma_n(f) \rightrightarrows f$
+
 \end{proof}
 
 \end{document}
