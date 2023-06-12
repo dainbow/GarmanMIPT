@@ -874,4 +874,66 @@
 	\[\lim_{n \to +\infty}\int_E \frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}d\mu(x) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial	\alpha}d\mu(x)\]
 \end{proof}
 
+\section{Равномерная сходимость несобственных интегралов, зависящих от параметра. Критерий Коши, признаки Вейерштрасса и Дирихле}
+\begin{definition}
+	Пусть $f(x,\,y) \in \mathcal{R}[a,\,\tilde{b}] \: \forall \tilde{b} < b \: \forall y \in A \subset \mathbb{R}$. Тогда несобственным интегралом Римана, зависящим от параметра $y$ называется
+	\begin{equation} \label{NESOBS_INT}
+		\int_a^b f(x,\,y)dx = \lim_{\tilde{b} \to b - 0} \int_a^{\tilde{b}}f(x,\,y)dx
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	Мы говорим, что несобственный интеграл (\ref{NESOBS_INT}) сходится поточечно, если:
+	\[\forall y \in A \: \forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall B' \in (B,\,b):\: \left|\int_{B'}^b f(x,\,y)dx\right| < \varepsilon\]
+\end{definition}
+
+\begin{definition}
+	Несобственный интеграл (\ref{NESOBS_INT}) сходится равномерно на $A$, если:
+	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall B' \in (B,\,b) \: \forall y \in A :\: \left|\int_{B'}^b f(x,\,y)dx\right| < \varepsilon\]
+\end{definition}
+
+\begin{theorem}
+	Критерий Коши равномерной сходимости интегралов, зависящих от параметра
+
+	(\ref{NESOBS_INT}) сходится равномерно на $A \Leftrightarrow$
+	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall a < B' < B''< b \: \forall y \in A :\: \left|\int_{B'}^{B''}f(x,\,y)dx\right| < \varepsilon\] 
+\end{theorem}
+
+\begin{proof}
+	$\Rightarrow$ При всех требуемых кванторах можем сделать оценку:
+	\[\left|\int_{B'}^{B''}f(x,\,y)dx\right| = \left|\int_{B''}^b f(x,\,y)dx - \int_{B'}^bf(x,\,y)dx\right| < 2\varepsilon\]
+	$\Leftarrow$ Фиксируем $\forall y \in A$, тогда используем критерий Коши сходимости несобственных интегралов (без параметра), то есть
+	\[\int_a^b f(x,\,y)dx < +\infty \stackrel{B'' \to b - 0}{\Rightarrow} \left|\int_{B'}^{B''}f(x,\,y)dx\right| \leq \varepsilon\]
+\end{proof}
+
+\begin{corollary}
+	Признак сравнения.
+
+	Если $|f(x,\,y)| < g(x,\,y)$, $f,\,g$ удовлетворяют условиям определения несобственных интегралов Римана, $\int_a^b g(x,\,y)dx$ равномерно сходится на $A$, то $\int_a^b f(x,\,y)dx$ равномерно сходится на $A$.
+\end{corollary}
+
+\begin{corollary}
+	Признак Вейерштрасса.
+
+	Если $|f(x,\,y)| \leq g(x)$, $f,\,g$ удовлетворяют условиям определения несобственных интегралов Римана, $\int_a^b g(x,\,y)dx$ сходится на $A$, то $\int_a^b f(x,\,y)dx$ равномерно сходится на $A$.
+\end{corollary}
+
+\begin{theorem}
+	Признак Дирихле равномерной сходимости НИРЗП.
+
+	\begin{enumerate}
+		\item $f \in \mathcal{R}[a,\,\tilde{b}]\:\forall \tilde{b} \in (a,\,b) \: \forall y \in A$ и $\forall y \in A$:
+		\[\left|\int_a^x f(t,\,y)dt\right| \leq C\]
+		\item $g(x,\,y) \downarrow 0$ при $x \to b - 0$ равномерно по $y \in A$.
+	\end{enumerate}
+	Тогда $\int_a^b f(x,\,y)g(x,\,y)dx$ равномерно сходится на $A$.
+\end{theorem}
+\begin{proof}
+	\[\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx = g(B',\,y)\int_{B'}^{\xi(y)}f(x,\,y)dx + g(B'',\,y)\int_{\xi(y)}^{B''}f(x,\,y)dx\]
+	$g \rightrightarrows 0$, значит
+	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall x \in (B,\,b) \: \forall y \in A :\: |g(x,\,y)| < \frac{\varepsilon}{4C}\]
+	А все интегралы в полученной формуле можно оценить сверху, как $2C$, поэтому получим, что 
+	\[\left|\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx\right| \leq \frac{\varepsilon}{4C}\cdot 2C + \frac{\varepsilon}{4C}\cdot 2C = \varepsilon\]
+\end{proof}
+
 \end{document}
