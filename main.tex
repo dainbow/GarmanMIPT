@@ -1239,4 +1239,67 @@
 	Заметим, что $\tilde{\hat{f}}$ -- это интеграл Фурье, тогда утверждение становится очевидным, благодаря одному из следствий признака Дини (\ref{DINI_FURRY}).
 \end{proof}
 
+\section{Преобразование Фурье производной и производная преобразования Фурье. Свёртка и её преобразование Фурье.}
+\begin{theorem}
+	Преобразование Фурье производной.
+
+	Если $f$ абсолютно непрерывная на любом отрезке $[a,\,b] \subset \mathbb{R}$, и $f,\, f' \in L_1(\mathbb{R})$, то
+	\[\forall \lambda \in \mathbb{R}:\: \hat{f'}(\lambda) = (i\lambda)\hat{f}(\lambda)\]
+\end{theorem}
+\begin{proof}
+	Перепишем $f(x)$ благодаря формуле Ньютона-Лейбница для суммируемых функций:
+	\[f(x) = f(0) + \int_0^x f(t)d\mu(t),\, x > 0\]
+	Устремляя $x \to +\infty$ увидим, что правая часть имеет предел, а значит и левая тоже:
+	\[\exists \lim_{x \to +\infty}f(x),\, f \in L_1(\mathbb{R}) \Rightarrow f
+	(+\infty) = 0\]
+	Аналогично получим, что $f(-\infty) = 0$.
+
+	Тогда рассмотрим следующее преобразование Фурье:
+	\[\hat{f'}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f'(t)e^{-i\lambda t}d\mu(t) = \frac{1}{\sqrt{2\pi}}f(t)e^{-i\lambda t}|_{-\infty}^{+\infty} - \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(t)(e^{-i\lambda t})'_td\mu(t) = (i\lambda)\hat{f}(\lambda)\]
+\end{proof}
+
+\begin{theorem}
+	Производная преобразования Фурье.
+
+	Если $f(t),\, tf(t) \in L_1(\mathbb{R})$, то преобразование Фурье $\hat{f}(\lambda)$ дифференцируемо, причём
+	\[(\hat{f})'(\lambda) = \widehat{(-itf(t))}(\lambda),\;\; \lambda \in \mathbb{R}\]
+\end{theorem}
+\begin{proof}
+	Зададимся вопросом, имеем ли мы право продифференцировать интеграл, зависящий от параметра $\lambda$:
+	\[(\hat{f})'(\lambda) \stackrel{?}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(t)(e^{-i\lambda t})'_\lambda d\mu(t) = \widehat{(-itf(t))}(\lambda)\]
+	Для разрешения этого вопроса оценим следующее выражение:
+	\[\left|f(t)(e^{-i\lambda t})'_\lambda\right| = \left|-itf(t)e^{-i\lambda t}\right| \leq |tf(t)| \in L_1(\mathbb{R})\]
+	Значит мы имеем право (так как производная по параметру оценивается суммируемой функцией), согласно теореме о дифференцировании интеграла с параметром.
+\end{proof}
+
+\begin{definition}
+	Свёрткой функций $f,\, g \in L_1(\mathbb{R})$ называется
+	\[(f * g)(t) = \int_\mathbb{R}f(x)g(t - x)d\mu(x)\]
+\end{definition}
+
+\begin{proposition}
+	Свёртка определена почти всюду.
+\end{proposition}
+\begin{proof}
+	Рассмотрим 
+	\begin{align*}
+		\int_\mathbb{R}\int_\mathbb{R} (f(x)g(t - x))d\mu(x)d\mu(t) \stackrel{\text{т.Фубини}}{=} \int_\mathbb{R}f(x)\int_\mathbb{R}g(t - x)d\mu(t)d\mu(x) \stackrel{u := t - x}{=} \\
+		\int_\mathbb{R}\int_\mathbb{R} f(x)g(u)d\mu(u)d\mu(x)
+	\end{align*}
+	Последний интеграл расписывается, как произведение двух интегралов, а так как каждая из функций суммируемая, значит их произведение тоже получится суммируемой, значит свёртка является суммируемой функцией, а значит по той же теореме Фубини свёртка определена почти всюду.
+\end{proof}
+
+\begin{theorem}
+	Преобразование Фурье свёртки.
+
+	Если $f,\,g \in L_1(\mathbb{R})$, то $\widehat{(f * g)}(\lambda) = \sqrt{2\pi}\hat{f}(\lambda)\hat{g}(\lambda)$
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		\widehat{(f * g)}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\int_\mathbb{R} f(x)g(t - x)d\mu(x)e^{-i\lambda t}d\mu(t) \stackrel{\text{т. Фубини}}{=}\\
+		\frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x) e^{-i\lambda x}\int_\mathbb{R}g(t - x)d e^{-i\lambda (t - x)}\mu(t)d\mu(x) \stackrel{u := t - x}{=} \\
+		\sqrt{2\pi}\cdot\frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x) e^{-i\lambda x} d\mu(x) \cdot \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}g(u) e^{-i\lambda u} d\mu(u) = \sqrt{2\pi}\hat{f}(\lambda)\hat{g}(\lambda)
+	\end{align*}
+\end{proof}
+
 \end{document}
