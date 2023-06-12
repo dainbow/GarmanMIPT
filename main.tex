@@ -734,7 +734,7 @@
 	Тогда оценим норму некого элемента из $H$:
 	\[\|\sum_{k = n + 1}^{n + p}\alpha_ke_k\|^2 = \langle\sum_{k = n + 1}^{n + p}\alpha_ke_k,\, \sum_{k = n + 1}^{n + p}\alpha_ke_k\rangle = \sum_{k = n + 1}^{n + p}\alpha_k^2\|e_k\|^2 < \varepsilon\]
 	Это означает, что последовательность частичных сумм нашего ряда является фундаментальной, а значит благодаря гильбертовости пространства $H$ мы можем сказать, что ряд сходится.
-	
+
 	Что и требовалось доказать.
 \end{proof}
 
@@ -750,7 +750,7 @@
 
 \section{Полнота и замкнутость ортогональной системы, их связь}
 \begin{definition}
-	Система функций $\{\phi_n\}_{n = 1}^\infty$, называется полной в $L_p(E)$, если 
+	Система функций $\{\phi_n\}_{n = 1}^\infty$, называется полной в $L_p(E)$, если
 	\[\forall \varepsilon > 0 \: \forall f \in L_p(E)\: \exists \{c_1,\,\cdots,\,c_n\} \subset \mathbb{R}:\: \|f - \sum_{k = 1}^n c_k\phi_k\|_p < \varepsilon\]
 \end{definition}
 
@@ -818,7 +818,7 @@
 	Пусть $\{f_n\}_{n = 1}^\infty$ -- фундаментальная последовательность в $L_p[a,\,b]$:
 	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall n,\,m > N :\: \|f_n - f_m\|_p < \varepsilon\]
 	Отсюда получаем, что $\exists \{n_k\}_{k = 1}^\infty \uparrow \: \forall m \geq n_k :\: \|f_m - f_{n_k}\|_p < \frac{1}{2^k}$.
-	
+
 	Тогда в силу неравенства Гёльдера:
 	\[\|f_m - f_{n_k}\|_1 \leq \|f_m - f_{n_k}\|_p \cdot \|1\|_q < \frac{C}{2^k}\]
 
@@ -862,14 +862,14 @@
 \begin{theorem}
 	Дифференцируемость интеграла, зависящего от параметра
 
-	Пусть $f_{1,\,\alpha}(x) = f(x,\,\alpha)$ при всех $\alpha \in U(\alpha_0) \subset \mathbb{R}$ суммируема на $E \subset \mathbb{R}^m$ вместе с $\frac{\partial f(x,\,\alpha)}{\partial \alpha}$, и при почти всех $x \in E,\, \forall \alpha \in U(\alpha_0)$: $\left|\frac{\partial f(x,\,\alpha_0)}{\partial \alpha}\right| \leq \phi(x)$, где $\phi(x)$ суммируема на $E$. Тогда
+	Пусть $f_{1,\,\alpha}(x) = f(x,\,\alpha)$ при всех $\alpha \in U(\alpha_0) \subset \mathbb{R}^n$ суммируема на $E \subset \mathbb{R}^m$ вместе с $\frac{\partial f(x,\,\alpha)}{\partial \alpha}$, и при почти всех $x \in E,\, \forall \alpha \in U(\alpha_0)$: $\left|\frac{\partial f(x,\,\alpha)}{\partial \alpha}\right| \leq \phi(x)$, где $\phi(x)$ суммируема на $E$. Тогда
 	\[F'(\alpha_0) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial \alpha}d\mu(x)\]
 \end{theorem}
 
 \begin{proof}
 	Рассмотрим $\forall \{\alpha_n\}_{n = 1}^\infty \subset \dot{U}(\alpha_0),\, \lim\limits_{n \to +\infty}\alpha_n = \alpha_0$.
 
-	Тогда частная производная в точке $\alpha_0$ -- это 
+	Тогда частная производная в точке $\alpha_0$ -- это
 	\[\left|\frac{f(x,\,\alpha_n) - F(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| = \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
 	Теперь, используя теорему Лебега, получим равенство пределов интегралов:
 	\[\lim_{n \to +\infty}\int_E \frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}d\mu(x) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial	\alpha}d\mu(x)\]
@@ -897,7 +897,7 @@
 	Критерий Коши равномерной сходимости интегралов, зависящих от параметра
 
 	(\ref{NESOBS_INT}) сходится равномерно на $A \Leftrightarrow$
-	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall a < B' < B''< b \: \forall y \in A :\: \left|\int_{B'}^{B''}f(x,\,y)dx\right| < \varepsilon\] 
+	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall a < B' < B''< b \: \forall y \in A :\: \left|\int_{B'}^{B''}f(x,\,y)dx\right| < \varepsilon\]
 \end{theorem}
 
 \begin{proof}
@@ -924,7 +924,7 @@
 
 	\begin{enumerate}
 		\item $f \in \mathcal{R}[a,\,\tilde{b}]\:\forall \tilde{b} \in (a,\,b) \: \forall y \in A$ и $\forall y \in A$:
-		\[\left|\int_a^x f(t,\,y)dt\right| \leq C\]
+		      \[\left|\int_a^x f(t,\,y)dt\right| \leq C\]
 		\item $g(x,\,y) \downarrow 0$ при $x \to b - 0$ равномерно по $y \in A$.
 	\end{enumerate}
 	Тогда $\int_a^b f(x,\,y)g(x,\,y)dx$ равномерно сходится на $A$.
@@ -933,7 +933,7 @@
 	\[\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx = g(B',\,y)\int_{B'}^{\xi(y)}f(x,\,y)dx + g(B'',\,y)\int_{\xi(y)}^{B''}f(x,\,y)dx\]
 	$g \rightrightarrows 0$, значит
 	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall x \in (B,\,b) \: \forall y \in A :\: |g(x,\,y)| < \frac{\varepsilon}{4C}\]
-	А все интегралы в полученной формуле можно оценить сверху, как $2C$, поэтому получим, что 
+	А все интегралы в полученной формуле можно оценить сверху, как $2C$, поэтому получим, что
 	\[\left|\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx\right| \leq \frac{\varepsilon}{4C}\cdot 2C + \frac{\varepsilon}{4C}\cdot 2C = \varepsilon\]
 \end{proof}
 
@@ -958,8 +958,8 @@
 \begin{proof}
 	Рассмотрим произвольную последовательность $\{b_n\}_{n = 1}^\infty \subset [a,\,b),\, \lim\limits_{n\to +\infty} b_n = b$. Положим
 	\[I_n(y) := \int_a^{b_n}f(x,\,y)dx\]
-	Тогда равномерная сходимость $\int_a^b f(x,\,y)dx$ влечёт равномерную сходимость $I_n(y)$. 
-	
+	Тогда равномерная сходимость $\int_a^b f(x,\,y)dx$ влечёт равномерную сходимость $I_n(y)$.
+
 	Используя прыдыдущую теорему и теорему об интегрируемости функциональных последовательностей и тот факт, что $f(x,\,y)$ непрерывна на прямоугольнике $[a,\,b_n]\times [c,\,d]$, поэтому мы можем переставить пределы интегрирования и получим:
 	\[\int_a^{b_n}\left(\int_c^d f(x,\,y)dy\right)dx = \int_c^d I_n(y)dy \stackrel{n \to +\infty}{\to} \int_c^d \left(\int_a^b f(x,\,y)dx\right)dy\]
 \end{proof}
@@ -982,6 +982,80 @@
 	Значит и интеграл от левой части также сходится $\forall t$, причём он равен
 	\[I(t) := \int_a^b f(x,\,y_0)dx + \int_a^b \left(\int_{y_0}^t \frac{\partial f}{\partial y}(x,\,y)dy\right)dx = \int_a^b f(x,\,y_0)dx + \int_{y_0}^t \left(\int_a^b \frac{\partial f}{\partial y}(x,\,y) dx\right)dy\]
 	Тогда при взятии производной $I'(t)$, первое слагаемое обнулится, а второе, являясь переменным верхним пределом, превратится в $\int_a^b \frac{\partial f}{\partial y}(x,\,t) dx$.
+\end{proof}
+
+\section{Гамма- и бета-функции и связь между ними}
+\begin{definition}
+	Гамма-функцией называется
+	\[\Gamma(\alpha) := \int_0^{+\infty}x^{\alpha - 1}e^{-x}dx,\; \alpha > 0\]
+\end{definition}
+
+\begin{proposition}
+	Гамма-функция сходится
+\end{proposition}
+
+\begin{proof}
+	\[\Gamma(\alpha) = \int_0^1 x^{\alpha - 1}e^{-x}dx + \int_1^{+\infty} x^{\alpha - 1}e^{-x}dx =: I_1(\alpha) + I_2(\alpha)\]
+	$I_1$ сходится по признаку сравнения, так как
+	\[x^{\alpha - 1}e^{-x} \leq x^{\alpha - 1},\;\;\; \int_0^1 x^{\alpha - 1}dx < +\infty,\, \alpha > 0\]
+	$I_2$ также сходится по признаку сравнения, так как
+	\[x^{\alpha - 1}e^{-x} \leq Ce^{-\frac{x}{2}},\, x \geq 1 ;\;\; \int_1^{+\infty} e^{-\frac{x}{2}}dx < +\infty\]
+\end{proof}
+
+\begin{theorem}
+	Основные свойства гамма-функции.
+
+	\begin{enumerate}
+		\item $\Gamma(\alpha)$ бесконечно дифференцируема $\forall \alpha > 0$.
+		\item Формула понижения. $\Gamma(\alpha + 1) = \alpha\Gamma(\alpha),\, \alpha > 0$
+		\item $\Gamma(n + 1) = n!\;\;\; n \in \mathbb{N} \cup \{0\}$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item $(x^{\alpha - 1}e^{-x})'_\alpha = x^{\alpha - 1}e^{-x}\ln x$, заметим, что все оценки, сделанные в предыдущем пункте сохранятся (с немного изменённым коэффициентом $\alpha$), так как
+		      \[\ln x \leq \frac{1}{x^\varepsilon},\,x\in(0,\,1];\;\;\; \ln x \leq x^\varepsilon,\, x \geq 1\]
+		      Значит мы можем дифференцировать сколько угодно раз с сохранением сходимости.
+		\item Проинтегрировав по частям, получим:
+		      \[\Gamma(\alpha) = -x^\alpha e^{-x}|^{+\infty}_0 + \alpha\int_0^{+\infty}x^{\alpha - 1}e^{-x}dx = \alpha\Gamma(\alpha)\]
+		\item Заметим, что $\Gamma(1) = \int_1^{+\infty} e^{-x}dx = -e^{-x}|^{+\infty}_0 = 1$. Используя предыдущее свойство, доказываемое утверждение становится очевидным.
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}
+	Бета-функцией называется $B(a,\,b) = \int_0^1 x^{a - 1}(1 - x)^{b - 1}dx;\; a,\,b \geq 0$
+\end{definition}
+
+\begin{theorem}
+	Связь бета- и гамма-функций.
+
+	$\forall a,\,b > 0:\: B(a,\,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$
+\end{theorem}
+
+\begin{proof}
+	\[
+		B(a,\,b)\Gamma(a + b) = \int_0^1 x^{a - 1}(1 - x)^{b - 1}dx\int_0^{+\infty} y^{a + b - 1}e^{-y}dy \stackrel{?}{=} \int_0^{+\infty}\xi^{a - 1}e^{-\xi}d\xi \int_0^{+\infty}\eta^{b - 1}e^{-\eta}d\eta
+	\]
+	Будем рассматривать оба интеграла, как двойные. Рассмотрим замену координат вида
+	\[
+		\begin{cases}
+			xy = \xi\\
+			(1 - x)y = \eta
+		\end{cases}
+		\Rightarrow 
+		\begin{cases}
+			y = \xi + \eta\\
+			x = \frac{\xi}{\xi + \eta}
+		\end{cases}
+		\Rightarrow
+		\frac{\partial(\xi,\,\eta)}{\partial(x,\,y)} = 
+		\begin{vmatrix}
+			y & x\\
+			-y & 1 - x
+		\end{vmatrix} 
+		= y(1 - x + x) = y \neq 0
+	\]
+	Проведите данную замену и у вас всё обязательно получится!
 \end{proof}
 
 \end{document}
