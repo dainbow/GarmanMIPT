@@ -1058,4 +1058,31 @@
 	Проведите данную замену и у вас всё обязательно получится!
 \end{proof}
 
+\section{Формула Гаусса-Эйлера для гамма-функции}
+\begin{theorem}
+	Формула Гаусса-Эйлера.
+
+	Для любых $\alpha > 0$:
+	\[\Gamma(\alpha) = \lim_{n \to +\infty}n^\alpha \frac{(n - 1)!}{\alpha(\alpha + 1)\cdots (\alpha + n - 1)}\]
+\end{theorem}
+\begin{proof}
+	Напоминаем, что 
+	\[
+		\Gamma(\alpha) = \int_0^{+\infty}x^{\alpha - 1}e^{-x}dx \stackrel{e^{-x} =: u}{=} \int_0^1 \ln^{\alpha - 1}\frac{1}{u}du
+	\]
+	Докажем, что $f_n(u) = n(1 - u^{\frac{1}{n}})$ монотонно стремится к $\ln\frac{1}{u},\, u \in (0,\,1]$. Для этого рассмотрим функцию $g(t,\,u) = t(1 - u^{\frac{1}{t}})$. Тогда
+	\[\frac{\partial g}{\partial t} = 1 - u^{\frac{1}{t}} - t\cdot u^{\frac{1}{t}}\ln u\cdot (-\frac{1}{t^2}) = 1 - u^{\frac{1}{t}} + u^{\frac{1}{t}}\ln u^{\frac{1}{t}},\, u \in (0,\,1],\, t > 0\] 
+	Обозначив $y := u^{\frac{1}{t}} \Rightarrow y \in (0,\,1]$ получим новую функцию $\phi(y) = 1 - y + y\ln y$. Тогда
+	\[\phi'(y) = -1 + \ln y + 1 = \ln y < 0,\, y \in (0,\,1];\;\;\; \phi(1) = 0 \Rightarrow \phi(y) \geq 0 \Rightarrow g \geq 0 \Rightarrow f_n(u) \uparrow\]
+	Тогда рассмотрим предел
+	\[\lim_{n \to +\infty} f_n(u) = \lim_{n \to +\infty} \frac{1 - e^{\frac{1}{n}\ln u}}{\frac{1}{n}} \stackrel{\text{2й зам-й пр-л}}{=} \lim_{n \to +\infty}\frac{-\frac{1}{n}\ln u}{\frac{1}{n}} = -\ln u = \ln\frac{1}{u}\]
+	Значит мы можем применить теорему Леви для последовательности $f_n(u)$:
+	\[\int_0^1 (n(1 - u^{\frac{1}{n}}))^{\alpha - 1}du \stackrel{n \to +\infty}{\to} \int_0^1 \ln^{\alpha - 1}\frac{1}{u}du\]
+	То есть мы получили, что 
+	\begin{align*}
+		\Gamma(\alpha) = \lim_{n \to +\infty} n^{\alpha - 1}\int_0^1 (1 - u^{\frac{1}{n}})^{\alpha - 1}du \stackrel{u = t^n}{=} \lim_{n \to +\infty}n^\alpha \int_0^1 t^{n - 1}(1 - t)^{\alpha - 1}dt = \lim_{n \to +\infty} n^\alpha B(n,\,\alpha) =\\
+		\lim_{n \to +\infty} n^\alpha \frac{\Gamma(n)\Gamma(\alpha)}{\Gamma(\alpha + n)} = \lim_{n \to +\infty}n^\alpha \frac{(n - 1)!\Gamma(\alpha)}{(\alpha + n - 1)\cdots\alpha\Gamma(\alpha)} = \lim_{n \to +\infty}n^\alpha \frac{(n - 1)!}{\alpha(\alpha + 1)\cdots (\alpha + n - 1)}
+	\end{align*}
+\end{proof}
+
 \end{document}
