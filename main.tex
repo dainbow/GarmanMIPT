@@ -937,4 +937,31 @@
 	\[\left|\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx\right| \leq \frac{\varepsilon}{4C}\cdot 2C + \frac{\varepsilon}{4C}\cdot 2C = \varepsilon\]
 \end{proof}
 
+\section{Непрерывность и интегрируемость несобственных интегралов, зависящих от параметра}
+\begin{theorem}
+	Непрерывность НИРЗП
+
+	Если $f(x,\,y)$ непрерывна на $[a,\,b] \times [c,\,d]\; (b \leq +\infty)$ и $\int_a^bf(x,\,y)dx$ равномерно сходится на $[c,\,d]$, то он является непрерывной функцией на $[c,\,d]$.
+\end{theorem}
+\begin{proof}
+	Рассмотрим произвольную $\{b_n\}_{n = 1}^\infty \subset [a,\,b],\,\lim\limits_{n \to +\infty}b_n = b$, а также введём
+	\[I_n(y) := \int_a^{b_n}f(x,\,y)dx\]
+	Равномерная сходимость $\int_a^bf(x,\,y)dx$ влечёт равномерную сходимость $I_n(y)$. Используя теорему о пределе равномерно сходящейся функциональной последовательности получим, что $\lim\limits_{n \to +\infty} I_n(y)$ -- непрерывная.
+\end{proof}
+
+\begin{theorem}
+	Собственная интегрируемость НИРЗП.
+
+	Если $f(x,\,y)$ непрерывна на $[a,\,b) \times [c,\,d]\;(b \leq +\infty)$ и $\int_a^b f(x,\,y)dx$ равномерно сходится на $[c,\,d]$, то
+	\[\int_a^b \left(\int_c^d f(x,\,y)dy\right)dx = \int_c^d\left(\int_a^b f(x,\,y)dx\right)dy\]
+\end{theorem}
+\begin{proof}
+	Рассмотрим произвольную последовательность $\{b_n\}_{n = 1}^\infty \subset [a,\,b),\, \lim\limits_{n\to +\infty} b_n = b$. Положим
+	\[I_n(y) := \int_a^{b_n}f(x,\,y)dx\]
+	Тогда равномерная сходимость $\int_a^b f(x,\,y)dx$ влечёт равномерную сходимость $I_n(y)$. 
+	
+	Используя прыдыдущую теорему и теорему об интегрируемости функциональных последовательностей и тот факт, что $f(x,\,y)$ непрерывна на прямоугольнике $[a,\,b_n]\times [c,\,d]$, поэтому мы можем переставить пределы интегрирования и получим:
+	\[\int_a^{b_n}\left(\int_c^d f(x,\,y)dy\right)dx = \int_c^d I_n(y)dy \stackrel{n \to +\infty}{\to} \int_c^d \left(\int_a^b f(x,\,y)dx\right)dy\]
+\end{proof}
+
 \end{document}
