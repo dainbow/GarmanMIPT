@@ -838,4 +838,40 @@
 	\[\|f_m - f\|_p \leq \|f_m - f_{n_k}\|_p + \|f_{n_k} - f\|_p < 2\varepsilon\]
 \end{proof}
 
+\section{Непрерывность, интегрируемость и дифференцируемость интегралов, зависящих от параметра}
+\begin{definition}
+	Пусть функция $f(x,\,\alpha)$ зависит от $x,\, \alpha$. Тогда мы можем рассматривать функцию $f_{1,\,\alpha}(x)$ -- изначальная функция, которую мы теперь считаем зависящей только от первого параметра, а второй параметр считаем фиксированным. Аналогично вводится $f_{2,\,x}(\alpha)$.
+\end{definition}
+
+\begin{theorem}
+	Непрерывность интеграла, зависящего от параметра
+
+	Пусть $\forall \alpha \in A \subset \mathbb{R}^n$ функция $f_{1,\,\alpha}(x) = f(x,\,\alpha)$ суммируема на $E \subset \mathbb{R}^m$, $f_{2,\,x}(\alpha) = f(x,\,\alpha)$ при почти всех $x \in E$ непрерывна в $\alpha_0 \in E$, и при почти всех $x \in E,\, \forall \alpha \in A :\: |f(x,\,\alpha)| \leq \phi(x)$, где $\phi(x)$ суммируема на $E$. Тогда
+	\[F(\alpha) = \int_E f(x,\, \alpha)d\mu(x)\]
+	непрерывна в $\alpha_0$.
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим $\forall \{\alpha_n\}_{n = 1}^\infty \subset A,\, \lim\limits_{n\to +\infty}\alpha_n = \alpha_0$.
+
+	Тогда, по условию, $\lim\limits_{n \to +\infty} f(x,\,\alpha_n) = f(x,\,\alpha_0)$ при почти всех $x \in E$. Кроме того, для почти всех $x$ из $E$, выполняется неравенство $\forall n \in \mathbb{N}:\: |f(x,\,\alpha_n)| \leq \phi(x)$. Тогда, используя теорему Лебега, мы сможем перейти к пределу интегралов:
+	\[F(\alpha_n) = \int_E f_{1,\, \alpha_n}(x)d\mu(x) \stackrel{n \to +\infty}{\to} \int_E f(x,\,\alpha_0)d\mu(x) = F(\alpha_0)\]
+\end{proof}
+
+\begin{theorem}
+	Дифференцируемость интеграла, зависящего от параметра
+
+	Пусть $f_{1,\,\alpha}(x) = f(x,\,\alpha)$ при всех $\alpha \in U(\alpha_0) \subset \mathbb{R}$ суммируема на $E \subset \mathbb{R}^m$ вместе с $\frac{\partial f(x,\,\alpha)}{\partial \alpha}$, и при почти всех $x \in E,\, \forall \alpha \in U(\alpha_0)$: $\left|\frac{\partial f(x,\,\alpha_0)}{\partial \alpha}\right| \leq \phi(x)$, где $\phi(x)$ суммируема на $E$. Тогда
+	\[F'(\alpha_0) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial \alpha}d\mu(x)\]
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим $\forall \{\alpha_n\}_{n = 1}^\infty \subset \dot{U}(\alpha_0),\, \lim\limits_{n \to +\infty}\alpha_n = \alpha_0$.
+
+	Тогда частная производная в точке $\alpha_0$ -- это 
+	\[\left|\frac{f(x,\,\alpha_n) - F(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| = \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
+	Теперь, используя теорему Лебега, получим равенство пределов интегралов:
+	\[\lim_{n \to +\infty}\int_E \frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}d\mu(x) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial	\alpha}d\mu(x)\]
+\end{proof}
+
 \end{document}
