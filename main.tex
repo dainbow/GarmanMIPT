@@ -340,7 +340,7 @@
 	\[\lim_{n \to +\infty} \int_0^\delta \phi_{x_0}(t)\sin(nt)d\mu(t) = 0\]
 \end{proposition}
 
-\begin{definition}
+\begin{definition} \label{GELDER}
 	Будем говорить, что функция $f$ удовлетворяет условию Гёльдера порядка $\alpha \in (0,\,1]$ в точке $x_0$, если $\exists$ конечные односторонние пределы $f(x_0 \pm 0)$ и константы $C,\, \delta > 0$ такие, что
 	\[
 		\forall t,\, 0 < t < \delta,\, |f(x_0 + t) - f(x_0 + 0)| \leq Ct^\alpha,\, |f(x_0 - t) - f(x_0 - 0)| \leq Ct^\alpha
@@ -1145,7 +1145,7 @@
 	\[\phi_{x_0}(t) := \frac{f(x_0 + t) + f(x_0 - t) - 2S(x_0)}{t} \in L_1(0,\,\delta)\]
 	Тогда $I_f(x_0) = S(x_0)$
 \end{theorem}
-\begin{proof}
+\begin{proof} \label{DINI_FURRY}
 	Давайте распишем разность
 	\begin{align*}
 		I_f(x_0) - S(x_0) = \frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(t)\cos(\lambda (x_0 - t))d\mu(t)\right]d\lambda - S(x_0) \stackrel{u := x_0 - t}{=}              \\
@@ -1181,6 +1181,62 @@
 		      \[\int_\delta^{+\infty}\frac{\sin(\Lambda u)}{u}du = \int_{\Lambda\delta}^{+\infty}\frac{\sin t}{t}dt \stackrel{\Lambda \to +\infty}{\to} 0\]
 	\end{enumerate}
 	Таким образом, теорема доказана.
+\end{proof}
+
+\begin{corollary}
+	Если $f \in L_1(\mathbb{R})$ и удовлетворяет условию Гёльдера (\ref{GELDER}) порядка $\alpha,\, 0 < \alpha \leq 1$ в точке $x_0$, то $I_f(x_0) = \frac{f(x_0 + 0) + f(x_0 - 0)}{2}$.
+
+	Если $f \in L_1(\mathbb{R}) \cap C^1(\mathbb{R})$, то $I_f(x) = f(x) ;\;\forall x \in \mathbb{R}$.
+\end{corollary}
+
+\section{Преобразование Фурье. Обратное преобразование Фурье. Свойства преобразования Фурье суммируемой функции. Формулы обращения.}
+\begin{definition}
+	Преобразованием Фурье функции $f$, суммируемой на $\mathbb{R}$ называется
+	\[F[f] := \hat{f}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(t)e^{-i\lambda t}d\mu(t)\]
+\end{definition}
+
+\begin{definition}
+	Обратным преобразованием Фурье функции $F \in C(\mathbb{R})$ называется 
+	\[F^{-1}[f] := \tilde{F}(x) = \frac{1}{\sqrt{2\pi}} \text{v.p. }\int_{-\infty}^{+\infty}e^{i\lambda x}F(\lambda)d\lambda\]
+\end{definition}
+
+\begin{theorem}
+	Свойства преобразования Фурье суммируемых на всей числовой оси функций.
+
+	\begin{enumerate}
+		\item (Линейность)
+		
+		Если $f,\,g \in L_1(\mathbb{R}),\, \alpha,\, \beta \in \mathbb{R}$, то
+		\[\widehat{\alpha f + \beta g}(\lambda) = \alpha\hat{f}(\lambda) + \beta\hat{g}(\lambda)\]
+		\item Если $f \in L_1(\mathbb{R})$, то $\hat{f}(\lambda)$ непрерывна на $\mathbb{R}$ и $\lim\limits_{\lambda \to \infty}\hat{f}(\lambda) = 0$.
+		\item Если $f \in L_1(\mathbb{R}),\, \phi(x) = f(\alpha x),\, \alpha > 0$, то $\hat{\phi}(\lambda) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})$
+		\item Если $f \in L_1(\mathbb{R}),\, \psi(\lambda) = f(\lambda + a),\, a \in \mathbb{R}$, то $\hat{\psi}(\lambda)e^{ia\lambda}\hat{f}(\lambda)$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item Очевидна из свойств интеграла
+		\item Снова распишем преобразование Фурье:
+		\[\hat{f}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t)e^{-i\lambda t}d\mu(t)\]
+		Справедливо неравенство:
+		\[|f(t)e^{-i\lambda t}| \leq |f(t)| \in L_1(\mathbb{R})\]
+		После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему мы имеем право так делать? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
+		\item Распишем более подробно преобразование функции $\phi(\lambda)$:
+		\[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
+		\item Распишем более подробно преобразование функции $\psi(\lambda)$:
+		\[\hat{\psi}(\lambda) = \frac{1}{\sqrt{\lambda}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma}
+	Формула обращения.
+
+	Если $f \in L_1(\mathbb{R})$ и удовлетворяет условию Гёльдера в точке $x$, то 
+	\[\tilde{\hat{f}}(x) = f(x)\]
+\end{lemma}
+
+\begin{proof}
+	Заметим, что $\tilde{\hat{f}}$ -- это интеграл Фурье, тогда утверждение становится очевидным, благодаря одному из следствий признака Дини (\ref{DINI_FURRY}).
 \end{proof}
 
 \end{document}
