@@ -1114,6 +1114,20 @@
 	\end{align*}
 \end{proof}
 
+\section{Формула дополнения для гамма-функции}
+\begin{theorem}
+	Формула дополнения.
 
+	Для любых $\alpha \in (0,\,1)$:
+	\[\Gamma(\alpha)\Gamma(1 - \alpha) = \frac{\pi}{\sin\alpha\pi}\]
+\end{theorem}
+\begin{proof}
+	Используем формулу Гаусса-Эйлера:
+	\begin{align*}
+		\Gamma(\alpha)\Gamma(1 - \alpha) = \lim_{n \to +\infty} n^\alpha\frac{(n - 1)!}{\alpha(\alpha + 1)\cdots(\alpha + n - 1)}\cdot n^{1 - \alpha}\frac{(n - 1)!}{(1 - \alpha)(2 - \alpha)\cdots(n - \alpha)} =\\
+		\lim_{n \to +\infty}\frac{n((n - 1)!)^2(\alpha + n)}{\alpha(1 - \alpha^2)(2^2 - \alpha^2)\cdots(n^2 - \alpha^2)} = \lim_{n \to +\infty}\frac{\alpha + n}{\alpha}\cdot\frac{1}{n(1 - \frac{\alpha^2}{1})(1 - \frac{\alpha^2}{2^2})\cdots(1 - \frac{\alpha^2}{n^2})} =\\
+		\frac{1}{\alpha\prod_{n = 1}^\infty\left(1 - \frac{\alpha^2}{n^2}\right)}\stackrel{\text{ф. Валлиса}}{=} \frac{1}{\alpha\frac{\sin\alpha\pi}{\alpha\pi}} = \frac{\pi}{\sin\alpha\pi}
+	\end{align*}
+\end{proof}
 
 \end{document}
