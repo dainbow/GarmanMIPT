@@ -964,4 +964,24 @@
 	\[\int_a^{b_n}\left(\int_c^d f(x,\,y)dy\right)dx = \int_c^d I_n(y)dy \stackrel{n \to +\infty}{\to} \int_c^d \left(\int_a^b f(x,\,y)dx\right)dy\]
 \end{proof}
 
+\section{Дифференцирование несобственных интегралов по параметру}
+\begin{theorem}
+	Дифференцируемость НИРЗП.
+
+	Если $f(x,\,y)$ и $\frac{\partial f}{\partial y}(x,\,y)$ непрерывны на $[a,\,b) \times [c,\,d],\, \int_a^b \frac{\partial f}{\partial y}(x,\,y)dx$ сходится равномерно на $[c,\,d]$, $\int_a^b f(x,\,y)dx$ сходится для некоторого $y_0 \in [c,\,d]$, то $I(y) = \int_a^b f(x,\,y)dx$ сходится и является дифференцируемой функцией на $[c,\,d]$, причём
+	\[I'(y) = \int_a^b \frac{\partial f}{\partial y}(x,\,y)dx\]
+\end{theorem}
+\begin{proof}
+	$\forall t \in [c,\,d]$ и фиксированного $x \in [a,\,b]$ справедлива формула
+	\[f(x,\,t) = f(x,\,y_0) + \int_{y_0}^t \frac{\partial f}{\partial y}(x,\,y)dy\]
+	Тогда, если мы проинтегрируем обе части по $[a,\,b]$ по $x$, то получим что
+	\begin{enumerate}
+		\item Первое слагаемое сходится по условию
+		\item Второе слагаемое удовлетворяет условию теоремы о собственной интегрируемости несобственного интеграла, а это значит что он сходится по $x$.
+	\end{enumerate}
+	Значит и интеграл от левой части также сходится $\forall t$, причём он равен
+	\[I(t) := \int_a^b f(x,\,y_0)dx + \int_a^b \left(\int_{y_0}^t \frac{\partial f}{\partial y}(x,\,y)dy\right)dx = \int_a^b f(x,\,y_0)dx + \int_{y_0}^t \left(\int_a^b \frac{\partial f}{\partial y}(x,\,y) dx\right)dy\]
+	Тогда при взятии производной $I'(t)$, первое слагаемое обнулится, а второе, являясь переменным верхним пределом, превратится в $\int_a^b \frac{\partial f}{\partial y}(x,\,t) dx$.
+\end{proof}
+
 \end{document}
