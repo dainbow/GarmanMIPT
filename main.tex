@@ -614,6 +614,20 @@
 	где $\{e_k\}$ -- ортогональная система ненулевых элементов.
 \end{definition}
 
+\begin{definition}
+	Система функций $\{\phi_n\}_{n = 1}^\infty$ называется \textbf{полной} в $L_p(E)$, если 
+	\[\forall \varepsilon > 0 \: \forall f \in L_p(E) \: \exists \{c_1,\,\cdots,\,c_n\} \subset \mathbb{R}:\: \|f - \sum_{k = 1}^n c_k\phi_k\|_p < \varepsilon\]
+\end{definition}
+
+\begin{definition}
+	Система элементов $\{\phi_n\}_{n = 1}^\infty$ банахова пространства $E$ называется \textbf{базисом}, если
+	\[\forall f \in E \: \exists! \{c_n\}_{n = 1}^\infty \subset \mathbb{R}:\: f = \sum_{k = 1}^\infty c_k\phi_k\]
+\end{definition}
+
+\begin{definition}
+	Ортонормированная система $\{\phi_n\}_{n = 1}^\infty$ гильбертова пространства $H$, явл-ся его базисом, называется \textbf{ортонормированным базисом}
+\end{definition}
+
 \begin{theorem}
 	Минимальное свойство сумм Фурье.
 
@@ -838,6 +852,22 @@
 	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall k,\,l > N :\: \|f_{n_k} - f_{n_l}\|_p < \varepsilon\]
 	Но мы можем перейти к пределу $l \to +\infty$ благодаря теореме Лебега: $\|f_{n_k} - f\|_p < \varepsilon$. Тогда при достаточно больших $m$:
 	\[\|f_m - f\|_p \leq \|f_m - f_{n_k}\|_p + \|f_{n_k} - f\|_p < 2\varepsilon\]
+\end{proof}
+
+\begin{theorem}
+	$C[a,\,b]$ -- полно
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим для определённости $\rho(f,\,g) = \sup_{x \in [a,\,b]}|f(x) - g(x)|$.
+
+	Пусть последовательность $\{f_n(x)\}_{n = 1}^\infty$ -- фундаментальна. Зафиксируем $x_0 \in [a,\,b]$. 
+	
+	Тогда $\{f_n(x_0)\}_{n = 1}^\infty$ фундаментальная числовая последовательность $\Rightarrow$ она сходится. Обозначим этот предел как $f(x_0)$.
+	
+	Очевидно, $f_n(x) \stackrel{n \to +\infty}{\to} f(x)$ по введённой метрике, так как:
+	\[\forall \varepsilon > 0 \: \exists N_\varepsilon \: \forall n,\,m \geq N_\varepsilon \: \forall x \in [a,\,b] :\: |f_n(x) - f_m(x)| < \varepsilon\]
+	Зафиксируем $x$ и перейдём к пределу при $m \to +\infty \Rightarrow$ при всех тех же кванторах выполняется неравенство $|f_n(x) - f(x)| \leq \varepsilon$. Значит $f_n(x) \rightrightarrows f(x)$, тогда по теореме о равномерном пределе непрерывных функций $f(x) \in C[a,\,b]$. Что и требовалось доказать.
 \end{proof}
 
 \section{Непрерывность, интегрируемость и дифференцируемость интегралов, зависящих от параметра}
