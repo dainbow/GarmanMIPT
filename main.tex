@@ -1302,4 +1302,136 @@
 	\end{align*}
 \end{proof}
 
+\section{Пространства основных и обобщённых функций. Дифференцирование обобщённых функций. $\delta$-функция}
+\begin{definition}
+	Носителем функции $f (\text{supp }f)$ называется замыкание множества, где она не равна нулю:
+	\[\text{supp }f := \text{cl }\{x:\: f(x) \neq 0\}\]
+\end{definition}
+
+\begin{definition}
+	Функция $f:\: \mathbb{R} \to \mathbb{R}$ называется финитной, если её носитель компактен.
+\end{definition}
+
+\begin{definition}
+	Пространство $D$ основных функций -- это множество финитных бесконечно дифференцируемых функций с топологией, определяемой позже. ($D = C_0^\infty$)
+\end{definition}
+
+\begin{definition}
+	Пусть $D_K$ -- множество финитных бесконечно дифференцируемых функций $f$, таких, что $\text{supp }f \subset K$.
+\end{definition}
+
+\begin{definition}
+	Полунормой на линейном пространстве $E$ называется функция $p:\: E \to \mathbb{R}_+$ такая, что
+	\begin{enumerate}
+		\item $p(cx) = |c|p(x)\;\;\; \forall x \in E \: \forall c \in \mathbb{R}$
+		\item $p(x + y) \leq p(x) + p(y)\;\;\; \forall x,\, y \in E$
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	Если на $E$ задана совокупность нетривиальных полунорм $\{p_\alpha\}_{\alpha \in A}$, то $E$ является топологическим пространством, открытые множества в котором -- всевозможные объединения множеств
+	\[U_{\alpha_1,\,\cdots,\,\alpha_n,\, \varepsilon}(a) := \{x \in E:\: p_{\alpha_i}(x - a) < \varepsilon,\, i = \overline{1,\,n}\}\]
+\end{proposition}
+
+\begin{note}
+	В $D_{[-N,\,N]}$ рассмотрим счётную совокупность полунорм:
+	\[p_m(f) = \sup_{x \in \mathbb{R},\, k = \overline{0,\,m}}|f^{(k)}(x)|\]
+	А в $D$ рассмотрим совокупность полунорм $\{p_\alpha\},\, \alpha = \{N_m\}\subset \mathbb{N} \cup \{0\}$:
+	\[p_\alpha(f) = \sum_{m = 1}^\infty \sup_{x \in [-m,\,m]\setminus[-m + 1,\, m - 1],\, k =\overline{0,\, N_m}} |f^{(k)}(x)|\]
+\end{note}
+
+Это было длял \textbf{общего развития}, главное знать, что $D$ -- топологическое пространство, причём сходимость в нём даётся определением:
+\begin{definition}
+	Последовательность $\{\phi_n\}_{n = 1}^\infty \subset D$ сходится к $\phi_0 \in D$, если:
+	\begin{enumerate}
+		\item $\exists [a,\,b] \: \forall n \in \mathbb{N}:\: \text{supp }\phi_n \subset [a,\,b]$
+		\item $\forall m \in \mathbb{N} \cup \{0\}:\: \lim\limits_{n \to +\infty} \sup\limits_{x \in \mathbb{R}}|\phi_n^{(m)}(x) - \phi_0^{(m)}(x)| = 0$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Линейный функционал на $D$ -- линейное отображение $f:\: D \to \mathbb{R}$.
+
+	Действие функционала будем обозначать так:
+	\[(f,\, \alpha\phi_1 + \beta\phi_2) = \alpha(f,\,\phi_1) + \beta(f,\,\phi_2)\]
+\end{definition}
+
+\begin{definition}
+	Пусть $D'$ -- линейное топологическое пространство \textbf{непрерывных} функционалов на $D$.
+\end{definition}
+
+\begin{definition}
+	Функционалы из $D'$ непрерывны в смысле:
+	\[\forall f \in D' \: \forall \{\phi_n\}_{n = 1}^\infty \subset D:\: (f,\,\phi_n) = (f,\,\phi)\]
+\end{definition}
+
+\begin{definition}
+	Последовательность $\{f_n\}_{n = 1}^\infty \subset D'$ сходится к $f \in D'$, если $\forall \phi \in D$:
+	\[\lim_{n \to +\infty}(f_n,\,\phi) = (f,\,\phi)\]
+\end{definition}
+
+\begin{proposition}
+	Если $f \in L_{\text{loc}}(\mathbb{R})$, то $f$ соответствует линейный функционал из $D'$, определённый, как
+	\[\int_\mathbb{R}f(x)\phi(x)d\mu(x)\] 
+\end{proposition}
+
+\begin{proof}
+	Линейность очевидна. Докажем непрерывность:
+
+	Пусть $\phi_n \stackrel{n \to +\infty}{\to} \phi$ в $D \Rightarrow \text{supp }\phi_n,\,\text{supp }\phi \subset [a,\,b],\, \phi_n \rightrightarrows \phi$ на $[a,\,b]$. Значит $\{\phi_n\}_{n = 1}^\infty$ равномерно ограничена, тогда 
+	\[|f(x)\phi_n(x)| \leq C|f(x)| \stackrel{\text{т.Лебега}}{\Rightarrow} \int_\mathbb{R}f(x)\phi_n(x)d\mu(x) \stackrel{n \to +\infty}{\to} \int_\mathbb{R}f(x)\phi(x)d\mu(x)\]
+\end{proof}
+
+\begin{corollary}
+	\textbf{УСЛОВНО} можем считать, что $L_{\text{loc}}(\mathbb{R}) \subset D'$
+\end{corollary}
+
+\begin{definition}
+	Элементы пространства $D'$ называются также обобщёнными функциями.
+\end{definition}
+
+\begin{definition}
+	Линейные функционалы из $D'$, соответствующие функциям из $L_{\text{loc}}(\mathbb{R})$ называются регулярными функционалами.
+\end{definition}
+
+\begin{definition}
+	Нерегулярный функционал называется сингулярным.
+\end{definition}
+
+\begin{definition}
+	Пусть $\lambda \in C^\infty$. Тогда $\forall f \in D':\: \lambda f$ определяется как:
+	\[(\lambda f,\, \phi) := (f,\, \lambda\phi)\]
+\end{definition}
+
+\begin{definition}
+	Обобщённой производной обобщённой функции $f \in D'$ называется $f' \in D$, определяемая формулой:
+	\[\forall \phi \in D:\: (f',\, \phi) := -(f,\, \phi')\]
+\end{definition}
+
+\begin{theorem}
+	Свойства обобщённого дифференцирования.
+
+	Операция дифференцирования на $D'$ обладает следующими свойствами:
+	\begin{enumerate}
+		\item (Линейность)
+		
+		\[\forall \alpha,\, \beta \in \mathbb{R} \: \forall f,\, g \in D':\: (\alpha f + \beta g)' = \alpha f' + \beta g'\]
+		\item (Непрерывность)
+		
+		Если $f_n \to f$ в $D'$, то $f_n' \to f'$ в $D'$
+		\item (Правило Лейбница)
+		
+		Если $\lambda \in C^\infty,\, f \in D'$, то $(\lambda f)' = \lambda' f + \lambda f'$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Все свойства доказываются очевидно расписыванием действия рассматриваемых функционалов на произвольную функцию $\phi$.
+\end{proof}
+
+\begin{definition}
+	$\delta$-функцией называется функционал $\delta \in D'$:
+	\[\forall \phi \in D:\: (\delta,\, \phi) = \phi(0)\]
+\end{definition}
+
 \end{document}
