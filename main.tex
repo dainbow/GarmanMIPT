@@ -1196,7 +1196,7 @@
 \end{definition}
 
 \begin{definition}
-	Обратным преобразованием Фурье функции $F \in C(\mathbb{R})$ называется 
+	Обратным преобразованием Фурье функции $F \in C(\mathbb{R})$ называется
 	\[F^{-1}[f] := \tilde{F}(x) = \frac{1}{\sqrt{2\pi}} \text{v.p. }\int_{-\infty}^{+\infty}e^{i\lambda x}F(\lambda)d\lambda\]
 \end{definition}
 
@@ -1205,9 +1205,9 @@
 
 	\begin{enumerate}
 		\item (Линейность)
-		
-		Если $f,\,g \in L_1(\mathbb{R}),\, \alpha,\, \beta \in \mathbb{R}$, то
-		\[\widehat{\alpha f + \beta g}(\lambda) = \alpha\hat{f}(\lambda) + \beta\hat{g}(\lambda)\]
+
+		      Если $f,\,g \in L_1(\mathbb{R}),\, \alpha,\, \beta \in \mathbb{R}$, то
+		      \[\widehat{\alpha f + \beta g}(\lambda) = \alpha\hat{f}(\lambda) + \beta\hat{g}(\lambda)\]
 		\item Если $f \in L_1(\mathbb{R})$, то $\hat{f}(\lambda)$ непрерывна на $\mathbb{R}$ и $\lim\limits_{\lambda \to \infty}\hat{f}(\lambda) = 0$.
 		\item Если $f \in L_1(\mathbb{R}),\, \phi(x) = f(\alpha x),\, \alpha > 0$, то $\hat{\phi}(\lambda) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})$
 		\item Если $f \in L_1(\mathbb{R}),\, \psi(\lambda) = f(\lambda + a),\, a \in \mathbb{R}$, то $\hat{\psi}(\lambda)e^{ia\lambda}\hat{f}(\lambda)$
@@ -1217,21 +1217,21 @@
 	\begin{enumerate}
 		\item Очевидна из свойств интеграла
 		\item Снова распишем преобразование Фурье:
-		\[\hat{f}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t)e^{-i\lambda t}d\mu(t)\]
-		Справедливо неравенство:
-		\[|f(t)e^{-i\lambda t}| \leq |f(t)| \in L_1(\mathbb{R})\]
-		После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему мы имеем право так делать? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
+		      \[\hat{f}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t)e^{-i\lambda t}d\mu(t)\]
+		      Справедливо неравенство:
+		      \[|f(t)e^{-i\lambda t}| \leq |f(t)| \in L_1(\mathbb{R})\]
+		      После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему мы имеем право так делать? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
 		\item Распишем более подробно преобразование функции $\phi(\lambda)$:
-		\[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
+		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
 		\item Распишем более подробно преобразование функции $\psi(\lambda)$:
-		\[\hat{\psi}(\lambda) = \frac{1}{\sqrt{\lambda}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
+		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{\lambda}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
 	\end{enumerate}
 \end{proof}
 
 \begin{lemma}
 	Формула обращения.
 
-	Если $f \in L_1(\mathbb{R})$ и удовлетворяет условию Гёльдера в точке $x$, то 
+	Если $f \in L_1(\mathbb{R})$ и удовлетворяет условию Гёльдера в точке $x$, то
 	\[\tilde{\hat{f}}(x) = f(x)\]
 \end{lemma}
 
@@ -1251,7 +1251,7 @@
 	\[f(x) = f(0) + \int_0^x f(t)d\mu(t),\, x > 0\]
 	Устремляя $x \to +\infty$ увидим, что правая часть имеет предел, а значит и левая тоже:
 	\[\exists \lim_{x \to +\infty}f(x),\, f \in L_1(\mathbb{R}) \Rightarrow f
-	(+\infty) = 0\]
+		(+\infty) = 0\]
 	Аналогично получим, что $f(-\infty) = 0$.
 
 	Тогда рассмотрим следующее преобразование Фурье:
@@ -1281,7 +1281,7 @@
 	Свёртка определена почти всюду.
 \end{proposition}
 \begin{proof}
-	Рассмотрим 
+	Рассмотрим
 	\begin{align*}
 		\int_\mathbb{R}\int_\mathbb{R} (f(x)g(t - x))d\mu(x)d\mu(t) \stackrel{\text{т.Фубини}}{=} \int_\mathbb{R}f(x)\int_\mathbb{R}g(t - x)d\mu(t)d\mu(x) \stackrel{u := t - x}{=} \\
 		\int_\mathbb{R}\int_\mathbb{R} f(x)g(u)d\mu(u)d\mu(x)
@@ -1296,8 +1296,8 @@
 \end{theorem}
 \begin{proof}
 	\begin{align*}
-		\widehat{(f * g)}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\int_\mathbb{R} f(x)g(t - x)d\mu(x)e^{-i\lambda t}d\mu(t) \stackrel{\text{т. Фубини}}{=}\\
-		\frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x) e^{-i\lambda x}\int_\mathbb{R}g(t - x)d e^{-i\lambda (t - x)}\mu(t)d\mu(x) \stackrel{u := t - x}{=} \\
+		\widehat{(f * g)}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\int_\mathbb{R} f(x)g(t - x)d\mu(x)e^{-i\lambda t}d\mu(t) \stackrel{\text{т. Фубини}}{=} \\
+		\frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x) e^{-i\lambda x}\int_\mathbb{R}g(t - x)d e^{-i\lambda (t - x)}\mu(t)d\mu(x) \stackrel{u := t - x}{=}              \\
 		\sqrt{2\pi}\cdot\frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x) e^{-i\lambda x} d\mu(x) \cdot \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}g(u) e^{-i\lambda u} d\mu(u) = \sqrt{2\pi}\hat{f}(\lambda)\hat{g}(\lambda)
 	\end{align*}
 \end{proof}
@@ -1372,13 +1372,13 @@
 
 \begin{proposition}
 	Если $f \in L_{\text{loc}}(\mathbb{R})$, то $f$ соответствует линейный функционал из $D'$, определённый, как
-	\[\int_\mathbb{R}f(x)\phi(x)d\mu(x)\] 
+	\[\int_\mathbb{R}f(x)\phi(x)d\mu(x)\]
 \end{proposition}
 
 \begin{proof}
 	Линейность очевидна. Докажем непрерывность:
 
-	Пусть $\phi_n \stackrel{n \to +\infty}{\to} \phi$ в $D \Rightarrow \text{supp }\phi_n,\,\text{supp }\phi \subset [a,\,b],\, \phi_n \rightrightarrows \phi$ на $[a,\,b]$. Значит $\{\phi_n\}_{n = 1}^\infty$ равномерно ограничена, тогда 
+	Пусть $\phi_n \stackrel{n \to +\infty}{\to} \phi$ в $D \Rightarrow \text{supp }\phi_n,\,\text{supp }\phi \subset [a,\,b],\, \phi_n \rightrightarrows \phi$ на $[a,\,b]$. Значит $\{\phi_n\}_{n = 1}^\infty$ равномерно ограничена, тогда
 	\[|f(x)\phi_n(x)| \leq C|f(x)| \stackrel{\text{т.Лебега}}{\Rightarrow} \int_\mathbb{R}f(x)\phi_n(x)d\mu(x) \stackrel{n \to +\infty}{\to} \int_\mathbb{R}f(x)\phi(x)d\mu(x)\]
 \end{proof}
 
@@ -1414,14 +1414,14 @@
 	Операция дифференцирования на $D'$ обладает следующими свойствами:
 	\begin{enumerate}
 		\item (Линейность)
-		
-		\[\forall \alpha,\, \beta \in \mathbb{R} \: \forall f,\, g \in D':\: (\alpha f + \beta g)' = \alpha f' + \beta g'\]
+
+		      \[\forall \alpha,\, \beta \in \mathbb{R} \: \forall f,\, g \in D':\: (\alpha f + \beta g)' = \alpha f' + \beta g'\]
 		\item (Непрерывность)
-		
-		Если $f_n \to f$ в $D'$, то $f_n' \to f'$ в $D'$
+
+		      Если $f_n \to f$ в $D'$, то $f_n' \to f'$ в $D'$
 		\item (Правило Лейбница)
-		
-		Если $\lambda \in C^\infty,\, f \in D'$, то $(\lambda f)' = \lambda' f + \lambda f'$
+
+		      Если $\lambda \in C^\infty,\, f \in D'$, то $(\lambda f)' = \lambda' f + \lambda f'$
 	\end{enumerate}
 \end{theorem}
 
@@ -1433,5 +1433,60 @@
 	$\delta$-функцией называется функционал $\delta \in D'$:
 	\[\forall \phi \in D:\: (\delta,\, \phi) = \phi(0)\]
 \end{definition}
+
+\section{Пространство Шварца быстро убывающих функций}
+\begin{definition}
+	$f \in S$, если $f$ -- бесконечно дифференцируемая на $\mathbb{R}$, и \[\forall k,\,l \in \mathbb{N} \cup \{0\}\:\exists C(k,\,l) \: \forall x \in \mathbb{R} :\: (1 + |x|)^k|f^{(l)}(x)| \leq C(k,\,l)\]
+	То есть любая производная функций из пространства Шварца стремится к нулю быстрее любой отрицательной степени.
+\end{definition}
+
+\begin{theorem}
+	Преобразование Фурье является биекцией на $S$.
+\end{theorem}
+
+\begin{proof}
+	Сделаем оценку:
+	\[|x^k f^{(l)}(x)| \leq \frac{C(k + 2,\, l)}{(1 + |x|)^2 } \Rightarrow x^kf^{(l)} \in L_1(\mathbb{R})\]
+	Теперь мы можем утверждать, что преобразование Фурье является бесконечно дифференцируемой функцией на $S$. Также вспомним формулу преобразования Фурье производной:
+	\[\hat{f'}(\lambda) = i\lambda\hat{f}(\lambda) \Rightarrow |\hat{f}(\lambda)| = o\left(\frac{1}{\lambda}\right),\, \lambda \to \infty\]
+	Но мы можем вместо первой производной ставить любую производную, значит
+	\[|\hat{f}(\lambda)| = o\left(\frac{1}{\lambda^n}\right),\, n \in \mathbb{N},\, \lambda \to +\infty\]
+	Таким образом, мы показали, что $f \in S \Rightarrow \hat{f} \in S$. Осталось установить, что $\forall g \in S:\: \tilde{g} \in S$:
+	\[\tilde{g}(x) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}g(\lambda)e^{i\lambda x}d\lambda = \hat{g}(-x)\]
+	Значит $g = \hat{\tilde{g}},\, \tilde{g} \in S$.
+\end{proof}
+
+\begin{theorem}
+	Равенство Парсеваля в $S$.
+
+	$\forall f_1,\, f_2 \in S$:
+	\begin{enumerate}
+		\item $\int_\mathbb{R}\hat{f_1}(x)f_2(x)dx = \int_\mathbb{R}f_1(x)\hat{f_2}(x)dx$
+		\item $\int_\mathbb{R}f_1(x)\overline{f_2}(x)dx = \int_\mathbb{R}\hat{f_1}\overline{\hat{f_2}}(x)dx$
+	\end{enumerate}
+	в частности, $\|f\|_{L_2(\mathbb{R})} = \|\hat{f}\|_{L_2(\mathbb{R})}$
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Распишем интеграл произведения:
+		      \[
+			      \int_\mathbb{R}\hat{f_1}(x)f_2(x)dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f_2(x)\int_\mathbb{R}f_1(t)e^{-itx}dtdx
+		      \]
+		      Оценим подыинтегральную функцию:
+		      \[|f_1(t)f_2(x)e^{-itx}| \leq |f_1(t)|\cdot|f_2(x)| \in L_1(\mathbb{R^2})\]
+		      Значит мы можем применить теорему Фубини:
+		      \[= \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f_1(t)\int_\mathbb{R}f_2(x)e^{-itx}dxdt = \int_\mathbb{R}f_1(t)\hat{f_2}(t)dt\]
+		\item Введём $h(x) := \overline{\hat{f_2}}(x)$. Распишем интеграл произведения:
+					\[
+						\int_\mathbb{R}\hat{f_1}(x)h(x)dx = \int_\mathbb{R}f_1(t)\hat{h}(t)dt
+					\]
+					Тогда
+					\[
+						\hat{h}(t) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}h(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\overline{\hat{f_2}}(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\overline{\int_\mathbb{R}\hat{f_2}(x)e^{itx}dx} = \overline{\tilde{\hat{f_2}}}(t) = \overline{f_2}(t)
+					\]
+					Заметим, что мы доказали второй пункт.
+	\end{enumerate}
+\end{proof}
 
 \end{document}
