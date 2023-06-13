@@ -1210,7 +1210,7 @@
 		      \[\widehat{\alpha f + \beta g}(\lambda) = \alpha\hat{f}(\lambda) + \beta\hat{g}(\lambda)\]
 		\item Если $f \in L_1(\mathbb{R})$, то $\hat{f}(\lambda)$ непрерывна на $\mathbb{R}$ и $\lim\limits_{\lambda \to \infty}\hat{f}(\lambda) = 0$.
 		\item Если $f \in L_1(\mathbb{R}),\, \phi(x) = f(\alpha x),\, \alpha > 0$, то $\hat{\phi}(\lambda) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})$
-		\item Если $f \in L_1(\mathbb{R}),\, \psi(\lambda) = f(\lambda + a),\, a \in \mathbb{R}$, то $\hat{\psi}(\lambda)e^{ia\lambda}\hat{f}(\lambda)$
+		\item Если $f \in L_1(\mathbb{R}),\, \psi(\lambda) = f(\lambda + a),\, a \in \mathbb{R}$, то $\hat{\psi}(\lambda) = e^{ia\lambda}\hat{f}(\lambda)$
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -1224,7 +1224,7 @@
 		\item Распишем более подробно преобразование функции $\phi(\lambda)$:
 		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
 		\item Распишем более подробно преобразование функции $\psi(\lambda)$:
-		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{\lambda}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
+		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
 	\end{enumerate}
 \end{proof}
 
