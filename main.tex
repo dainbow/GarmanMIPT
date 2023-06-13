@@ -237,7 +237,7 @@
 \begin{proof}
 	$g$ -- ограниченная $\Rightarrow \exists M:\: \forall u \: |g(u)| \leq M$.
 
-	$f$ -- измеримая $\Rightarrow$ по (\ref{C_IN_PLOTNI}) мы можем её представить, как $f = f_1 + f_2$, причём $f_1 \in C[-\pi,\,\pi]$, а $\int_{-\pi}^{\pi} |f_2(t)|d\mu(t) < \frac{\varepsilon}{4M}$.
+	$f$ -- суммируемая $\Rightarrow$ по (\ref{C_IN_PLOTNI}) мы можем её представить, как $f = f_1 + f_2$, причём $f_1 \in C[-\pi,\,\pi]$, а $\int_{-\pi}^{\pi} |f_2(t)|d\mu(t) < \frac{\varepsilon}{4M}$.
 
 	$f_1$ -- непрерывная на компакте $[-\pi,\,\pi] \Rightarrow \exists B \: \forall u:\: |f_1(u)| \leq B$.
 
@@ -917,7 +917,7 @@
 \begin{corollary}
 	Признак Вейерштрасса.
 
-	Если $|f(x,\,y)| \leq g(x)$, $f,\,g$ удовлетворяют условиям определения несобственных интегралов Римана, $\int_a^b g(x,\,y)dx$ сходится на $A$, то $\int_a^b f(x,\,y)dx$ равномерно сходится на $A$.
+	Если $|f(x,\,y)| \leq g(x)$, $f,\,g$ удовлетворяют условиям определения несобственных интегралов Римана, $\int_a^b g(x)dx$ сходится на $A$, то $\int_a^b f(x,\,y)dx$ равномерно сходится на $A$.
 \end{corollary}
 
 \begin{theorem}
@@ -1018,7 +1018,7 @@
 		      \[\ln x \leq \frac{1}{x^\varepsilon},\,x\in(0,\,1];\;\;\; \ln x \leq x^\varepsilon,\, x \geq 1\]
 		      Значит мы можем дифференцировать сколько угодно раз с сохранением сходимости.
 		\item Проинтегрировав по частям, получим:
-		      \[\Gamma(\alpha) = -x^\alpha e^{-x}|^{+\infty}_0 + \alpha\int_0^{+\infty}x^{\alpha - 1}e^{-x}dx = \alpha\Gamma(\alpha)\]
+		      \[\Gamma(\alpha + 1) = -x^\alpha e^{-x}|^{+\infty}_0 + \alpha\int_0^{+\infty}x^{\alpha - 1}e^{-x}dx = \alpha\Gamma(\alpha)\]
 		\item Заметим, что $\Gamma(1) = \int_1^{+\infty} e^{-x}dx = -e^{-x}|^{+\infty}_0 = 1$. Используя предыдущее свойство, доказываемое утверждение становится очевидным.
 	\end{enumerate}
 \end{proof}
