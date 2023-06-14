@@ -797,7 +797,7 @@
 \begin{proof}
 	Геометрическое:
 
-	\begin{figure}[h]
+	\begin{figure}[h] \caption{Геометрическое доказательство Л13.1}
 		\includegraphics[scale=0.5]{img/yung.png}
 	\end{figure}
 
@@ -842,7 +842,7 @@
 		\int_E |f(x) + g(x)|^p d\mu(x) \leq \\
 		\left(\left(\int_E |f(x)|^pd\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}\right) \cdot \left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}
 	\end{align*}
-	Давайте более подробно распишем $(p - 1)q = (p - 1)\cdot\frac{1}{1 - \frac{1}{p}} = 0$, то есть второй множитель правой части неравенства под степенью имеет то же самое, что и левое часть, значит поделим обе части на неотрицательный $\left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}$ и получим:
+	Давайте более подробно распишем $(p - 1)q = (p - 1)\cdot\frac{1}{1 - \frac{1}{p}} = 0$, то есть второй множитель правой части неравенства под степенью имеет то же самое, что и левая часть, значит поделим обе части на неотрицательный $\left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}$ и получим:
 	\[\left(\int_E |f(x) + g(x)|^p d\mu(x)\right)^{1 - \frac{1}{q} = \frac{1}{p}} \leq \left(\int_E |f(x)|^pd\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}\]
 \end{proof}
 
@@ -987,6 +987,7 @@
 	Тогда $\int_a^b f(x,\,y)g(x,\,y)dx$ равномерно сходится на $A$.
 \end{theorem}
 \begin{proof}
+	По формуле Бонне:
 	\[\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx = g(B',\,y)\int_{B'}^{\xi(y)}f(x,\,y)dx + g(B'',\,y)\int_{\xi(y)}^{B''}f(x,\,y)dx\]
 	$g \rightrightarrows 0$, значит
 	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall x \in (B,\,b) \: \forall y \in A :\: |g(x,\,y)| < \frac{\varepsilon}{4C}\]
@@ -1159,7 +1160,7 @@
 	Значит
 	\[\cos\alpha x = \frac{\sin\alpha\pi}{\alpha\pi} + \frac{2\alpha\sin\alpha\pi}{\pi}\sum_{n = 1}^\infty \frac{(-1)^n}{\alpha^2 - n^2}\cos nx,\, \alpha x \in [-\pi,\,\pi]\]
 	Возьмём $x := \pi$, тогда
-	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\alpha^2\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
+	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\frac{\alpha}{\pi}\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	В итоге получим, что
 	\[\ctg\alpha\pi  - \frac{1}{\alpha\pi} = 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	Где слева -- устранимая точка разрыва, а справа ряд равномерно сходится при $\alpha \leq \alpha_0 < 1$ (Можем оценить $\left|\frac{\alpha}{\alpha^2 - n^2}\right|\leq \frac{1}{n^2 - \alpha_0^2}$). Значит мы можем проинтегрировать обе части по $\alpha$:
@@ -1223,7 +1224,7 @@
 	Продолжим расписывать\dots
 	\begin{align*}
 		I_f(x_0) - S(x_0) =                                                                                             \\
-		\frac{1}{\pi}\lim_{\Lambda \to +\infty}\Big[\frac{f(x_0 + u) + f(x_0 - u) - 2S(x_0)}{u}\sin(\Lambda u)d\mu(u) + \\
+		\frac{1}{\pi}\lim_{\Lambda \to +\infty}\Big[\int_0^\delta\frac{f(x_0 + u) + f(x_0 - u) - 2S(x_0)}{u}\sin(\Lambda u)d\mu(u) + \\
 			\int_{\delta}^{+\infty} \frac{f(x_0 + u) + f(x_0 - u)}{u}\sin(\Lambda u)d\mu(u) - 2S(x_0)\int_\delta^{+\infty}\frac{\sin(\Lambda u)}{u}du\Big]
 	\end{align*}
 	Рассмотрим каждое из этих слагаемых поотдельности:
@@ -1232,7 +1233,7 @@
 		      \[\int_{[0,\,\delta]}\phi_{x_0}(u)\sin(\Lambda u)d\mu(u) \stackrel{\Lambda \to +\infty}{\to} 0\]
 		\item На $[\delta,\, +\infty)$ мы можем использовать следующую оценку:
 		      \[\left|\frac{f(x_0 + u)}{u}\right| \leq \frac{1}{\delta}|f(x_0 + u)|\]
-		      Значит по теореме Римана об осцилляции (предыдущим неравенством мы доказали, что $\frac{f(x_0 + u)}{u}sin(\Lambda u)$ суммируемая, аналогично для второго подслагаемого):
+		      Значит по теореме Римана об осцилляции (предыдущим неравенством мы доказали, что $\frac{f(x_0 + u)}{u}$ суммируемая, аналогично для второго подслагаемого):
 		      \[\int_{[\delta,\, +\infty)} \frac{f(x_0 + u)}{u}sin(\Lambda u) d\mu(u) \stackrel{\Lambda \to +\infty}{\to} 0\]
 		\item Совершим замену и получим хвост сходящегося интеграла Римана (интеграла Дирихле):
 		      \[\int_\delta^{+\infty}\frac{\sin(\Lambda u)}{u}du = \int_{\Lambda\delta}^{+\infty}\frac{\sin t}{t}dt \stackrel{\Lambda \to +\infty}{\to} 0\]
@@ -1277,9 +1278,9 @@
 		      \[\hat{f}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t)e^{-i\lambda t}d\mu(t)\]
 		      Справедливо неравенство:
 		      \[|f(t)e^{-i\lambda t}| \leq |f(t)| \in L_1(\mathbb{R})\]
-		      После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему мы имеем право так делать? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
+		      После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему преобразование Фурье непрерывно? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
 		\item Распишем более подробно преобразование функции $\phi(\lambda)$:
-		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
+		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}\left(\frac{\lambda}{\alpha}\right)\]
 		\item Распишем более подробно преобразование функции $\psi(\lambda)$:
 		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
 	\end{enumerate}
@@ -1483,7 +1484,7 @@
 \end{theorem}
 
 \begin{proof}
-	Все свойства доказываются очевидно расписыванием действия рассматриваемых функционалов на произвольную функцию $\phi$.
+	Все свойства доказываются очевидно расписыванием действия рассматриваемых функционалов на произвольную функцию $\phi \in D$.
 \end{proof}
 
 \begin{definition}
