@@ -121,7 +121,7 @@
 			      \includegraphics[scale=0.5]{img/phi_graph.png}
 			      \caption{Один из способов ввода функции $\phi$}
 		      \end{figure}
-					
+
 		      Тогда
 		      \[\int_a^b |\mathbb{I}_{(c,\,d)}(x) - \phi(x)|d\mu(x) = \frac{2}{m} < \varepsilon\]
 	\end{itemize}
@@ -246,7 +246,7 @@
 	Рассмотрим $a_n$ для функции $\chi$:
 	\begin{align*}
 		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
-		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                    \\
+		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                  \\
 		|a_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\, \chi\right)
 	\end{align*}
 	Аналогично получим неравенство для $b_n(\chi)$:
@@ -614,7 +614,7 @@
 \end{definition}
 
 \begin{definition}
-	Система функций $\{\phi_n\}_{n = 1}^\infty$ называется \textbf{полной} в $L_p(E)$, если 
+	Система функций $\{\phi_n\}_{n = 1}^\infty$ называется \textbf{полной} в $L_p(E)$, если
 	\[\forall \varepsilon > 0 \: \forall f \in L_p(E) \: \exists \{c_1,\,\cdots,\,c_n\} \subset \mathbb{R}:\: \|f - \sum_{k = 1}^n c_k\phi_k\|_p < \varepsilon\]
 \end{definition}
 
@@ -825,6 +825,32 @@
 \end{proof}
 
 \begin{theorem}
+	Неравенство Минковского.
+
+	Если $f,\, g \in L_p(E)$, то
+	\[\left(\int_E |f(x) + g(x)|^p d\mu(x)\right)^{\frac{1}{p}} \leq \left(\int_E |f(x)|^p d\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^p d\mu(x)\right)^{\frac{1}{p}}\]
+\end{theorem}
+
+\begin{proof}
+	Очевидно, что $|f(x) + g(x)|^p \leq 2^p \max(|f(x)|^p,\, |g(x)|^p)$, поэтому $|f(x) + g(x)|^p$ будет суммируемая.
+
+	Если $p = 1$, то всё очевидно -- неравенство треугольника, поэтому будем доказывать лишь для $1 < p < +\infty$.
+
+	Распишем $|f(x) + g(x)|^p = |f(x) + g(x)|^{p - 1}|f(x) + g(x)|$. Теперь дважды применим неравенство Гёльдера, в первый раз $F(x) = f(x),\, G(x) = |f(x) + g(x)|^{p - 1}$. Во второй же -- $F(x) = g(x),\, G(x) = |f(x) + g(x)|^{p - 1}$. Получим, что:
+	\begin{align*}
+		\int_E |f(x) + g(x)|^p d\mu(x) \leq \\
+		\left(\left(\int_E |f(x)|^pd\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}\right) \cdot \left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}
+	\end{align*}
+	Давайте более подробно распишем $(p - 1)q = (p - 1)\cdot\frac{1}{1 - \frac{1}{p}} = 0$, то есть второй множитель правой части неравенства под степенью имеет то же самое, что и левое часть, значит поделим обе части на неотрицательный $\left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}$ и получим:
+	\[\left(\int_E |f(x) + g(x)|^p d\mu(x)\right)^{1 - \frac{1}{q} = \frac{1}{p}} \leq \left(\int_E |f(x)|^pd\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}\]
+\end{proof}
+
+\begin{corollary}
+	Только теперь мы можем говорить, что $L_p(E)$ -- ЛНП с корректно определённой нормой (заметим, что неравенство Минковского -- это неравенство треугольника для этой нормы, остальные свойства очевидно следуют из свойств интеграла Лебега):
+	\[\|f\|_p = \left(\int_E |f(x)|^p d\mu(x)\right)^{\frac{1}{p}}\]
+\end{corollary}
+
+\begin{theorem}
 	Для $p \in [1,\,+\infty) \: L_p([a,\,b])$ -- банахово пространство.
 \end{theorem}
 
@@ -860,10 +886,10 @@
 \begin{proof}
 	Рассмотрим для определённости $\rho(f,\,g) = \sup_{x \in [a,\,b]}|f(x) - g(x)|$.
 
-	Пусть последовательность $\{f_n(x)\}_{n = 1}^\infty$ -- фундаментальна. Зафиксируем $x_0 \in [a,\,b]$. 
-	
+	Пусть последовательность $\{f_n(x)\}_{n = 1}^\infty$ -- фундаментальна. Зафиксируем $x_0 \in [a,\,b]$.
+
 	Тогда $\{f_n(x_0)\}_{n = 1}^\infty$ фундаментальная числовая последовательность $\Rightarrow$ она сходится. Обозначим этот предел как $f(x_0)$.
-	
+
 	Очевидно, $f_n(x) \stackrel{n \to +\infty}{\to} f(x)$ по введённой метрике, так как:
 	\[\forall \varepsilon > 0 \: \exists N_\varepsilon \: \forall n,\,m \geq N_\varepsilon \: \forall x \in [a,\,b] :\: |f_n(x) - f_m(x)| < \varepsilon\]
 	Зафиксируем $x$ и перейдём к пределу при $m \to +\infty \Rightarrow$ при всех тех же кванторах выполняется неравенство $|f_n(x) - f(x)| \leq \varepsilon$. Значит $f_n(x) \rightrightarrows f(x)$, тогда по теореме о равномерном пределе непрерывных функций $f(x) \in C[a,\,b]$. Что и требовалось доказать.
@@ -1508,14 +1534,14 @@
 		      Значит мы можем применить теорему Фубини:
 		      \[= \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f_1(t)\int_\mathbb{R}f_2(x)e^{-itx}dxdt = \int_\mathbb{R}f_1(t)\hat{f_2}(t)dt\]
 		\item Введём $h(x) := \overline{\hat{f_2}}(x)$. Распишем интеграл произведения:
-					\[
-						\int_\mathbb{R}\hat{f_1}(x)h(x)dx = \int_\mathbb{R}f_1(t)\hat{h}(t)dt
-					\]
-					Тогда
-					\[
-						\hat{h}(t) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}h(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\overline{\hat{f_2}}(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\overline{\int_\mathbb{R}\hat{f_2}(x)e^{itx}dx} = \overline{\tilde{\hat{f_2}}}(t) = \overline{f_2}(t)
-					\]
-					Заметим, что мы доказали второй пункт.
+		      \[
+			      \int_\mathbb{R}\hat{f_1}(x)h(x)dx = \int_\mathbb{R}f_1(t)\hat{h}(t)dt
+		      \]
+		      Тогда
+		      \[
+			      \hat{h}(t) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}h(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\overline{\hat{f_2}}(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\overline{\int_\mathbb{R}\hat{f_2}(x)e^{itx}dx} = \overline{\tilde{\hat{f_2}}}(t) = \overline{f_2}(t)
+		      \]
+		      Заметим, что мы доказали второй пункт.
 	\end{enumerate}
 \end{proof}
 
