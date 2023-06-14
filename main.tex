@@ -121,6 +121,7 @@
 			      \includegraphics[scale=0.5]{img/phi_graph.png}
 			      \caption{Один из способов ввода функции $\phi$}
 		      \end{figure}
+					
 		      Тогда
 		      \[\int_a^b |\mathbb{I}_{(c,\,d)}(x) - \phi(x)|d\mu(x) = \frac{2}{m} < \varepsilon\]
 	\end{itemize}
@@ -161,7 +162,7 @@
 	\[\exists \delta \in (0,\,1) \: \forall h,\, 0 \leq h \leq \delta :\: \int_a^{b - h}|g(x + h) - g(x)|d\mu(x) < \frac{\varepsilon}{3}\]
 	Теперь возьмём $\forall t,\, |t| < \delta$:
 	\[
-		\int_\mathbb{R}|f(x + t) - f(x)|d\mu(x) = \int\limits_{\{x,\,x+t\}\subseteq[a,\,b]}|f(x+t)-f(x)|d\mu(x) + \int\limits_{\{x,\,x+y\}\not\subseteq[a,\,b]}|f(x+t)-f(x)|d\mu(x) < \varepsilon
+		\int_\mathbb{R}|f(x + t) - f(x)|d\mu(x) = \int\limits_{\{x,\,x+t\}\subseteq[a,\,b]}|f(x+t)-f(x)|d\mu(x) + \int\limits_{\{x,\,x+t\}\not\subseteq[a,\,b]}|f(x+t)-f(x)|d\mu(x) < \varepsilon
 	\]
 \end{proof}
 
@@ -407,7 +408,7 @@
 \begin{theorem}
 	Оценки коэффициентов Фурье функции ограниченной вариации.
 
-	Если $f$ -- функция ограниченной вариации на периоде $2\pi$, то её коэффициенты фурье удовлетворяют:
+	Если $f$ -- функция ограниченной вариации на периоде $2\pi$, то её коэффициенты Фурье удовлетворяют:
 	\[a_n = O\left(\frac{1}{n}\right)\;\;\;\;\; b_n = O\left(\frac{1}{n}\right);\; n \to +\infty\]
 \end{theorem}
 
@@ -608,9 +609,23 @@
 
 \begin{definition}
 	Коэффициентами Фурье функции $f$ в произвольном\newline
-	евклидовом(гильбертовом) пространстве называются скаляры вида
+	евклидовом (гильбертовом) пространстве называются скаляры вида
 	\[f_k = \frac{\langle f,\,e_k\rangle}{\|e_k\|^2}\]
 	где $\{e_k\}$ -- ортогональная система ненулевых элементов.
+\end{definition}
+
+\begin{definition}
+	Система функций $\{\phi_n\}_{n = 1}^\infty$ называется \textbf{полной} в $L_p(E)$, если 
+	\[\forall \varepsilon > 0 \: \forall f \in L_p(E) \: \exists \{c_1,\,\cdots,\,c_n\} \subset \mathbb{R}:\: \|f - \sum_{k = 1}^n c_k\phi_k\|_p < \varepsilon\]
+\end{definition}
+
+\begin{definition}
+	Система элементов $\{\phi_n\}_{n = 1}^\infty$ банахова пространства $E$ называется \textbf{базисом}, если
+	\[\forall f \in E \: \exists! \{c_n\}_{n = 1}^\infty \subset \mathbb{R}:\: f = \sum_{k = 1}^\infty c_k\phi_k\]
+\end{definition}
+
+\begin{definition}
+	Ортонормированная система $\{\phi_n\}_{n = 1}^\infty$ гильбертова пространства $H$, явл-ся его базисом, называется \textbf{ортонормированным базисом}
 \end{definition}
 
 \begin{theorem}
@@ -839,6 +854,22 @@
 	\[\|f_m - f\|_p \leq \|f_m - f_{n_k}\|_p + \|f_{n_k} - f\|_p < 2\varepsilon\]
 \end{proof}
 
+\begin{theorem}
+	$C[a,\,b]$ -- полно
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим для определённости $\rho(f,\,g) = \sup_{x \in [a,\,b]}|f(x) - g(x)|$.
+
+	Пусть последовательность $\{f_n(x)\}_{n = 1}^\infty$ -- фундаментальна. Зафиксируем $x_0 \in [a,\,b]$. 
+	
+	Тогда $\{f_n(x_0)\}_{n = 1}^\infty$ фундаментальная числовая последовательность $\Rightarrow$ она сходится. Обозначим этот предел как $f(x_0)$.
+	
+	Очевидно, $f_n(x) \stackrel{n \to +\infty}{\to} f(x)$ по введённой метрике, так как:
+	\[\forall \varepsilon > 0 \: \exists N_\varepsilon \: \forall n,\,m \geq N_\varepsilon \: \forall x \in [a,\,b] :\: |f_n(x) - f_m(x)| < \varepsilon\]
+	Зафиксируем $x$ и перейдём к пределу при $m \to +\infty \Rightarrow$ при всех тех же кванторах выполняется неравенство $|f_n(x) - f(x)| \leq \varepsilon$. Значит $f_n(x) \rightrightarrows f(x)$, тогда по теореме о равномерном пределе непрерывных функций $f(x) \in C[a,\,b]$. Что и требовалось доказать.
+\end{proof}
+
 \section{Непрерывность, интегрируемость и дифференцируемость интегралов, зависящих от параметра}
 \begin{definition}
 	Пусть функция $f(x,\,\alpha)$ зависит от $x,\, \alpha$. Тогда мы можем рассматривать функцию $f_{1,\,\alpha}(x)$ -- изначальная функция, которую мы теперь считаем зависящей только от первого параметра, а второй параметр считаем фиксированным. Аналогично вводится $f_{2,\,x}(\alpha)$.
@@ -870,7 +901,7 @@
 	Рассмотрим $\forall \{\alpha_n\}_{n = 1}^\infty \subset \dot{U}(\alpha_0),\, \lim\limits_{n \to +\infty}\alpha_n = \alpha_0$.
 
 	Тогда частная производная в точке $\alpha_0$ -- это
-	\[\left|\frac{f(x,\,\alpha_n) - F(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| = \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
+	\[\left|\frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| = \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
 	Теперь, используя теорему Лебега, получим равенство пределов интегралов:
 	\[\lim_{n \to +\infty}\int_E \frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}d\mu(x) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial	\alpha}d\mu(x)\]
 \end{proof}
@@ -904,7 +935,7 @@
 	$\Rightarrow$ При всех требуемых кванторах можем сделать оценку:
 	\[\left|\int_{B'}^{B''}f(x,\,y)dx\right| = \left|\int_{B''}^b f(x,\,y)dx - \int_{B'}^bf(x,\,y)dx\right| < 2\varepsilon\]
 	$\Leftarrow$ Фиксируем $\forall y \in A$, тогда используем критерий Коши сходимости несобственных интегралов (без параметра), то есть
-	\[\int_a^b f(x,\,y)dx < +\infty \stackrel{B'' \to b - 0}{\Rightarrow} \left|\int_{B'}^{B''}f(x,\,y)dx\right| \leq \varepsilon\]
+	\[\int_a^b f(x,\,y)dx < +\infty \stackrel{B'' \to b - 0}{\Rightarrow} \left|\int_{B'}^{b}f(x,\,y)dx\right| \leq \varepsilon\]
 \end{proof}
 
 \begin{corollary}
@@ -941,7 +972,7 @@
 \begin{theorem}
 	Непрерывность НИРЗП
 
-	Если $f(x,\,y)$ непрерывна на $[a,\,b] \times [c,\,d]\; (b \leq +\infty)$ и $\int_a^bf(x,\,y)dx$ равномерно сходится на $[c,\,d]$, то он является непрерывной функцией на $[c,\,d]$.
+	Если $f(x,\,y)$ непрерывна на $[a,\,b) \times [c,\,d]\; (b \leq +\infty)$ и $\int_a^bf(x,\,y)dx$ равномерно сходится на $[c,\,d]$, то он является непрерывной функцией на $[c,\,d]$.
 \end{theorem}
 \begin{proof}
 	Рассмотрим произвольную $\{b_n\}_{n = 1}^\infty \subset [a,\,b],\,\lim\limits_{n \to +\infty}b_n = b$, а также введём
@@ -1100,7 +1131,7 @@
 		\frac{2(-1)^n\alpha\sin\alpha\pi}{\pi(\alpha^2 - n^2)},\, n = 0,\,1,\,\cdots
 	\end{align*}
 	Значит
-	\[\cos\alpha x = \frac{\sin\alpha\pi}{\alpha\pi} + \frac{2\alpha\sin\alpha\pi}{\pi}\sum_{n = 1}^\infty \frac{(-1)^n}{\alpha^2 - n^2}\cos nx,\, x \in [-\pi,\,\pi]\]
+	\[\cos\alpha x = \frac{\sin\alpha\pi}{\alpha\pi} + \frac{2\alpha\sin\alpha\pi}{\pi}\sum_{n = 1}^\infty \frac{(-1)^n}{\alpha^2 - n^2}\cos nx,\, \alpha x \in [-\pi,\,\pi]\]
 	Возьмём $x := \pi$, тогда
 	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\alpha^2\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	В итоге получим, что
@@ -1248,7 +1279,7 @@
 \end{theorem}
 \begin{proof}
 	Перепишем $f(x)$ благодаря формуле Ньютона-Лейбница для суммируемых функций:
-	\[f(x) = f(0) + \int_0^x f(t)d\mu(t),\, x > 0\]
+	\[f(x) = f(0) + \int_0^x f'(t)d\mu(t),\, x > 0\]
 	Устремляя $x \to +\infty$ увидим, что правая часть имеет предел, а значит и левая тоже:
 	\[\exists \lim_{x \to +\infty}f(x),\, f \in L_1(\mathbb{R}) \Rightarrow f
 		(+\infty) = 0\]
