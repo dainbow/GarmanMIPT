@@ -98,12 +98,12 @@
 	Заменим $\mathbb{R}$ на $[a,\,b]$. То есть докажем, что множество непрерывных на $[a,\,b]$ функций всюду плотно в $L_1[a,\,b]$.
 
 	\begin{itemize}
-		\item Любая суммируемая функция представима в виде разности двух неотрицательных суммируемых функций, поэтому достатончо доказать утверждение для
+		\item Любая суммируемая функция представима в виде разности двух неотрицательных суммируемых функций, поэтому достаточно доказать утверждение для
 		      неотрицательных суммируемых функций.
 		\item Так как интеграл неотрицательной суммируемой функции слабо отличается от интеграла её срезки $f_{[N]}(x)$ при достаточно больших $N$, то
-		      достаточно доказать утверждение для ограниченных неотрицательных суммиремых функций.
+		      достаточно доказать утверждение для ограниченных неотрицательных суммируемых функций.
 		\item Докажем для ограниченных неотрицательных. По теореме о представлении ограниченной измеримой функции пределом последовательности ступенчатых
-		      \[\exists \{h_n\}:\: h_n \uparrow f\]
+		      \[\exists \{h_n\}_{n = 1}^\infty:\: h_n \uparrow f\]
 		      Теорема Леви гарантирует, что
 		      \[\int_a^b h_n(x)d\mu(x) \to \int_a^b f(x)d\mu(x)\]
 		      Значит
@@ -116,7 +116,7 @@
 		      \[\forall \varepsilon > 0:\: \exists \text{элементарное } M_\varepsilon:\: \mu(E_k \triangle M_\varepsilon) < \varepsilon \]
 		      Значит
 		      \[\int_a^b |\mathbb{I}_{E_k}(x) - \mathbb{I}_{M_\varepsilon}(x)|d\mu(x) = \int_a^b \mathbb{I}_{E \triangle M_\varepsilon}(x)d\mu(x) = \mu(E \triangle M_\varepsilon) < \varepsilon\]
-		      Нам осталось научиться приблизить индикатор интервала непрерывными функциями (так как элементарное множество представимо объединением интервалов), а это сделать очень просто, используя непрерывную функцию $\phi(x)$, которая выглядит вот так:
+		      Нам осталось научиться приближать индикатор интервала непрерывными функциями (так как элементарное множество представимо объединением интервалов), а это сделать очень просто, используя непрерывную функцию $\phi(x)$, которая выглядит вот так:
 		      \begin{figure}[h]
 			      \includegraphics[scale=0.5]{img/phi_graph.png}
 			      \caption{Один из способов ввода функции $\phi$}
@@ -149,7 +149,7 @@
 	\[\lim_{\delta \to +0} \sup_{0 \leq h \leq \delta} \int_a^{b - h} |f(x + h) - f(x)|d\mu(x) = 0\]
 	По предыдущей лемме:
 	\[\forall \varepsilon > 0 \: \exists g \in C[a,\,b]:\: \int_a^b |f(x) - g(x)|d\mu(x) < \frac{\varepsilon}{3}\]
-	$g$ -- непрерывная на $[a,\,b] \Rightarrow$ по теореме Кантора:
+	$g$ -- непрерывная на $[a,\,b] \Rightarrow$ по теореме Кантора она равномерно непрерывная на $[a,\,b]$:
 	\[\forall \varepsilon > 0 \: \exists \delta > 0 \: \forall x,\,y \in [a,\,b],\, |x - y| < \delta :\: |g(x) - g(y)| < \frac{\varepsilon}{3(b - a)}\]
 	Тогда $\forall h \: 0 \leq h \leq \delta$:
 	\begin{align*}
@@ -181,7 +181,7 @@
 	Заметим, что
 	\begin{align*}
 		\left|\int_{(I - \frac{\pi}{\lambda}) \setminus I} f\left(t + \frac{\pi}{\lambda}\right) \cos(\lambda t) d \mu(t)\right| \leq \int_{(I - \frac{\pi}{\lambda}) \triangle I} \left|f\left(t + \frac{\pi}{\lambda}\right)\right| d\mu(t) = \\
-		= \int_{I \triangle (I + \frac{\pi}{\lambda})} |f(x)|d\mu(t) \stackrel{\lambda \to \infty}{\to} 0
+		= \int_{I \triangle (I + \frac{\pi}{\lambda})} |f(x)|d\mu(x) \stackrel{\lambda \to \infty}{\to} 0
 	\end{align*}
 	Последнее заключение следует из того, что $\mu\left(I \triangle (I + \frac{\pi}{\lambda})\right) \stackrel{\lambda \to \infty}{\to} 0$
 
@@ -215,7 +215,7 @@
 	О представлении частичной суммы.
 
 	Если $f \in L_{2\pi}$, то $n$-я частичная сумма тригонометрического ряда Фурье
-	\[S_n(f,\,x) = \frac{a_0}{2} + \sum_{k = 1}^n a_k \cos(kx) + b_k\sin(kx)\]
+	\[S_n(f,\,x) = \frac{a_0}{2} + \sum_{k = 1}^n (a_k \cos(kx) + b_k\sin(kx))\]
 	может быть представлена следующим образом:
 	\[S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(t)D_n(x - t)d\mu(t) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + u)D_n(u)d\mu(u)\]
 \end{lemma}
@@ -251,7 +251,7 @@
 	\end{align*}
 	Аналогично получим неравенство для $b_n(\chi)$:
 	\[|b_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\,\chi\right)\]
-	То есть мы свели доказательство к доказательству факта, что $\lim_{n \to +\infty}\omega_1(\frac{\pi}{n},\,\chi) = 0$ равномерно по $x$:
+	То есть мы свели доказательство к доказательству факта, что $\lim\limits_{n \to +\infty}\omega_1(\frac{\pi}{n},\,\chi) = 0$ равномерно по $x$:
 	\begin{align*}
 		\int_{-\pi}^\pi |\chi(t + h) - \chi(t)|d\mu(t) = \int_{-\pi}^\pi |f(x + t + h)g(t + h) - f(x + t)g(t)|d\mu(t) \leq                        \\
 		\leq \int_{-\pi}^\pi |f(x + t + h) - f(x + t)|\cdot |g (t + h)|d\mu(t) + \int_{-\pi}^\pi |f(x + t)|\cdot |g(t + h) - g(t)|d\mu(t) \leq    \\
@@ -287,7 +287,7 @@
 
 	Продолжим раскрытия данной формулы, используя тригонометрические соотношения для ядра Дирихле:
 	\begin{align*}
-		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)\lambda(t)\ctg(\frac{t}{2})\sin(nt)d\mu(t) + \frac{1}{2\pi}\int_{-\pi}^\pi f(x+t)\lambda(t)\cos(nt)d\mu(t)
+		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)\lambda(t)\ctg\left(\frac{t}{2}\right)\sin(nt)d\mu(t) + \frac{1}{2\pi}\int_{-\pi}^\pi f(x+t)\lambda(t)\cos(nt)d\mu(t)
 	\end{align*}
 	Взяв в качестве $g$ из предыдущей леммы для первого слагаемого $\lambda(t)\ctg(\frac{t}{2})$ и $\lambda(t)$ для второго, то получим требуемое по этой же лемме.
 
@@ -350,7 +350,7 @@
 
 \begin{definition}
 	Обобщённой односторонней производной функции $f$ в точке $x_0$ называется
-	\[f'_+(x_0) = \lim_{t \to +0} \frac{f(x_0 + t) - f(x_0 + 0)}{t},\;\;\; f'_-(x_0) = \lim_{t \ to +0} \frac{f(x_0 - t) - f(x_0 - 0)}{-t}\]
+	\[f'_+(x_0) = \lim_{t \to +0} \frac{f(x_0 + t) - f(x_0 + 0)}{t},\;\;\; f'_-(x_0) = \lim_{t \to +0} \frac{f(x_0 - t) - f(x_0 - 0)}{-t}\]
 \end{definition}
 
 \begin{theorem}
@@ -400,7 +400,7 @@
 \end{corollary}
 
 \begin{proof}
-	Пусть $k = 1$: $f$ -- абсолютно непрерывная, значит $a_n(f) = -\frac{b_n(f')}{n},\, b_n(f) = \frac{a_n(f')}{n}$. По теореме об осцилляции: $a_n(f'),\, b_n(f') = o(1) \Rightarrow a_n(f),\,b_n(f) = o\left(\frac{1}{n}\right)$.
+	Пусть $k = 1$: $f$ -- абсолютно непрерывная, значит $a_n(f) = -\frac{b_n(f')}{n},\, b_n(f) = \frac{a_n(f')}{n}$. По теореме об осцилляции: $a_n(f'),\, b_n(f') = o(1) \Rightarrow a_n(f),\,b_n(f) = o\left(\frac{1}{n}\right),\, n \to +\infty$.
 
 	Далее применяем по индукции много-много раз. Мы имеем право так делать, потому что если производная абсолютно непрерывная, то она ограничена. А из ограниченной производной следует абсолютная непрерывность самой функции.
 \end{proof}
@@ -418,7 +418,7 @@
 		a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)dx = \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f(x + \frac{\pi}{n}) - f(x)\right]\cos(nx)dx = \cdots = \\
 		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f\left(x + \frac{k\pi}{n}\right) - f\left(x + \frac{(k - 1)\pi}{n}\right)\right]\cos(nx)dx,\;\;\; \forall k = \overline{1,\,n}
 	\end{align*}
-	Сложив все эти $n$ равенств, получим:
+	Сложив все эти $n$ равенств и оценив косинус сверху единицей, получим:
 	\[
 		|na_n| \leq \frac{1}{2\pi} \int_{-\pi}^\pi \sum_{k = 1}^n \left|f\left(x + \frac{k\pi}{n}\right) - f\left(x + \frac{(k - 1)\pi}{n}\right)\right|dx \leq V(f)
 	\]
