@@ -245,7 +245,7 @@
 	\[\omega_1(\delta,\,F) := \sup_{0 \leq h \leq \delta} \int_{-\pi}^\pi |F(t + h) - F(t)|d\mu(t)\]
 	Рассмотрим $a_n$ для функции $\chi$:
 	\begin{align*}
-		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) = \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
+		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
 		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                    \\
 		|a_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\, \chi\right)
 	\end{align*}
@@ -1241,7 +1241,7 @@
 		      \[\widehat{\alpha f + \beta g}(\lambda) = \alpha\hat{f}(\lambda) + \beta\hat{g}(\lambda)\]
 		\item Если $f \in L_1(\mathbb{R})$, то $\hat{f}(\lambda)$ непрерывна на $\mathbb{R}$ и $\lim\limits_{\lambda \to \infty}\hat{f}(\lambda) = 0$.
 		\item Если $f \in L_1(\mathbb{R}),\, \phi(x) = f(\alpha x),\, \alpha > 0$, то $\hat{\phi}(\lambda) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})$
-		\item Если $f \in L_1(\mathbb{R}),\, \psi(\lambda) = f(\lambda + a),\, a \in \mathbb{R}$, то $\hat{\psi}(\lambda)e^{ia\lambda}\hat{f}(\lambda)$
+		\item Если $f \in L_1(\mathbb{R}),\, \psi(\lambda) = f(\lambda + a),\, a \in \mathbb{R}$, то $\hat{\psi}(\lambda) = e^{ia\lambda}\hat{f}(\lambda)$
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -1255,7 +1255,7 @@
 		\item Распишем более подробно преобразование функции $\phi(\lambda)$:
 		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
 		\item Распишем более подробно преобразование функции $\psi(\lambda)$:
-		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{\lambda}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
+		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
 	\end{enumerate}
 \end{proof}
 
@@ -1371,7 +1371,7 @@
 	\[p_\alpha(f) = \sum_{m = 1}^\infty \sup_{x \in [-m,\,m]\setminus[-m + 1,\, m - 1],\, k =\overline{0,\, N_m}} |f^{(k)}(x)|\]
 \end{note}
 
-Это было длял \textbf{общего развития}, главное знать, что $D$ -- топологическое пространство, причём сходимость в нём даётся определением:
+Это было для \textbf{общего развития}, главное знать, что $D$ -- топологическое пространство, причём сходимость в нём даётся определением:
 \begin{definition}
 	Последовательность $\{\phi_n\}_{n = 1}^\infty \subset D$ сходится к $\phi_0 \in D$, если:
 	\begin{enumerate}
