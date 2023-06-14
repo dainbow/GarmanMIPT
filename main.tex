@@ -314,7 +314,7 @@
 		\item Интеграл по $[-\pi,\,\pi]$ от ядра Дирихле равен $\pi$
 		\item Если заменить в представлении частичной суммы $t$ на $-t$, то ничего не изменится
 	\end{itemize}
-	Продолжим цепочку преобразований, раскрыв $\sin((n + \frac{1}{2})t) = \sin(nt)\cos(\frac{t}{2}) + \cos(nt)\sin(\frac{t}{2})$ в формуле ядра Дирихле:
+	Продолжим цепочку преобразований, раскрыв $\sin((n + \frac{1}{2})t) = \sin(nt)\cos(\frac{t}{2}) + \cos(nt)\sin(\frac{t}{2})$ в формуле ядра Дирихле, а также добавим и вычтем интеграл $\frac{1}{\pi} \int_0^\delta \frac{f(x + t) + f(x - t) - 2S(x_0)}{t} \sin(nt)d\mu(t)$:
 	\begin{align*}
 		S_n(f,\,x_0) - S(x_0) =                                                                                                   \\
 		\frac{1}{\pi} \int_0^\delta \frac{f(x + t) + f(x - t) - 2S(x_0)}{t} \sin(nt)d\mu(t) +                                     \\
@@ -329,7 +329,7 @@
 	В третьем слагаемом $(f(x + t) + f(x - t) - 2S(x_0))\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} \in L_1[\delta,\,\pi]$ и по той же причине стремится к нулю.
 
 	Для четвёртого слагаемого рассмотрим разность:
-	\[\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t} = \frac{1 - \frac{t^2}{8} + o(t^3)}{2\left(\frac{t}{2} - \frac{t^3}{48} + o(t^4)\right)} - \frac{1}{t} = \frac{t - \frac{t^3}{8} - t + \frac{t^3}{24} + o(t^4)}{t^2 + o(t^3)} \stackrel{t \to \infty}{\to} 0\]
+	\[\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t} = \frac{1 - \frac{t^2}{8} + o(t^3)}{2\left(\frac{t}{2} - \frac{t^3}{48} + o(t^4)\right)} - \frac{1}{t} = \frac{t - \frac{t^3}{8} - t + \frac{t^3}{24} + o(t^4)}{t^2 + o(t^3)} \stackrel{t \to 0}{\to} 0\]
 	Значит этот множитель имеет устранимый разрыв в нуле, а значит
 	\[(f(x + t) + f(x - t) - 2S(x_0))\left(\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t}\right) \in L_1[0,\,\delta]\]
 	и опять работает теорема об осцилляции.
