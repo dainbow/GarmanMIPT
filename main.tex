@@ -1206,8 +1206,8 @@
 \begin{proof} \label{DINI_FURRY}
 	Давайте распишем разность
 	\begin{align*}
-		I_f(x_0) - S(x_0) = \frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(t)\cos(\lambda (x_0 - t))d\mu(t)\right]d\lambda - S(x_0) \stackrel{u := x_0 - t}{=}              \\
-		\frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(x_0 - u)\cos(\lambda u)d\mu(u)\right]d\lambda - S(x_0) =                                                             \\
+		I_f(x_0) - S(x_0) = \frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(t)\cos(\lambda (x_0 - t))d\mu(t)\right]d\lambda - S(x_0) \stackrel{u := t - x_0}{=}              \\
+		\frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(x_0 + u)\cos(\lambda u)d\mu(u)\right]d\lambda - S(x_0) =                                                             \\
 		\frac{1}{\pi}\int_0^{+\infty}\left[\int_{[0,\,+\infty)}f(x_0 + u)\cos(\lambda u)d\mu(u) + \int_{[0,\,+\infty)}f(x_0 - u)\cos(\lambda u)d\mu(u)\right]d\lambda - S(x_0) = \\
 		\frac{1}{\pi}\lim_{\Lambda \to +\infty}\int_0^\Lambda\int_{[0,\,+\infty)}(f(x_0 + u) + f(x_0 - u))\cos(\lambda u)d\mu(u)d\lambda - S(x_0)
 	\end{align*}
