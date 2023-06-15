@@ -1293,7 +1293,15 @@
 \end{lemma}
 
 \begin{proof}
-	Заметим, что $\tilde{\hat{f}}$ -- это интеграл Фурье, тогда утверждение становится очевидным, благодаря одному из следствий признака Дини (\ref{DINI_FURRY}).
+	Заметим, что 
+	\[\tilde{\hat{f}}(u) = \frac{1}{2\pi}\int_\mathbb{R}\int_\mathbb{R}f(t)e^{-i\lambda t}d\mu(t)e^{iu\lambda}d\mu(\lambda) = \frac{1}{2\pi}\int_\mathbb{R}\int_\mathbb{R} f(t)e^{-i\lambda(u - t)}d\mu(t)d\mu(\lambda)\]
+	Далее, из суммируемости $f$ следует, что интеграл
+	\[\int_\mathbb{R}f(t)\sin(\lambda(t - u))d\mu(t)\]
+	существует и является нечётной функцией относительно $\lambda$. Поэтому
+	\[\frac{1}{2\pi}\int_\mathbb{R}\int_\mathbb{R} f(t) \sin(\lambda(t - u))d\mu(t) d\mu(\lambda) = 0\]
+	Вычтем из первой формуле доказательства этот двойной интеграл, умноженный на $-i$, ничего не изменится, так как он равен $0$, но в итоге получим, что
+	\[\tilde{\hat{f}}(u) = \frac{1}{2\pi} \int_\mathbb{R}\int_\mathbb{R} f(t) \cos(\lambda(t - u))d\mu(t)d\mu(\lambda)\]
+	а это интеграл Фурье, тогда утверждение становится очевидным, благодаря одному из следствий признака Дини (\ref{DINI_FURRY}).
 \end{proof}
 
 \section{Преобразование Фурье производной и производная преобразования Фурье. Свёртка и её преобразование Фурье.}
