@@ -607,8 +607,7 @@
 \epigraph{Избегание столкновения с большими силами свидетельствует не о трусости, а о мудрости, ибо принесение себя в жертву никогда и нигде не является преимуществом.}{Лукашов А.Л.}
 
 \begin{definition}
-	Коэффициентами Фурье функции $f$ в произвольном\newline
-	евклидовом (гильбертовом) пространстве называются скаляры вида
+	Коэффициентами Фурье функции $f$ в произвольном евклидовом пространстве называются скаляры вида
 	\[f_k = \frac{\langle f,\,e_k\rangle}{\|e_k\|^2}\]
 	где $\{e_k\}$ -- ортогональная система ненулевых элементов.
 \end{definition}
@@ -630,7 +629,7 @@
 \begin{theorem}
 	Минимальное свойство сумм Фурье.
 
-	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то
+	Если $\{e_k\}$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то
 	\[\forall f \in E \: \forall c_1,\,\cdots,\,c_N \in \mathbb{R}:\: \|f - \sum_{k = 1}^N c_ke_k\| \geq \|f - \sum_{k = 1}^N f_ke_k\|\], где $\{f_k\}$ -- коэффициенты Фурье для $f$.
 
 	Причём равенство достигается $\Leftrightarrow$ $\forall k = \overline{1,\,N}:\: c_k = f_k$.
@@ -646,7 +645,7 @@
 \begin{corollary}
 	Тождество Бесселя.
 
-	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то $\forall f \in E$:
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$:
 	\[\|f - \sum_{k = 1}^N f_ke_k\|^2 = \|f\|^2 - \sum_{k = 1}^Nf_k^2\|e_k\|^2\]
 \end{corollary}
 \begin{proof}
@@ -656,7 +655,7 @@
 \begin{corollary}
 	Неравенство Бесселя.
 
-	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то $\forall f \in E$:
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$:
 	\[\sum_{k = 1}^\infty f_k^2 \|e_k\|^2 \leq \|f\|^2\]
 \end{corollary}
 \begin{proof}
@@ -669,7 +668,7 @@
 \begin{theorem}
 	\label{THREE_EQUIV}
 
-	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то $\forall f \in E$ следующие утверждения эквивалентны:
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то $\forall f \in E$ следующие утверждения эквивалентны:
 	\begin{enumerate}
 		\item $\forall \varepsilon > 0 \: \exists T = \sum_{k = 1}^N c_ke_k :\: \|f - T\| < \varepsilon$
 		\item $f = \sum_{k = 1}^\infty f_ke_k$
@@ -685,7 +684,7 @@
 \end{proof}
 
 \begin{corollary}
-	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то следующие утверждения эквивалентны:
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов евклидова пространства $E$, то следующие утверждения эквивалентны:
 	\begin{enumerate}
 		\item $\{e_k\}_{k = 1}^\infty$ -- полная система в $E$.
 		\item $\forall f \in E:\: f = \sum_{k = 1}^\infty f_ke_k$
@@ -927,7 +926,7 @@
 	Рассмотрим $\forall \{\alpha_n\}_{n = 1}^\infty \subset \dot{U}(\alpha_0),\, \lim\limits_{n \to +\infty}\alpha_n = \alpha_0$.
 
 	Тогда частная производная в точке $\alpha_0$ -- это
-	\[\left|\frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| = \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
+	\[\left|\frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| \stackrel{\text{т. Лагранжа о среднем}}{=} \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
 	Теперь, используя теорему Лебега, получим равенство пределов интегралов:
 	\[\lim_{n \to +\infty}\int_E \frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}d\mu(x) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial	\alpha}d\mu(x)\]
 \end{proof}
@@ -1160,7 +1159,7 @@
 	Значит
 	\[\cos\alpha x = \frac{\sin\alpha\pi}{\alpha\pi} + \frac{2\alpha\sin\alpha\pi}{\pi}\sum_{n = 1}^\infty \frac{(-1)^n}{\alpha^2 - n^2}\cos nx,\, \alpha x \in [-\pi,\,\pi]\]
 	Возьмём $x := \pi$, тогда
-	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\frac{\alpha}{\pi}\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
+	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\alpha^2\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	В итоге получим, что
 	\[\ctg\alpha\pi  - \frac{1}{\alpha\pi} = 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	Где слева -- устранимая точка разрыва, а справа ряд равномерно сходится при $\alpha \leq \alpha_0 < 1$ (Можем оценить $\left|\frac{\alpha}{\alpha^2 - n^2}\right|\leq \frac{1}{n^2 - \alpha_0^2}$). Значит мы можем проинтегрировать обе части по $\alpha$:
@@ -1206,8 +1205,8 @@
 \begin{proof} \label{DINI_FURRY}
 	Давайте распишем разность
 	\begin{align*}
-		I_f(x_0) - S(x_0) = \frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(t)\cos(\lambda (x_0 - t))d\mu(t)\right]d\lambda - S(x_0) \stackrel{u := x_0 - t}{=}              \\
-		\frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(x_0 - u)\cos(\lambda u)d\mu(u)\right]d\lambda - S(x_0) =                                                             \\
+		I_f(x_0) - S(x_0) = \frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(t)\cos(\lambda (x_0 - t))d\mu(t)\right]d\lambda - S(x_0) \stackrel{u := t - x_0}{=}              \\
+		\frac{1}{\pi}\int_0^{+\infty}\left[\int_\mathbb{R}f(x_0 + u)\cos(\lambda u)d\mu(u)\right]d\lambda - S(x_0) =                                                             \\
 		\frac{1}{\pi}\int_0^{+\infty}\left[\int_{[0,\,+\infty)}f(x_0 + u)\cos(\lambda u)d\mu(u) + \int_{[0,\,+\infty)}f(x_0 - u)\cos(\lambda u)d\mu(u)\right]d\lambda - S(x_0) = \\
 		\frac{1}{\pi}\lim_{\Lambda \to +\infty}\int_0^\Lambda\int_{[0,\,+\infty)}(f(x_0 + u) + f(x_0 - u))\cos(\lambda u)d\mu(u)d\lambda - S(x_0)
 	\end{align*}
