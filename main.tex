@@ -98,12 +98,12 @@
 	Заменим $\mathbb{R}$ на $[a,\,b]$. То есть докажем, что множество непрерывных на $[a,\,b]$ функций всюду плотно в $L_1[a,\,b]$.
 
 	\begin{itemize}
-		\item Любая суммируемая функция представима в виде разности двух неотрицательных суммируемых функций, поэтому достатончо доказать утверждение для
+		\item Любая суммируемая функция представима в виде разности двух неотрицательных суммируемых функций, поэтому достаточно доказать утверждение для
 		      неотрицательных суммируемых функций.
 		\item Так как интеграл неотрицательной суммируемой функции слабо отличается от интеграла её срезки $f_{[N]}(x)$ при достаточно больших $N$, то
-		      достаточно доказать утверждение для ограниченных неотрицательных суммиремых функций.
+		      достаточно доказать утверждение для ограниченных неотрицательных суммируемых функций.
 		\item Докажем для ограниченных неотрицательных. По теореме о представлении ограниченной измеримой функции пределом последовательности ступенчатых
-		      \[\exists \{h_n\}:\: h_n \uparrow f\]
+		      \[\exists \{h_n\}_{n = 1}^\infty:\: h_n \uparrow f\]
 		      Теорема Леви гарантирует, что
 		      \[\int_a^b h_n(x)d\mu(x) \to \int_a^b f(x)d\mu(x)\]
 		      Значит
@@ -116,12 +116,12 @@
 		      \[\forall \varepsilon > 0:\: \exists \text{элементарное } M_\varepsilon:\: \mu(E_k \triangle M_\varepsilon) < \varepsilon \]
 		      Значит
 		      \[\int_a^b |\mathbb{I}_{E_k}(x) - \mathbb{I}_{M_\varepsilon}(x)|d\mu(x) = \int_a^b \mathbb{I}_{E \triangle M_\varepsilon}(x)d\mu(x) = \mu(E \triangle M_\varepsilon) < \varepsilon\]
-		      Нам осталось научиться приблизить индикатор интервала непрерывными функциями (так как элементарное множество представимо объединением интервалов), а это сделать очень просто, используя непрерывную функцию $\phi(x)$, которая выглядит вот так:
+		      Нам осталось научиться приближать индикатор интервала непрерывными функциями (так как элементарное множество представимо объединением интервалов), а это сделать очень просто, используя непрерывную функцию $\phi(x)$, которая выглядит вот так:
 		      \begin{figure}[h]
 			      \includegraphics[scale=0.5]{img/phi_graph.png}
 			      \caption{Один из способов ввода функции $\phi$}
 		      \end{figure}
-					
+
 		      Тогда
 		      \[\int_a^b |\mathbb{I}_{(c,\,d)}(x) - \phi(x)|d\mu(x) = \frac{2}{m} < \varepsilon\]
 	\end{itemize}
@@ -149,7 +149,7 @@
 	\[\lim_{\delta \to +0} \sup_{0 \leq h \leq \delta} \int_a^{b - h} |f(x + h) - f(x)|d\mu(x) = 0\]
 	По предыдущей лемме:
 	\[\forall \varepsilon > 0 \: \exists g \in C[a,\,b]:\: \int_a^b |f(x) - g(x)|d\mu(x) < \frac{\varepsilon}{3}\]
-	$g$ -- непрерывная на $[a,\,b] \Rightarrow$ по теореме Кантора:
+	$g$ -- непрерывная на $[a,\,b] \Rightarrow$ по теореме Кантора она равномерно непрерывная на $[a,\,b]$:
 	\[\forall \varepsilon > 0 \: \exists \delta > 0 \: \forall x,\,y \in [a,\,b],\, |x - y| < \delta :\: |g(x) - g(y)| < \frac{\varepsilon}{3(b - a)}\]
 	Тогда $\forall h \: 0 \leq h \leq \delta$:
 	\begin{align*}
@@ -181,7 +181,7 @@
 	Заметим, что
 	\begin{align*}
 		\left|\int_{(I - \frac{\pi}{\lambda}) \setminus I} f\left(t + \frac{\pi}{\lambda}\right) \cos(\lambda t) d \mu(t)\right| \leq \int_{(I - \frac{\pi}{\lambda}) \triangle I} \left|f\left(t + \frac{\pi}{\lambda}\right)\right| d\mu(t) = \\
-		= \int_{I \triangle (I + \frac{\pi}{\lambda})} |f(x)|d\mu(t) \stackrel{\lambda \to \infty}{\to} 0
+		= \int_{I \triangle (I + \frac{\pi}{\lambda})} |f(x)|d\mu(x) \stackrel{\lambda \to \infty}{\to} 0
 	\end{align*}
 	Последнее заключение следует из того, что $\mu\left(I \triangle (I + \frac{\pi}{\lambda})\right) \stackrel{\lambda \to \infty}{\to} 0$
 
@@ -215,7 +215,7 @@
 	О представлении частичной суммы.
 
 	Если $f \in L_{2\pi}$, то $n$-я частичная сумма тригонометрического ряда Фурье
-	\[S_n(f,\,x) = \frac{a_0}{2} + \sum_{k = 1}^n a_k \cos(kx) + b_k\sin(kx)\]
+	\[S_n(f,\,x) = \frac{a_0}{2} + \sum_{k = 1}^n (a_k \cos(kx) + b_k\sin(kx))\]
 	может быть представлена следующим образом:
 	\[S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(t)D_n(x - t)d\mu(t) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + u)D_n(u)d\mu(u)\]
 \end{lemma}
@@ -246,12 +246,12 @@
 	Рассмотрим $a_n$ для функции $\chi$:
 	\begin{align*}
 		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
-		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                    \\
+		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                  \\
 		|a_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\, \chi\right)
 	\end{align*}
 	Аналогично получим неравенство для $b_n(\chi)$:
 	\[|b_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\,\chi\right)\]
-	То есть мы свели доказательство к доказательству факта, что $\lim_{n \to +\infty}\omega_1(\frac{\pi}{n},\,\chi) = 0$ равномерно по $x$:
+	То есть мы свели доказательство к доказательству факта, что $\lim\limits_{n \to +\infty}\omega_1(\frac{\pi}{n},\,\chi) = 0$ равномерно по $x$:
 	\begin{align*}
 		\int_{-\pi}^\pi |\chi(t + h) - \chi(t)|d\mu(t) = \int_{-\pi}^\pi |f(x + t + h)g(t + h) - f(x + t)g(t)|d\mu(t) \leq                        \\
 		\leq \int_{-\pi}^\pi |f(x + t + h) - f(x + t)|\cdot |g (t + h)|d\mu(t) + \int_{-\pi}^\pi |f(x + t)|\cdot |g(t + h) - g(t)|d\mu(t) \leq    \\
@@ -287,7 +287,7 @@
 
 	Продолжим раскрытия данной формулы, используя тригонометрические соотношения для ядра Дирихле:
 	\begin{align*}
-		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)\lambda(t)\ctg(\frac{t}{2})\sin(nt)d\mu(t) + \frac{1}{2\pi}\int_{-\pi}^\pi f(x+t)\lambda(t)\cos(nt)d\mu(t)
+		S_n(f,\,x) = \frac{1}{\pi}\int_{-\pi}^\pi f(x + t)\lambda(t)\ctg\left(\frac{t}{2}\right)\sin(nt)d\mu(t) + \frac{1}{2\pi}\int_{-\pi}^\pi f(x+t)\lambda(t)\cos(nt)d\mu(t)
 	\end{align*}
 	Взяв в качестве $g$ из предыдущей леммы для первого слагаемого $\lambda(t)\ctg(\frac{t}{2})$ и $\lambda(t)$ для второго, то получим требуемое по этой же лемме.
 
@@ -314,7 +314,7 @@
 		\item Интеграл по $[-\pi,\,\pi]$ от ядра Дирихле равен $\pi$
 		\item Если заменить в представлении частичной суммы $t$ на $-t$, то ничего не изменится
 	\end{itemize}
-	Продолжим цепочку преобразований, раскрыв $\sin((n + \frac{1}{2})t) = \sin(nt)\cos(\frac{t}{2}) + \cos(nt)\sin(\frac{t}{2})$ в формуле ядра Дирихле:
+	Продолжим цепочку преобразований, раскрыв $\sin((n + \frac{1}{2})t) = \sin(nt)\cos(\frac{t}{2}) + \cos(nt)\sin(\frac{t}{2})$ в формуле ядра Дирихле, а также добавим и вычтем интеграл $\frac{1}{\pi} \int_0^\delta \frac{f(x + t) + f(x - t) - 2S(x_0)}{t} \sin(nt)d\mu(t)$:
 	\begin{align*}
 		S_n(f,\,x_0) - S(x_0) =                                                                                                   \\
 		\frac{1}{\pi} \int_0^\delta \frac{f(x + t) + f(x - t) - 2S(x_0)}{t} \sin(nt)d\mu(t) +                                     \\
@@ -329,7 +329,7 @@
 	В третьем слагаемом $(f(x + t) + f(x - t) - 2S(x_0))\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} \in L_1[\delta,\,\pi]$ и по той же причине стремится к нулю.
 
 	Для четвёртого слагаемого рассмотрим разность:
-	\[\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t} = \frac{1 - \frac{t^2}{8} + o(t^3)}{2\left(\frac{t}{2} - \frac{t^3}{48} + o(t^4)\right)} - \frac{1}{t} = \frac{t - \frac{t^3}{8} - t + \frac{t^3}{24} + o(t^4)}{t^2 + o(t^3)} \stackrel{t \to \infty}{\to} 0\]
+	\[\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t} = \frac{1 - \frac{t^2}{8} + o(t^3)}{2\left(\frac{t}{2} - \frac{t^3}{48} + o(t^4)\right)} - \frac{1}{t} = \frac{t - \frac{t^3}{8} - t + \frac{t^3}{24} + o(t^4)}{t^2 + o(t^3)} \stackrel{t \to 0}{\to} 0\]
 	Значит этот множитель имеет устранимый разрыв в нуле, а значит
 	\[(f(x + t) + f(x - t) - 2S(x_0))\left(\frac{\cos(\frac{t}{2})}{2\sin(\frac{t}{2})} - \frac{1}{t}\right) \in L_1[0,\,\delta]\]
 	и опять работает теорема об осцилляции.
@@ -350,7 +350,7 @@
 
 \begin{definition}
 	Обобщённой односторонней производной функции $f$ в точке $x_0$ называется
-	\[f'_+(x_0) = \lim_{t \to +0} \frac{f(x_0 + t) - f(x_0 + 0)}{t},\;\;\; f'_-(x_0) = \lim_{t \ to +0} \frac{f(x_0 - t) - f(x_0 - 0)}{-t}\]
+	\[f'_+(x_0) = \lim_{t \to +0} \frac{f(x_0 + t) - f(x_0 + 0)}{t},\;\;\; f'_-(x_0) = \lim_{t \to +0} \frac{f(x_0 - t) - f(x_0 - 0)}{-t}\]
 \end{definition}
 
 \begin{theorem}
@@ -400,7 +400,7 @@
 \end{corollary}
 
 \begin{proof}
-	Пусть $k = 1$: $f$ -- абсолютно непрерывная, значит $a_n(f) = -\frac{b_n(f')}{n},\, b_n(f) = \frac{a_n(f')}{n}$. По теореме об осцилляции: $a_n(f'),\, b_n(f') = o(1) \Rightarrow a_n(f),\,b_n(f) = o\left(\frac{1}{n}\right)$.
+	Пусть $k = 1$: $f$ -- абсолютно непрерывная, значит $a_n(f) = -\frac{b_n(f')}{n},\, b_n(f) = \frac{a_n(f')}{n}$. По теореме об осцилляции: $a_n(f'),\, b_n(f') = o(1) \Rightarrow a_n(f),\,b_n(f) = o\left(\frac{1}{n}\right),\, n \to +\infty$.
 
 	Далее применяем по индукции много-много раз. Мы имеем право так делать, потому что если производная абсолютно непрерывная, то она ограничена. А из ограниченной производной следует абсолютная непрерывность самой функции.
 \end{proof}
@@ -408,7 +408,7 @@
 \begin{theorem}
 	Оценки коэффициентов Фурье функции ограниченной вариации.
 
-	Если $f$ -- функция ограниченной вариации на периоде $2\pi$, то её коэффициенты Фурье удовлетворяют:
+	Если $f$ -- $2\pi$-периодическая функция ограниченной вариации на периоде $2\pi$, то её коэффициенты Фурье удовлетворяют:
 	\[a_n = O\left(\frac{1}{n}\right)\;\;\;\;\; b_n = O\left(\frac{1}{n}\right);\; n \to +\infty\]
 \end{theorem}
 
@@ -418,7 +418,7 @@
 		a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)dx = \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f(x + \frac{\pi}{n}) - f(x)\right]\cos(nx)dx = \cdots = \\
 		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f\left(x + \frac{k\pi}{n}\right) - f\left(x + \frac{(k - 1)\pi}{n}\right)\right]\cos(nx)dx,\;\;\; \forall k = \overline{1,\,n}
 	\end{align*}
-	Сложив все эти $n$ равенств, получим:
+	Сложив все эти $n$ равенств и оценив косинус сверху единицей, получим:
 	\[
 		|na_n| \leq \frac{1}{2\pi} \int_{-\pi}^\pi \sum_{k = 1}^n \left|f\left(x + \frac{k\pi}{n}\right) - f\left(x + \frac{(k - 1)\pi}{n}\right)\right|dx \leq V(f)
 	\]
@@ -457,7 +457,7 @@
 	\[\lim_{n \to +\infty} \int_0^\delta \phi_{x_0}(t)\sin(nt)d\mu(t) = 0\]
 	Будем доказывать
 	\[\lim_{n \to +\infty} \int_0^\delta\frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)d\mu(t) = 0\]
-	а для $-t$ аналогично.
+	а для $-t$ аналогично. По определению правостороннего предела:
 	\[\forall \varepsilon > 0 \: \exists \delta_1,\, 0 < \delta_1 < \delta :\: 0 \leq f(x_0 + \delta_1) - f(x_0 + 0) < \varepsilon\]
 	Перейдём к интегралу Римана, так как $f$ монотонная и используем теорему о среднем для него:
 	\[\exists \delta_2,\, 0<\delta_2<\delta_1 \int_0^{\delta_1} \frac{f(x_0 + t) - f(x_0 + 0)}{t}\sin(nt)dt = (f(x_0 + \delta_1) - f(x_0 + 0))\int_{\delta_2}^{\delta_1}\frac{\sin(nt)}{t}dt\]
@@ -502,18 +502,18 @@
 	\[-\varepsilon L_n(e_0,\, x) - \frac{2M}{\delta^2}L_n(\psi_x(t),\,x) < L_n(f,\,x) - f(x)L_n(e_0,\,x) < \varepsilon L_n(e_0,\, x) + \frac{2M}{\delta^2}L_n(\psi_x(t),\,x)\]
 	Заметим, что
 	\begin{align*}
-		L_n(\psi_x,\,x) = L_n((t - x)^2,\,x) = L_n(t^2 - 2tx + x^2,\,x) = L_n(e_2,\,x) - 2xL_n(e_1,\,x) + x^2L_n(e_0,\,x) \rightrightarrows \\
+		L_n(\psi_x,\,x) = L_n((t - x)^2,\,x) = L_n(t^2 - 2tx + x^2,\,x) = L_n(e_2,\,x) - 2xL_n(e_1,\,x) + x^2L_n(e_0,\,x) \stackrel{n \to +\infty}{\rightrightarrows} \\
 		e_2(x) - 2xe_1(x) + x^2e_0(x) = x^2 - 2x\cdot x + x^2\cdot 1 = 0
 	\end{align*}
 	Значит
-	\[\exists N_1 \: \forall n > N \: \forall x \in [a,\,b]:\: |L_n(\psi_x,\,x)| \leq \frac{\varepsilon\delta^2}{4M}\]
+	\[\exists N_1 \: \forall n > N_1 \: \forall x \in [a,\,b]:\: |L_n(\psi_x,\,x)| \leq \frac{\varepsilon\delta^2}{4M}\]
 	А из того, что $L_n(e_0) \rightrightarrows e_0$:
 	\[\exists N_2 \: \forall n > N_2 \: \forall x \in [a,\,b] :\: |L_n(e_0,\,x)| < \frac{3}{2}\]
 	Также не забываем, что:
 	\[|L_n(f,\,x) - f(x)L_n(e_0,\,x)| \leq \varepsilon L_n(e_0,\,x) + \frac{2M}{\delta^2}L_n(\psi_x,\,x)\]
 	Объединяя эти три условия, получим, что
 	\[\forall n > \max(N_1,\,N_2):\: |L_n(f,\,x) - f(x)L_n(e_0,\,x)| \leq 2\varepsilon\]
-	Снова используем тот факт, что $L_n(e_0) \rightrightarrows e_0$:
+	Снова используем тот факт, что $L_n(e_0) \stackrel{n \to +\infty}{\rightrightarrows} e_0$:
 	\[\exists N_3 \: \forall n > N_3 \: \forall x \in [a,\,b]:\: |L_n(e_0,\,x) - 1| < \frac{\varepsilon}{M}\]
 	Значит
 	\[|f(x)L_n(e_0,\,x) - f(x)| \leq |f(x)|\cdot|L_n(e_0,\,x) - 1| \leq \varepsilon\]
@@ -532,12 +532,12 @@
 \begin{proof}
 	Аналогично немодифицированной теореме, только вместо функции $\psi_x$ введём
 	\begin{align*}
-		\phi_x(t) = \sin^2(\frac{t - x}{2}) = \frac{1 - \cos(t - x)}{2} = \frac{1}{2} - \frac{1}{2}\cos(t)\cos(x) - \frac{1}{2}\sin(t)\sin(x) = \\
+		\phi_x(t) = \sin^2\left(\frac{t - x}{2}\right) = \frac{1 - \cos(t - x)}{2} = \frac{1}{2} - \frac{1}{2}\cos(t)\cos(x) - \frac{1}{2}\sin(t)\sin(x) = \\
 		\frac{1}{2}e_0(t) - \frac{1}{2}\cos(x)e_1(t) - \frac{1}{2}\sin(x)e_2(t)
 	\end{align*}
 	Тогда
 	\begin{align*}
-		L_n(\phi_x,\, x) = \frac{1}{2}L_n(e_0,\,x) - \frac{1}{2}\cos(x)L_n(e_1,\,x) - \frac{1}{2}\sin(x)L_n(e_2,\,x) \rightrightarrows \\
+		L_n(\phi_x,\, x) = \frac{1}{2}L_n(e_0,\,x) - \frac{1}{2}\cos(x)L_n(e_1,\,x) - \frac{1}{2}\sin(x)L_n(e_2,\,x) \stackrel{n \to +\infty}{\rightrightarrows} \\
 		\frac{1}{2} - \frac{1}{2}\cos^2(x) - \frac{1}{2}\sin^2(x) = 0
 	\end{align*}
 \end{proof}
@@ -594,12 +594,12 @@
 	для $f \in C[a,\,b]$ введём $F(x) = f(x(b - a) + a) \in C[0,\,1]$. Тогда
 	\[\forall \varepsilon > 0 \: \exists N \: \forall n > N \: \forall x \in [0,\,1]:\: |B_n(F,\,x) - F(x)| < \varepsilon\]
 	Осталось заметить, что если в многочлен Бернштейна подставить какую-то линейную функцию, то получится какой-то многочлен:
-	\[\Rightarrow |B(F,\, \frac{t - a}{b - a}) - f(t)| < \varepsilon\]
+	\[\Rightarrow |B\left(F,\, \frac{t - a}{b - a}\right) - f(t)| < \varepsilon\]
 \end{proof}
 
 \begin{corollary}
-	Из данной теоремы и теормы Коровкина' следует теорема Вейшерштрасса о приближении непрерывной $2\pi$-периодической функции тригонометрическими многочленами:
-	\[\forall f \in C_{2\pi} \: \forall \varepsilon > 0 \: \exists T_n := \frac{a_0}{2} + \sum_{k = 1}^n \alpha_k\cos(kx) + \beta_k\sin(kx) :\: |f(x) - T_n(x)| < \varepsilon,\, \forall x \in \mathbb{R}\]
+	Из данной теоремы и теормы Коровкина' следует теорема Вейерштрасса о приближении непрерывной $2\pi$-периодической функции тригонометрическими многочленами:
+	\[\forall f \in C_{2\pi} \: \forall \varepsilon > 0 \: \exists T_n := \frac{a_0}{2} + \sum_{k = 1}^n (\alpha_k\cos(kx) + \beta_k\sin(kx)) :\: |f(x) - T_n(x)| < \varepsilon,\, \forall x \in \mathbb{R}\]
 \end{corollary}
 
 \section{Минимальное свойство коэффициентов Фурье по ортогональной системе. Неравенство Бесселя.}
@@ -614,7 +614,7 @@
 \end{definition}
 
 \begin{definition}
-	Система функций $\{\phi_n\}_{n = 1}^\infty$ называется \textbf{полной} в $L_p(E)$, если 
+	Система функций $\{\phi_n\}_{n = 1}^\infty$ называется \textbf{полной} в $L_p(E)$, если
 	\[\forall \varepsilon > 0 \: \forall f \in L_p(E) \: \exists \{c_1,\,\cdots,\,c_n\} \subset \mathbb{R}:\: \|f - \sum_{k = 1}^n c_k\phi_k\|_p < \varepsilon\]
 \end{definition}
 
@@ -630,7 +630,7 @@
 \begin{theorem}
 	Минимальное свойство сумм Фурье.
 
-	Если $\{e_k\}$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то
+	Если $\{e_k\}_{k = 1}^\infty$ -- ортогональная система ненулевых элементов гильбертова пространства $E$, то
 	\[\forall f \in E \: \forall c_1,\,\cdots,\,c_N \in \mathbb{R}:\: \|f - \sum_{k = 1}^N c_ke_k\| \geq \|f - \sum_{k = 1}^N f_ke_k\|\], где $\{f_k\}$ -- коэффициенты Фурье для $f$.
 
 	Причём равенство достигается $\Leftrightarrow$ $\forall k = \overline{1,\,N}:\: c_k = f_k$.
@@ -744,7 +744,7 @@
 
 \begin{proof}
 	$\sum_{k = 1}^\infty \alpha_k^2\|e_k\|^2$ сходится $\stackrel{\text{к. Коши}}{\Rightarrow}$
-	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall n > \mathbb{N},\, \forall p \in \mathbb{N}:\: \sum_{k = n + 1}^{n + p} \alpha_k^2\|e_k\|^2 < \varepsilon\]
+	\[\forall \varepsilon > 0 \: \exists N \in \mathbb{N} \: \forall n > N,\, \forall p \in \mathbb{N}:\: \sum_{k = n + 1}^{n + p} \alpha_k^2\|e_k\|^2 < \varepsilon\]
 	Тогда оценим норму некого элемента из $H$:
 	\[\|\sum_{k = n + 1}^{n + p}\alpha_ke_k\|^2 = \langle\sum_{k = n + 1}^{n + p}\alpha_ke_k,\, \sum_{k = n + 1}^{n + p}\alpha_ke_k\rangle = \sum_{k = n + 1}^{n + p}\alpha_k^2\|e_k\|^2 < \varepsilon\]
 	Это означает, что последовательность частичных сумм нашего ряда является фундаментальной, а значит благодаря гильбертовости пространства $H$ мы можем сказать, что ряд сходится.
@@ -769,7 +769,8 @@
 \end{definition}
 
 \begin{definition}
-	Система $\{e_k\}_{k = 1}^\infty$ называется замкнутой в евклидовом пространстве $E$ (по Банаху, в баноховом пространстве тотальной, в $C$ и $L_p$ -- полной), если $\forall k \in \mathbb{N}:\: \langle f,\, e_k\rangle = 0 \Rightarrow f = 0$.
+	Система $\{e_k\}_{k = 1}^\infty$ называется замкнутой в евклидовом пространстве $E$ (по Банаху, в банаховом пространстве тотальной, в $C$ и $L_p$ -- полной), если 
+	\[\forall k \in \mathbb{N}:\: \langle f,\, e_k\rangle = 0 \Rightarrow f = 0\]
 \end{definition}
 
 \begin{theorem}
@@ -780,7 +781,7 @@
 
 \begin{proof}
 	$\Rightarrow \{e_k\}_{k = 1}^\infty$ -- замкнутая $\stackrel{\text{сл-е т.Р-Ф}}{\Rightarrow} \forall f \in H:\: f = \sum_{k = 1}^\infty f_ke_k$
-	Тогда, применяя следствие теоремы (\ref{THREE_EQUIV}) получим полноты системы.
+	Тогда, применяя следствие теоремы (\ref{THREE_EQUIV}) получим полноту системы.
 
 	$\Leftarrow \{e_k\}_{k = 1}^\infty$ -- полная система, $\forall k \in \mathbb{N} \: \forall f \in H:\: \langle f,\,e_k\rangle = 0 \Rightarrow f_k = 0$. Теперь снова применим следствие теоремы (\ref{THREE_EQUIV}) и свойства полноты системы, получим, что $f = \sum 0e_k = 0$.
 \end{proof}
@@ -796,7 +797,7 @@
 \begin{proof}
 	Геометрическое:
 
-	\begin{figure}[h]
+	\begin{figure}[h] \caption{Геометрическое доказательство Л13.1}
 		\includegraphics[scale=0.5]{img/yung.png}
 	\end{figure}
 
@@ -823,6 +824,32 @@
 	Теперь проинтегрируем обе части по $x$ и получим требуемое:
 	\[\frac{\int_X |f(x)||g(x)|d\mu(x)}{AB} \leq \frac{1}{p} + \frac{1}{q} = 1\]
 \end{proof}
+
+\begin{theorem}
+	Неравенство Минковского.
+
+	Если $f,\, g \in L_p(E)$, то
+	\[\left(\int_E |f(x) + g(x)|^p d\mu(x)\right)^{\frac{1}{p}} \leq \left(\int_E |f(x)|^p d\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^p d\mu(x)\right)^{\frac{1}{p}}\]
+\end{theorem}
+
+\begin{proof}
+	Очевидно, что $|f(x) + g(x)|^p \leq 2^p \max(|f(x)|^p,\, |g(x)|^p)$, поэтому $|f(x) + g(x)|^p$ будет суммируемая.
+
+	Если $p = 1$, то всё очевидно -- неравенство треугольника, поэтому будем доказывать лишь для $1 < p < +\infty$.
+
+	Распишем $|f(x) + g(x)|^p = |f(x) + g(x)|^{p - 1}|f(x) + g(x)|$. Теперь дважды применим неравенство Гёльдера, в первый раз $F(x) = f(x),\, G(x) = |f(x) + g(x)|^{p - 1}$. Во второй же -- $F(x) = g(x),\, G(x) = |f(x) + g(x)|^{p - 1}$. Получим, что:
+	\begin{align*}
+		\int_E |f(x) + g(x)|^p d\mu(x) \leq \\
+		\left(\left(\int_E |f(x)|^pd\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}\right) \cdot \left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}
+	\end{align*}
+	Давайте более подробно распишем $(p - 1)q = (p - 1)\cdot\frac{1}{1 - \frac{1}{p}} = 0$, то есть второй множитель правой части неравенства под степенью имеет то же самое, что и левая часть, значит поделим обе части на неотрицательный $\left(\int_E |f(x) + g(x)|^{(p - 1)q}d\mu(x)\right)^{\frac{1}{q}}$ и получим:
+	\[\left(\int_E |f(x) + g(x)|^p d\mu(x)\right)^{1 - \frac{1}{q} = \frac{1}{p}} \leq \left(\int_E |f(x)|^pd\mu(x)\right)^{\frac{1}{p}} + \left(\int_E |g(x)|^pd\mu(x)\right)^{\frac{1}{p}}\]
+\end{proof}
+
+\begin{corollary}
+	Только теперь мы можем говорить, что $L_p(E)$ -- ЛНП с корректно определённой нормой (заметим, что неравенство Минковского -- это неравенство треугольника для этой нормы, остальные свойства очевидно следуют из свойств интеграла Лебега):
+	\[\|f\|_p = \left(\int_E |f(x)|^p d\mu(x)\right)^{\frac{1}{p}}\]
+\end{corollary}
 
 \begin{theorem}
 	Для $p \in [1,\,+\infty) \: L_p([a,\,b])$ -- банахово пространство.
@@ -860,10 +887,10 @@
 \begin{proof}
 	Рассмотрим для определённости $\rho(f,\,g) = \sup_{x \in [a,\,b]}|f(x) - g(x)|$.
 
-	Пусть последовательность $\{f_n(x)\}_{n = 1}^\infty$ -- фундаментальна. Зафиксируем $x_0 \in [a,\,b]$. 
-	
+	Пусть последовательность $\{f_n(x)\}_{n = 1}^\infty$ -- фундаментальна. Зафиксируем $x_0 \in [a,\,b]$.
+
 	Тогда $\{f_n(x_0)\}_{n = 1}^\infty$ фундаментальная числовая последовательность $\Rightarrow$ она сходится. Обозначим этот предел как $f(x_0)$.
-	
+
 	Очевидно, $f_n(x) \stackrel{n \to +\infty}{\to} f(x)$ по введённой метрике, так как:
 	\[\forall \varepsilon > 0 \: \exists N_\varepsilon \: \forall n,\,m \geq N_\varepsilon \: \forall x \in [a,\,b] :\: |f_n(x) - f_m(x)| < \varepsilon\]
 	Зафиксируем $x$ и перейдём к пределу при $m \to +\infty \Rightarrow$ при всех тех же кванторах выполняется неравенство $|f_n(x) - f(x)| \leq \varepsilon$. Значит $f_n(x) \rightrightarrows f(x)$, тогда по теореме о равномерном пределе непрерывных функций $f(x) \in C[a,\,b]$. Что и требовалось доказать.
@@ -960,6 +987,7 @@
 	Тогда $\int_a^b f(x,\,y)g(x,\,y)dx$ равномерно сходится на $A$.
 \end{theorem}
 \begin{proof}
+	По формуле Бонне:
 	\[\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx = g(B',\,y)\int_{B'}^{\xi(y)}f(x,\,y)dx + g(B'',\,y)\int_{\xi(y)}^{B''}f(x,\,y)dx\]
 	$g \rightrightarrows 0$, значит
 	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall x \in (B,\,b) \: \forall y \in A :\: |g(x,\,y)| < \frac{\varepsilon}{4C}\]
@@ -1132,7 +1160,7 @@
 	Значит
 	\[\cos\alpha x = \frac{\sin\alpha\pi}{\alpha\pi} + \frac{2\alpha\sin\alpha\pi}{\pi}\sum_{n = 1}^\infty \frac{(-1)^n}{\alpha^2 - n^2}\cos nx,\, \alpha x \in [-\pi,\,\pi]\]
 	Возьмём $x := \pi$, тогда
-	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\alpha^2\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
+	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\frac{\alpha}{\pi}\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	В итоге получим, что
 	\[\ctg\alpha\pi  - \frac{1}{\alpha\pi} = 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	Где слева -- устранимая точка разрыва, а справа ряд равномерно сходится при $\alpha \leq \alpha_0 < 1$ (Можем оценить $\left|\frac{\alpha}{\alpha^2 - n^2}\right|\leq \frac{1}{n^2 - \alpha_0^2}$). Значит мы можем проинтегрировать обе части по $\alpha$:
@@ -1196,7 +1224,7 @@
 	Продолжим расписывать\dots
 	\begin{align*}
 		I_f(x_0) - S(x_0) =                                                                                             \\
-		\frac{1}{\pi}\lim_{\Lambda \to +\infty}\Big[\frac{f(x_0 + u) + f(x_0 - u) - 2S(x_0)}{u}\sin(\Lambda u)d\mu(u) + \\
+		\frac{1}{\pi}\lim_{\Lambda \to +\infty}\Big[\int_0^\delta\frac{f(x_0 + u) + f(x_0 - u) - 2S(x_0)}{u}\sin(\Lambda u)d\mu(u) + \\
 			\int_{\delta}^{+\infty} \frac{f(x_0 + u) + f(x_0 - u)}{u}\sin(\Lambda u)d\mu(u) - 2S(x_0)\int_\delta^{+\infty}\frac{\sin(\Lambda u)}{u}du\Big]
 	\end{align*}
 	Рассмотрим каждое из этих слагаемых поотдельности:
@@ -1205,7 +1233,7 @@
 		      \[\int_{[0,\,\delta]}\phi_{x_0}(u)\sin(\Lambda u)d\mu(u) \stackrel{\Lambda \to +\infty}{\to} 0\]
 		\item На $[\delta,\, +\infty)$ мы можем использовать следующую оценку:
 		      \[\left|\frac{f(x_0 + u)}{u}\right| \leq \frac{1}{\delta}|f(x_0 + u)|\]
-		      Значит по теореме Римана об осцилляции (предыдущим неравенством мы доказали, что $\frac{f(x_0 + u)}{u}sin(\Lambda u)$ суммируемая, аналогично для второго подслагаемого):
+		      Значит по теореме Римана об осцилляции (предыдущим неравенством мы доказали, что $\frac{f(x_0 + u)}{u}$ суммируемая, аналогично для второго подслагаемого):
 		      \[\int_{[\delta,\, +\infty)} \frac{f(x_0 + u)}{u}sin(\Lambda u) d\mu(u) \stackrel{\Lambda \to +\infty}{\to} 0\]
 		\item Совершим замену и получим хвост сходящегося интеграла Римана (интеграла Дирихле):
 		      \[\int_\delta^{+\infty}\frac{\sin(\Lambda u)}{u}du = \int_{\Lambda\delta}^{+\infty}\frac{\sin t}{t}dt \stackrel{\Lambda \to +\infty}{\to} 0\]
@@ -1250,9 +1278,9 @@
 		      \[\hat{f}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t)e^{-i\lambda t}d\mu(t)\]
 		      Справедливо неравенство:
 		      \[|f(t)e^{-i\lambda t}| \leq |f(t)| \in L_1(\mathbb{R})\]
-		      После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему мы имеем право так делать? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
+		      После этого распишем комплексную экспоненту в сумму тригонометрических функций и сведём к теореме об осцилляции ($\lambda \to \infty$). Почему преобразование Фурье непрерывно? Работает теорема о непрерывности несобственного интеграла Лебега, зависящего от параметра.
 		\item Распишем более подробно преобразование функции $\phi(\lambda)$:
-		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}(\frac{\lambda}{\alpha})\]
+		      \[\hat{\phi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(\alpha t)e^{-i\lambda t}d\mu(t) \stackrel{x := t\alpha}{=} \frac{1}{\alpha\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\frac{\lambda}{\alpha}x}d\mu(x) = \frac{1}{\alpha}\hat{f}\left(\frac{\lambda}{\alpha}\right)\]
 		\item Распишем более подробно преобразование функции $\psi(\lambda)$:
 		      \[\hat{\psi}(\lambda) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R} f(t + a)e^{-i\lambda t}d\mu(t) \stackrel{x := t + a}{=} \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f(x)e^{-i\lambda x + i\lambda a}d\mu(x) = e^{i\lambda a}\hat{f}(\lambda)\]
 	\end{enumerate}
@@ -1456,7 +1484,7 @@
 \end{theorem}
 
 \begin{proof}
-	Все свойства доказываются очевидно расписыванием действия рассматриваемых функционалов на произвольную функцию $\phi$.
+	Все свойства доказываются очевидно расписыванием действия рассматриваемых функционалов на произвольную функцию $\phi \in D$.
 \end{proof}
 
 \begin{definition}
@@ -1504,18 +1532,18 @@
 			      \int_\mathbb{R}\hat{f_1}(x)f_2(x)dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f_2(x)\int_\mathbb{R}f_1(t)e^{-itx}dtdx
 		      \]
 		      Оценим подыинтегральную функцию:
-		      \[|f_1(t)f_2(x)e^{-itx}| \leq |f_1(t)|\cdot|f_2(x)| \in L_1(\mathbb{R^2})\]
+		      \[|f_1(t)f_2(x)e^{-itx}| \leq |f_1(t)|\cdot|f_2(x)| \in L_1(\mathbb{R}^2)\]
 		      Значит мы можем применить теорему Фубини:
 		      \[= \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}f_1(t)\int_\mathbb{R}f_2(x)e^{-itx}dxdt = \int_\mathbb{R}f_1(t)\hat{f_2}(t)dt\]
 		\item Введём $h(x) := \overline{\hat{f_2}}(x)$. Распишем интеграл произведения:
-					\[
-						\int_\mathbb{R}\hat{f_1}(x)h(x)dx = \int_\mathbb{R}f_1(t)\hat{h}(t)dt
-					\]
-					Тогда
-					\[
-						\hat{h}(t) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}h(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\overline{\hat{f_2}}(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\overline{\int_\mathbb{R}\hat{f_2}(x)e^{itx}dx} = \overline{\tilde{\hat{f_2}}}(t) = \overline{f_2}(t)
-					\]
-					Заметим, что мы доказали второй пункт.
+		      \[
+			      \int_\mathbb{R}\hat{f_1}(x)h(x)dx = \int_\mathbb{R}f_1(t)\hat{h}(t)dt
+		      \]
+		      Тогда
+		      \[
+			      \hat{h}(t) = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}h(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\int_\mathbb{R}\overline{\hat{f_2}}(x)e^{-itx}dx = \frac{1}{\sqrt{2\pi}}\overline{\int_\mathbb{R}\hat{f_2}(x)e^{itx}dx} = \overline{\tilde{\hat{f_2}}}(t) = \overline{f_2}(t)
+		      \]
+		      Заметим, что мы доказали второй пункт.
 	\end{enumerate}
 \end{proof}
 
