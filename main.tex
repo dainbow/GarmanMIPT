@@ -1160,7 +1160,7 @@
 	Значит
 	\[\cos\alpha x = \frac{\sin\alpha\pi}{\alpha\pi} + \frac{2\alpha\sin\alpha\pi}{\pi}\sum_{n = 1}^\infty \frac{(-1)^n}{\alpha^2 - n^2}\cos nx,\, \alpha x \in [-\pi,\,\pi]\]
 	Возьмём $x := \pi$, тогда
-	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\frac{\alpha}{\pi}\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
+	\[\cos\alpha\pi = \frac{\sin\alpha\pi}{\alpha\pi}\left(1 + 2\alpha^2\sum_{n = 1}^\infty \frac{1}{\alpha^2 - n^2}\right) \Rightarrow \ctg\alpha\pi = \frac{1}{\alpha\pi} + 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	В итоге получим, что
 	\[\ctg\alpha\pi  - \frac{1}{\alpha\pi} = 2\frac{\alpha}{\pi}\sum_{n=1}^\infty\frac{1}{\alpha^2 - n^2},\, |\alpha| < 1,\, \alpha \neq 0\]
 	Где слева -- устранимая точка разрыва, а справа ряд равномерно сходится при $\alpha \leq \alpha_0 < 1$ (Можем оценить $\left|\frac{\alpha}{\alpha^2 - n^2}\right|\leq \frac{1}{n^2 - \alpha_0^2}$). Значит мы можем проинтегрировать обе части по $\alpha$:
