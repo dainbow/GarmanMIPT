@@ -960,7 +960,7 @@
 	Тогда $\int_a^b f(x,\,y)g(x,\,y)dx$ равномерно сходится на $A$.
 \end{theorem}
 \begin{proof}
-	\[\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx = g(B',\,y)\int_{B'}^{\xi(y)}f(x,\,y)dx + g(B'',\,y)\int_{\xi(y)}^{B''}f(x,\,y)dx\]
+	\[\int_{B'}^{B''}f(x,\,y)g(x,\,y)dx \stackrel{\text{формула Боне}}{=} g(B',\,y)\int_{B'}^{\xi(y)}f(x,\,y)dx + g(B'',\,y)\int_{\xi(y)}^{B''}f(x,\,y)dx\]
 	$g \rightrightarrows 0$, значит
 	\[\forall \varepsilon > 0 \: \exists B \in (a,\,b) \: \forall x \in (B,\,b) \: \forall y \in A :\: |g(x,\,y)| < \frac{\varepsilon}{4C}\]
 	А все интегралы в полученной формуле можно оценить сверху, как $2C$, поэтому получим, что
