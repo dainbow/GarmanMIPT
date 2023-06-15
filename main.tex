@@ -62,6 +62,12 @@
 \tableofcontents
 \newpage
 
+\begin{note}
+	\textbf{ЗАМЕЧАНИЕ!!!}
+
+	В доказательствах некоторых теорем этого конспекта используется интересный трюк: если у нас есть цепочка равенств $a = b$, то мы с лёгкостью сможем продолжить её, написав $a = b = \frac{a + b}{2}$. Если вы понимаете, что в доказательстве теоремы с интегралами происходит какая-то дичь, то вспоминайте этот трюк! 
+\end{note}
+
 \section{Теорема Римана об осцилляции}
 
 \epigraph{Порядок и беспорядок – это число; храбрость и трусость – это мощь; сила и слабость – это форма.}{Лукашов А.Л.}
@@ -175,7 +181,7 @@
 
 \begin{proof}
 	\begin{align*}
-		\int_I f(x) \cos(\lambda x) d\mu(x) \stackrel{x = t + \frac{\pi}{\lambda}}{=} - \int_{I - \frac{\pi}{\lambda}} f\left( t + \frac{\pi}{\lambda} \right) \cos(\lambda t) d \mu(t) = \\
+		\int_I f(x) \cos(\lambda x) d\mu(x) \stackrel{x = t + \frac{\pi}{\lambda}}{=} - \int_{I - \frac{\pi}{\lambda}} f\left( t + \frac{\pi}{\lambda} \right) \cos(\lambda t) d \mu(t) \stackrel{\text{Трюк}}{=} \\
 		-\frac{1}{2} \int_I \left(f\left(t + \frac{\pi}{\lambda}\right) - f(t) \right)\cos(\lambda t) d\mu(t) - \frac{1}{2} \int_{(I - \frac{\pi}{\lambda}) \triangle I} f\left(t + \frac{\pi}{\lambda}\right) \cos(\lambda t) d \mu(t)
 	\end{align*}
 	Заметим, что
@@ -245,7 +251,7 @@
 	\[\omega_1(\delta,\,F) := \sup_{0 \leq h \leq \delta} \int_{-\pi}^\pi |F(t + h) - F(t)|d\mu(t)\]
 	Рассмотрим $a_n$ для функции $\chi$:
 	\begin{align*}
-		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) = \\
+		a_n(\chi) = \frac{1}{\pi} \int_{-\pi}^\pi \chi(t)\cos(nt)d\mu(t) \stackrel{t = u + \frac{\pi}{n}}{=} \frac{-1}{\pi}\int_{-\pi}^\pi \chi\left(u + \frac{\pi}{n}\right)\cos(nu)d\mu(u) \stackrel{\text{Трюк}}{=} \\
 		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[\chi\left(t + \frac{\pi}{n}\right) - \chi(t)\right]\cos(nt)d\mu(t) \Rightarrow                                                                  \\
 		|a_n(\chi)| \leq \frac{1}{2\pi}\omega_1\left(\frac{\pi}{n},\, \chi\right)
 	\end{align*}
@@ -415,7 +421,7 @@
 \begin{proof}
 	Рассмотрим $a_n$:
 	\begin{align*}
-		a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)dx = \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f(x + \frac{\pi}{n}) - f(x)\right]\cos(nx)dx = \cdots = \\
+		a_n = \frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos(nx)dx \stackrel{\text{Трюк}}{=} \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f(x + \frac{\pi}{n}) - f(x)\right]\cos(nx)dx = \cdots = \\
 		= \frac{-1}{2\pi}\int_{-\pi}^\pi \left[f\left(x + \frac{k\pi}{n}\right) - f\left(x + \frac{(k - 1)\pi}{n}\right)\right]\cos(nx)dx,\;\;\; \forall k = \overline{1,\,n}
 	\end{align*}
 	Сложив все эти $n$ равенств и оценив косинус сверху единицей, получим:
