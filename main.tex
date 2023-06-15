@@ -900,7 +900,7 @@
 	Рассмотрим $\forall \{\alpha_n\}_{n = 1}^\infty \subset \dot{U}(\alpha_0),\, \lim\limits_{n \to +\infty}\alpha_n = \alpha_0$.
 
 	Тогда частная производная в точке $\alpha_0$ -- это
-	\[\left|\frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| = \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
+	\[\left|\frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}\right| \stackrel{\text{т. Лагранжа о среднем}}{=} \left|\frac{\partial f(x,\,\xi_n(x))}{\partial \alpha}\right| \leq \phi(x)\]
 	Теперь, используя теорему Лебега, получим равенство пределов интегралов:
 	\[\lim_{n \to +\infty}\int_E \frac{f(x,\,\alpha_n) - f(x,\,\alpha_0)}{\alpha_n - \alpha_0}d\mu(x) = \int_E \frac{\partial f(x,\,\alpha_0)}{\partial	\alpha}d\mu(x)\]
 \end{proof}
